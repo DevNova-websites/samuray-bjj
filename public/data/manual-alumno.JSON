@@ -1,0 +1,178 @@
+{
+  "academy": {
+    "name": "J.L.SAMURAY BJJ ACADEMY",
+    "director": {
+      "name": "Jorge Omar Ledesma",
+      "rank": "Faixa Preta 4º Grado",
+      "master": "Frederico Peixoto Sukata"
+    },
+    "team": "Sukata Internacional"
+  },
+  "sections": [
+    {
+      "id": 1,
+      "title": "Introducción y Filosofía",
+      "content": {
+        "welcome": "Bienvenido al tatami de J.L.Samuray BJJ Academy.",
+        "values": [
+          "disciplina",
+          "respeto",
+          "honor",
+          "humildad",
+          "lealtad",
+          "hermandad"
+        ],
+        "history": {
+          "bjj_origin": "Origen japonés y adaptación brasileña por la familia Gracie.",
+          "academy_history": "Fundada para formar atletas fuertes técnica y moralmente."
+        },
+        "meaning_oss": {
+          "definition": "Expresión de respeto, perseverancia y determinación.",
+          "uses": [
+            "saludo",
+            "confirmación",
+            "motivación",
+            "despedida"
+          ]
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "Uniforme y Presentación",
+      "content": {
+        "allowed_kimono_colors": [
+          "blanco",
+          "negro"
+        ],
+        "schedule_colors": {
+          "lunes": "blanco",
+          "miercoles": "negro",
+          "viernes": "blanco"
+        },
+        "patches": [
+          {
+            "location": "chaqueta frente",
+            "position": "lado izquierdo pecho"
+          },
+          {
+            "location": "chaqueta espalda",
+            "position": "centro debajo del cuello"
+          },
+          {
+            "location": "pantalón",
+            "position": "pierna derecha sobre rodilla"
+          }
+        ],
+        "hygiene_rules": [
+          "lavar kimono después de cada entrenamiento",
+          "uñas cortas",
+          "uso de sandalias fuera del tatami",
+          "higiene corporal obligatoria"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "title": "Conducta, Disciplina y Reglas",
+      "content": {
+        "tatami_rules": [
+          "saludar al entrar y salir",
+          "no usar calzado",
+          "no celulares",
+          "puntualidad",
+          "obedecer al profesor"
+        ],
+        "behavior": [
+          "humildad en victoria y derrota",
+          "compañerismo",
+          "control emocional",
+          "aplicar sumisiones con control"
+        ],
+        "sanctions": [
+          "advertencia verbal",
+          "expulsión de entrenamiento",
+          "suspensión temporal",
+          "expulsión definitiva"
+        ],
+        "zero_tolerance": [
+          "acoso",
+          "bullying",
+          "agresión intencional",
+          "uso de drogas o alcohol"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "title": "Evolución Marcial y Competición",
+      "content": {
+        "graduation_requirements": [
+          "asistencia",
+          "tiempo mínimo",
+          "evolución técnica",
+          "comportamiento ejemplar"
+        ],
+        "belts": [
+          {
+            "name": "Azul",
+            "minimum_time": "1.5 años"
+          },
+          {
+            "name": "Roxa",
+            "minimum_time": "2 años"
+          },
+          {
+            "name": "Marrón",
+            "minimum_time": "2 años"
+          },
+          {
+            "name": "Preta",
+            "minimum_time": "2 años"
+          }
+        ],
+        "competition_rules": {
+          "organization": "IBJJF",
+          "rules_url": "https://ibjjf.com/rules/"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "title": "Administración",
+      "content": {
+        "class_schedule": [
+          {
+            "day": "lunes",
+            "time": "20:00-21:15",
+            "category": "adultos"
+          },
+          {
+            "day": "miercoles",
+            "time": "20:00-21:15",
+            "category": "adultos"
+          },
+          {
+            "day": "viernes",
+            "time": "20:00-21:15",
+            "category": "adultos"
+          }
+        ],
+        "payments": {
+          "due_day": 10,
+          "methods": [
+            "presencial",
+            "transferencia bancaria"
+          ]
+        }
+      }
+    },
+    {
+      "id": 6,
+      "title": "Mensaje Final",
+      "content": {
+        "message": "Sé fuerte. Sé parte. Sigue el código. OSS."
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\User\\\\Desktop\\\\samuray-bjj\\\\src\\\\components\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\User\\\\Desktop\\\\samuray-bjj\\\\public\\\\images\")"
+    ]
+  }
+}
