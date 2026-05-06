@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --navy: #1B2D4F;
-  --navy-light: #2A4070;
-  --gold: #C8A850;
-  --gold-dark: #A8882A;
-  --crimson: #B91C1C;
+  --blue: #1B4A8C;
+  --blue-light: #2A5FA8;
+  --purple: #5E3090;
+  --purple-light: #7040A8;
+  --brown: #7A4028;
+  --brown-light: #9A5030;
   --bg: #FFFFFF;
   --surface: #F5F3EF;
   --surface2: #EEECEA;
@@ -36,45 +37,17 @@ body {
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #F5F3EF; }
-::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
 
-::selection { background: rgba(27,45,79,0.15); color: var(--navy); }
-
-.text-navy-gradient {
-  background: linear-gradient(135deg, #1B2D4F 0%, #2A4070 50%, #1B2D4F 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gold-gradient {
-  background: linear-gradient(135deg, #C8A850 0%, #E0C070 50%, #C8A850 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* kept for backward compat */
-.text-teal-gradient {
-  background: linear-gradient(135deg, #C8A850 0%, #E0C070 50%, #C8A850 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.teal-divider {
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #1B2D4F, transparent);
-  border: none;
-}
+::selection { background: rgba(27,74,140,0.15); color: var(--blue); }
 
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(27,45,79,0.1);
-  border-color: rgba(27,45,79,0.2);
+  box-shadow: 0 20px 60px rgba(27,74,140,0.1);
+  border-color: rgba(27,74,140,0.2);
 }
 
 .form-input {
@@ -90,8 +63,8 @@ body {
 }
 .form-input::placeholder { color: #9C9890; }
 .form-input:focus {
-  border-color: #1B2D4F;
-  box-shadow: 0 0 0 3px rgba(27,45,79,0.1);
+  border-color: #1B4A8C;
+  box-shadow: 0 0 0 3px rgba(27,74,140,0.1);
 }
 
 .animated-underline {
@@ -104,7 +77,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--navy);
+  background: var(--blue);
   transition: width 0.3s ease;
 }
 .animated-underline:hover::after {

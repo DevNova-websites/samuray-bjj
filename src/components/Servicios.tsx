@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Users, User, Trophy, Target, Zap, Heart } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -17,56 +17,64 @@ function useInView(threshold = 0.1) {
   return { ref, visible };
 }
 
-const CLASES = [
+const SCHEDULE = [
   {
-    icon: User,
-    tag: "Fundamentos",
-    title: "Principiantes",
-    desc: "El punto de partida ideal. Aprendé la base del Jiu-Jitsu desde cero: posiciones, caídas, escapes y los primeros movimientos en el piso. Sin experiencia previa requerida. Kimono blanco los lunes y viernes.",
-    features: ["Técnicas básicas de guardia", "Barridos y escapes", "Terminaciones fundamentales", "Seguridad en el tatami"],
-    accent: "#1B2D4F",
+    key: "lunes",
+    label: "Lunes",
+    abrev: "LUN",
+    clases: [
+      { tipo: "open-mat", hora: "19:00", fin: "20:00" },
+      { tipo: "adultos",  hora: "20:00", fin: "21:15" },
+    ],
   },
   {
-    icon: Zap,
-    tag: "Desarrollo",
-    title: "Intermedios",
-    desc: "Para los que ya conocen los fundamentos. Profundizamos técnicas, encadenamos movimientos y comenzamos a desarrollar un juego propio. Kimono negro los miércoles.",
-    features: ["Combinaciones avanzadas", "Juego de guardia activo", "Pasadas de guardia", "Estrategia situacional"],
-    accent: "#1B2D4F",
+    key: "martes",
+    label: "Martes",
+    abrev: "MAR",
+    clases: [],
   },
   {
-    icon: Trophy,
-    tag: "Alto Rendimiento",
-    title: "Avanzados",
-    desc: "Clases de élite para cintas intermedias y avanzadas. Entrenamiento orientado a la competencia bajo reglamento IBJJF, análisis táctico y refinamiento técnico.",
-    features: ["Preparación para torneos", "Reglamento IBJJF", "Drilling intensivo", "Sparring competitivo"],
-    accent: "#B91C1C",
+    key: "miercoles",
+    label: "Miércoles",
+    abrev: "MIÉ",
+    clases: [
+      { tipo: "open-mat", hora: "19:00", fin: "20:00" },
+      { tipo: "adultos",  hora: "20:00", fin: "21:15" },
+    ],
   },
   {
-    icon: Heart,
-    tag: "Familia",
-    title: "Niños y Jóvenes",
-    desc: "Programa especial para los más pequeños. El Jiu-Jitsu como herramienta de desarrollo personal: disciplina, respeto, confianza y los valores que el código de la academia nos enseña.",
-    features: ["Metodología lúdica", "Valores y disciplina", "Coordinación motriz", "Defensa personal básica"],
-    accent: "#1B2D4F",
+    key: "jueves",
+    label: "Jueves",
+    abrev: "JUE",
+    clases: [],
   },
   {
-    icon: Target,
-    tag: "Especialización",
-    title: "Defensa Personal",
-    desc: "Técnicas aplicadas al mundo real. Aprendé a manejar situaciones de riesgo con calma y efectividad usando principios del Jiu-Jitsu. Control sin violencia.",
-    features: ["Situaciones reales", "Control sin violencia", "Conciencia situacional", "Para toda la familia"],
-    accent: "#1B2D4F",
-  },
-  {
-    icon: Users,
-    tag: "Comunidad",
-    title: "Open Mat",
-    desc: "Sesiones libres de sparring para todos los niveles. Intercambiá técnicas, probá nuevos movimientos y conectá con la hermandad del tatami. OSS.",
-    features: ["Sparring libre", "Todos los niveles", "Intercambio técnico", "Ambiente colaborativo"],
-    accent: "#1B2D4F",
+    key: "viernes",
+    label: "Viernes",
+    abrev: "VIE",
+    clases: [
+      { tipo: "open-mat", hora: "18:30", fin: "20:00" },
+      { tipo: "adultos",  hora: "20:00", fin: "21:15" },
+    ],
   },
 ];
+
+const CLASS_CONFIG = {
+  adultos: {
+    label: "Adultos",
+    color: "#1B4A8C",
+    bg: "rgba(27,74,140,0.07)",
+    border: "rgba(27,74,140,0.18)",
+    dot: "#1B4A8C",
+  },
+  "open-mat": {
+    label: "Open Mat",
+    color: "#5E3090",
+    bg: "rgba(94,48,144,0.07)",
+    border: "rgba(94,48,144,0.18)",
+    dot: "#5E3090",
+  },
+};
 
 export default function Servicios() {
   const { ref, visible } = useInView();
@@ -75,359 +83,172 @@ export default function Servicios() {
     <section
       id="servicios"
       ref={ref}
-      style={{
-        background: "#F5F3EF",
-        padding: "6rem 1.5rem",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      style={{ background: "#F5F3EF", padding: "6rem 1.5rem", position: "relative", overflow: "hidden" }}
     >
-      {/* Decorative borders */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "1px",
-          background: "linear-gradient(90deg, transparent, rgba(27,45,79,0.2), transparent)",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "1px",
-          background: "linear-gradient(90deg, transparent, rgba(27,45,79,0.2), transparent)",
-        }}
-      />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(27,74,140,0.2), transparent)" }} />
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(27,74,140,0.2), transparent)" }} />
 
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+
         {/* Header */}
-        <div
-          style={{
-            textAlign: "center",
-            marginBottom: "4rem",
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: "opacity 0.6s ease, transform 0.6s ease",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "0.6875rem",
-              fontWeight: 600,
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              color: "#1B2D4F",
-              display: "block",
-              marginBottom: "1rem",
-            }}
-          >
-            Lo que ofrecemos
+        <div style={{ textAlign: "center", marginBottom: "3rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(30px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
+          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "#1B4A8C", display: "block", marginBottom: "1rem" }}>
+            Calendario de Clases
           </span>
-          <h2
-            style={{
-              fontFamily: "var(--font-oswald), sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              textTransform: "uppercase",
-              color: "#1A1615",
-              lineHeight: 1.05,
-              marginBottom: "1rem",
-            }}
-          >
-            Clases para Todos los Niveles
+          <h2 style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 5vw, 3.5rem)", textTransform: "uppercase", color: "#1A1615", lineHeight: 1.05, marginBottom: "1rem" }}>
+            Horarios
           </h2>
-          <hr
-            style={{
-              height: "3px",
-              border: "none",
-              background: "linear-gradient(90deg, transparent, #1B2D4F, transparent)",
-              maxWidth: "180px",
-              margin: "0 auto 1.5rem",
-            }}
-          />
-          <p
-            style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "1rem",
-              color: "#6B6460",
-              maxWidth: "520px",
-              margin: "0 auto",
-              lineHeight: 1.65,
-            }}
-          >
-            Desde el primer día en el tatami hasta la competencia de alto nivel — tenemos el programa ideal para vos.
+          <hr style={{ height: "3px", border: "none", background: "linear-gradient(90deg, transparent, #1B4A8C, transparent)", maxWidth: "180px", margin: "0 auto 1.5rem" }} />
+          <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", color: "#6B6460", maxWidth: "460px", margin: "0 auto", lineHeight: 1.65 }}>
+            Clases regulares de adultos más Open Mat para sparring libre.
+            La primera clase de prueba es gratuita.
           </p>
         </div>
 
-        {/* Cards grid */}
+        {/* Legend */}
+        <div style={{ display: "flex", justifyContent: "center", gap: "1.75rem", marginBottom: "2.5rem", flexWrap: "wrap", opacity: visible ? 1 : 0, transition: "opacity 0.5s ease 0.15s" }}>
+          {(["adultos", "open-mat"] as const).map((key) => {
+            const cfg = CLASS_CONFIG[key];
+            return (
+              <div key={key} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <div style={{ width: "10px", height: "10px", borderRadius: "2px", background: cfg.color, flexShrink: 0 }} />
+                <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#6B6460" }}>{cfg.label}</span>
+              </div>
+            );
+          })}
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <div style={{ width: "10px", height: "10px", borderRadius: "2px", background: "#D4D0C8", flexShrink: 0 }} />
+            <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#9C9890" }}>Libre</span>
+          </div>
+        </div>
+
+        {/* Calendar grid */}
         <div
+          id="svc-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 340px), 1fr))",
-            gap: "1.5rem",
+            gridTemplateColumns: "repeat(5, 1fr)",
+            gap: "0.75rem",
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(24px)",
+            transition: "opacity 0.6s ease 0.25s, transform 0.6s ease 0.25s",
           }}
         >
-          {CLASES.map((clase, i) => {
-            const Icon = clase.icon;
+          {SCHEDULE.map((dia) => {
+            const isEmpty = dia.clases.length === 0;
             return (
               <div
-                key={clase.title}
-                className="card-hover"
+                key={dia.key}
                 style={{
-                  background: "#FFFFFF",
+                  background: isEmpty ? "rgba(212,208,200,0.3)" : "#FFFFFF",
                   border: "1px solid #D4D0C8",
                   borderRadius: "0.875rem",
-                  padding: "2rem",
+                  overflow: "hidden",
+                  opacity: isEmpty ? 0.5 : 1,
                   display: "flex",
                   flexDirection: "column",
-                  gap: "1rem",
-                  opacity: visible ? 1 : 0,
-                  transform: visible ? "translateY(0)" : "translateY(30px)",
-                  transition: `opacity 0.6s ease ${0.1 + i * 0.08}s, transform 0.6s ease ${0.1 + i * 0.08}s`,
-                  cursor: "default",
                 }}
               >
-                {/* Header */}
-                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
-                  <div
-                    style={{
-                      width: "52px",
-                      height: "52px",
-                      borderRadius: "0.625rem",
-                      background: clase.accent === "#B91C1C" ? "rgba(185,28,28,0.08)" : "rgba(27,45,79,0.07)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <Icon size={22} color={clase.accent} />
+                {/* Day header */}
+                <div style={{
+                  padding: "0.875rem 0.75rem 0.75rem",
+                  borderBottom: "1px solid #EEECEA",
+                  background: isEmpty ? "transparent" : "rgba(27,74,140,0.03)",
+                  textAlign: "center",
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.375rem", marginBottom: "0.125rem" }}>
+                    <Calendar size={11} color={isEmpty ? "#C4C0B8" : "#1B4A8C"} />
+                    <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1rem", textTransform: "uppercase", color: isEmpty ? "#B0ABA4" : "#1A1615", letterSpacing: "0.06em" }}>
+                      {dia.abrev}
+                    </span>
                   </div>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-inter), sans-serif",
-                      fontSize: "0.625rem",
-                      fontWeight: 600,
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
-                      color: clase.accent,
-                      background: clase.accent === "#B91C1C" ? "rgba(185,28,28,0.07)" : "rgba(27,45,79,0.07)",
-                      border: `1px solid ${clase.accent}33`,
-                      padding: "0.25rem 0.625rem",
-                      borderRadius: "999px",
-                    }}
-                  >
-                    {clase.tag}
+                  <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.5625rem", color: isEmpty ? "#C4C0B8" : "#9C9890", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                    {dia.label}
                   </span>
                 </div>
 
-                {/* Title */}
-                <h3
-                  style={{
-                    fontFamily: "var(--font-oswald), sans-serif",
-                    fontWeight: 700,
-                    fontSize: "1.375rem",
-                    textTransform: "uppercase",
-                    color: "#1A1615",
-                    lineHeight: 1.1,
-                  }}
-                >
-                  {clase.title}
-                </h3>
-
-                {/* Desc */}
-                <p
-                  style={{
-                    fontFamily: "var(--font-inter), sans-serif",
-                    fontSize: "0.9rem",
-                    lineHeight: 1.65,
-                    color: "#6B6460",
-                    flex: 1,
-                  }}
-                >
-                  {clase.desc}
-                </p>
-
-                {/* Features */}
-                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                  {clase.features.map((f) => (
-                    <li
-                      key={f}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.625rem",
-                        fontFamily: "var(--font-inter), sans-serif",
-                        fontSize: "0.8125rem",
-                        color: "#6B6460",
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: "5px",
-                          height: "5px",
-                          borderRadius: "50%",
-                          background: clase.accent,
-                          flexShrink: 0,
-                        }}
-                      />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Divider */}
-                <div
-                  style={{
-                    height: "1px",
-                    background: "linear-gradient(90deg, rgba(27,45,79,0.2), transparent)",
-                  }}
-                />
-
-                {/* CTA */}
-                <button
-                  onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })}
-                  style={{
-                    background: "none",
-                    border: "none",
-                    color: clase.accent,
-                    fontFamily: "var(--font-inter), sans-serif",
-                    fontSize: "0.8125rem",
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    padding: "0",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    letterSpacing: "0.04em",
-                    transition: "gap 0.2s",
-                  }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.gap = "0.875rem"; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.gap = "0.5rem"; }}
-                >
-                  Consultar clase
-                  <span>→</span>
-                </button>
+                {/* Class blocks */}
+                <div style={{ padding: "0.75rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
+                  {isEmpty ? (
+                    <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", minHeight: "80px" }}>
+                      <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.625rem", color: "#C4C0B8", letterSpacing: "0.1em", textTransform: "uppercase" }}>—</span>
+                    </div>
+                  ) : (
+                    dia.clases.map((clase) => {
+                      const cfg = CLASS_CONFIG[clase.tipo as keyof typeof CLASS_CONFIG];
+                      return (
+                        <div
+                          key={clase.tipo}
+                          style={{
+                            background: cfg.bg,
+                            border: `1px solid ${cfg.border}`,
+                            borderRadius: "0.5rem",
+                            padding: "0.625rem 0.75rem",
+                          }}
+                        >
+                          <span style={{
+                            fontFamily: "var(--font-inter), sans-serif",
+                            fontSize: "0.5rem",
+                            fontWeight: 700,
+                            letterSpacing: "0.12em",
+                            textTransform: "uppercase",
+                            color: cfg.color,
+                            display: "block",
+                            marginBottom: "0.25rem",
+                          }}>
+                            {cfg.label}
+                          </span>
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.3rem", marginBottom: "0.125rem" }}>
+                            <Clock size={10} color={cfg.color} style={{ flexShrink: 0 }} />
+                            <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "0.9375rem", color: "#1A1615", letterSpacing: "0.01em" }}>
+                              {clase.hora}
+                            </span>
+                          </div>
+                          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.625rem", color: "#6B6460", letterSpacing: "0.02em" }}>
+                            hasta {clase.fin} hs
+                          </span>
+                        </div>
+                      );
+                    })
+                  )}
+                </div>
               </div>
             );
           })}
         </div>
 
-        {/* Schedule */}
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: "3rem",
-            padding: "1.75rem 2rem",
-            border: "1px solid rgba(27,45,79,0.15)",
-            borderRadius: "0.75rem",
-            background: "rgba(27,45,79,0.03)",
-            opacity: visible ? 1 : 0,
-            transition: "opacity 0.6s ease 0.7s",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: "1.5rem",
-              marginBottom: "1.25rem",
-            }}
-          >
-            {[
-              { day: "Lunes", time: "20:00 – 21:15", gi: "Gi" },
-              { day: "Miércoles", time: "20:00 – 21:15", gi: "Gi" },
-              { day: "Viernes", time: "20:00 – 21:15", gi: "Gi" },
-            ].map((item) => (
-              <div
-                key={item.day}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "0.25rem",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "var(--font-oswald), sans-serif",
-                    fontWeight: 700,
-                    fontSize: "0.9375rem",
-                    textTransform: "uppercase",
-                    color: "#1A1615",
-                    letterSpacing: "0.06em",
-                  }}
-                >
-                  {item.day}
-                </span>
-                <span
-                  style={{
-                    fontFamily: "var(--font-inter), sans-serif",
-                    fontSize: "0.8125rem",
-                    color: "#1B2D4F",
-                  }}
-                >
-                  {item.time}
-                </span>
-                <span
-                  style={{
-                    fontFamily: "var(--font-inter), sans-serif",
-                    fontSize: "0.6875rem",
-                    color: "#9C9890",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {item.gi}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <div
-            style={{
-              height: "1px",
-              background: "linear-gradient(90deg, transparent, rgba(27,45,79,0.15), transparent)",
-              marginBottom: "1.25rem",
-            }}
-          />
-
-          <p
-            style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "0.9375rem",
-              color: "#6B6460",
-              lineHeight: 1.6,
-            }}
-          >
-            ¿No sabés qué clase es la ideal para vos?{" "}
+        {/* Bottom CTA */}
+        <div style={{
+          marginTop: "2.5rem",
+          textAlign: "center",
+          padding: "1.625rem 2rem",
+          border: "1px solid rgba(27,74,140,0.12)",
+          borderRadius: "0.75rem",
+          background: "rgba(27,74,140,0.025)",
+          opacity: visible ? 1 : 0,
+          transition: "opacity 0.6s ease 0.55s",
+        }}>
+          <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.9375rem", color: "#6B6460", lineHeight: 1.6 }}>
+            ¿Querés reservar tu lugar o tenés alguna consulta?{" "}
             <button
               onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })}
-              style={{
-                background: "none",
-                border: "none",
-                color: "#1B2D4F",
-                fontWeight: 600,
-                cursor: "pointer",
-                fontFamily: "inherit",
-                fontSize: "inherit",
-                textDecoration: "underline",
-                textUnderlineOffset: "3px",
-              }}
+              style={{ background: "none", border: "none", color: "#1B4A8C", fontWeight: 600, cursor: "pointer", fontFamily: "inherit", fontSize: "inherit", textDecoration: "underline", textUnderlineOffset: "3px" }}
             >
-              Contactanos y te asesoramos
+              Contactanos
             </button>
-            . La primera clase de prueba es gratuita.
+            {" "}— la primera clase es gratuita.
           </p>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 700px) {
+          #svc-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 400px) {
+          #svc-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   );
 }

@@ -68,7 +68,7 @@ export default function Footer() {
     <footer
       style={{
         background: "#1B2D4F",
-        borderTop: "1px solid rgba(200,168,80,0.2)",
+        borderTop: "1px solid rgba(110,179,247,0.2)",
         padding: "4rem 1.5rem 2rem",
         position: "relative",
       }}
@@ -82,7 +82,7 @@ export default function Footer() {
           transform: "translateX(-50%)",
           width: "120px",
           height: "2px",
-          background: "#C8A850",
+          background: "#6EB3F7",
         }}
       />
 
@@ -110,7 +110,7 @@ export default function Footer() {
                   height: "40px",
                   borderRadius: "50%",
                   objectFit: "cover",
-                  border: "1px solid rgba(200,168,80,0.4)",
+                  border: "1px solid rgba(110,179,247,0.4)",
                   flexShrink: 0,
                 }}
               />
@@ -121,7 +121,7 @@ export default function Footer() {
                     fontWeight: 700,
                     fontSize: "1.375rem",
                     letterSpacing: "0.06em",
-                    color: "#C8A850",
+                    color: "#6EB3F7",
                     lineHeight: 1.1,
                     display: "block",
                   }}
@@ -159,7 +159,7 @@ export default function Footer() {
                 fontWeight: 600,
                 fontSize: "0.8125rem",
                 letterSpacing: "0.14em",
-                color: "#C8A850",
+                color: "#6EB3F7",
                 textTransform: "uppercase",
                 marginBottom: "1.25rem",
               }}
@@ -189,9 +189,9 @@ export default function Footer() {
                     transition: "color 0.2s, border-color 0.2s, background 0.2s",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "#C8A850";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(200,168,80,0.4)";
-                    (e.currentTarget as HTMLElement).style.background = "rgba(200,168,80,0.1)";
+                    (e.currentTarget as HTMLElement).style.color = "#6EB3F7";
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(110,179,247,0.4)";
+                    (e.currentTarget as HTMLElement).style.background = "rgba(110,179,247,0.1)";
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLElement).style.color = "rgba(245,243,239,0.5)";
@@ -214,7 +214,7 @@ export default function Footer() {
                 fontSize: "0.75rem",
                 letterSpacing: "0.16em",
                 textTransform: "uppercase",
-                color: "#C8A850",
+                color: "#6EB3F7",
                 marginBottom: "1.25rem",
               }}
             >
@@ -254,7 +254,7 @@ export default function Footer() {
                 fontSize: "0.75rem",
                 letterSpacing: "0.16em",
                 textTransform: "uppercase",
-                color: "#C8A850",
+                color: "#6EB3F7",
                 marginBottom: "1.25rem",
               }}
             >
@@ -278,7 +278,7 @@ export default function Footer() {
                       width: "4px",
                       height: "4px",
                       borderRadius: "50%",
-                      background: "#C8A850",
+                      background: "#6EB3F7",
                       flexShrink: 0,
                     }}
                   />
@@ -297,7 +297,7 @@ export default function Footer() {
                 fontSize: "0.75rem",
                 letterSpacing: "0.16em",
                 textTransform: "uppercase",
-                color: "#C8A850",
+                color: "#6EB3F7",
                 marginBottom: "1.25rem",
               }}
             >
@@ -319,7 +319,7 @@ export default function Footer() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#F5F3EF"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(245,243,239,0.55)"; }}
               >
-                <Phone size={14} color="#C8A850" style={{ flexShrink: 0 }} />
+                <Phone size={14} color="#6EB3F7" style={{ flexShrink: 0 }} />
                 +54 11 6178-1198
               </a>
               <a
@@ -337,7 +337,7 @@ export default function Footer() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#F5F3EF"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(245,243,239,0.55)"; }}
               >
-                <Mail size={14} color="#C8A850" style={{ flexShrink: 0 }} />
+                <Mail size={14} color="#6EB3F7" style={{ flexShrink: 0 }} />
                 samurayledesma@gmail.com
               </a>
               <a
@@ -376,7 +376,7 @@ export default function Footer() {
         <div
           style={{
             height: "1px",
-            background: "linear-gradient(90deg, transparent, rgba(200,168,80,0.3), transparent)",
+            background: "linear-gradient(90deg, transparent, rgba(110,179,247,0.3), transparent)",
             marginBottom: "2rem",
           }}
         />
@@ -406,7 +406,7 @@ export default function Footer() {
               fontWeight: 600,
               fontSize: "0.75rem",
               letterSpacing: "0.16em",
-              color: "rgba(200,168,80,0.6)",
+              color: "rgba(110,179,247,0.6)",
               textTransform: "uppercase",
             }}
           >

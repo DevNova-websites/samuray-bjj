@@ -17,7 +17,7 @@ function BJJBeltMini({ degrees = 4 }: { degrees?: number }) {
         }}
       >
         <div style={{ width: "120px", background: "#1A1615" }} />
-        <div style={{ width: "24px", background: "#B91C1C" }} />
+        <div style={{ width: "24px", background: "#5E3090" }} />
         {Array.from({ length: degrees }).map((_, i) => (
           <div key={i} style={{ width: "6px", background: "white" }} />
         ))}
@@ -52,7 +52,7 @@ const CREDS = [
     number: "32285",
     label: "N° de Miembro",
     desc: "Miembro oficial del organismo rector del Jiu-Jitsu a nivel mundial.",
-    color: "#1B2D4F",
+    color: "#1B4A8C",
   },
   {
     icon: Award,
@@ -61,7 +61,7 @@ const CREDS = [
     number: "1080",
     label: "N° de Registro",
     desc: "Registrado en la confederación oficial del Jiu-Jitsu de Brasil.",
-    color: "#1B2D4F",
+    color: "#1B4A8C",
   },
   {
     icon: Medal,
@@ -70,7 +70,7 @@ const CREDS = [
     number: "10580",
     label: "N° de Academia",
     desc: "La JL Samuray BJJ Academy cuenta con afiliación oficial como academia IBJJF.",
-    color: "#B91C1C",
+    color: "#5E3090",
   },
   {
     icon: Globe,
@@ -79,7 +79,7 @@ const CREDS = [
     number: "Afiliada",
     label: "Federación",
     desc: "Parte de la red internacional Sukata, conectando academias de élite en todo el mundo.",
-    color: "#1B2D4F",
+    color: "#1B4A8C",
   },
   {
     icon: Star,
@@ -88,7 +88,7 @@ const CREDS = [
     number: "Afiliada",
     label: "Nacional",
     desc: "Afiliada a la Confederación Argentina de Jiu-Jitsu, participando del circuito nacional.",
-    color: "#1B2D4F",
+    color: "#1B4A8C",
   },
   {
     icon: CheckCircle,
@@ -97,7 +97,7 @@ const CREDS = [
     number: "Desde 1975",
     label: "Trayectoria",
     desc: "Más de cinco décadas de práctica y enseñanza en múltiples disciplinas marciales.",
-    color: "#1B2D4F",
+    color: "#1B4A8C",
   },
 ];
 
@@ -123,8 +123,8 @@ export default function Credenciales() {
       }}
     >
       {/* Top / bottom borders */}
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(27,45,79,0.2), transparent)" }} />
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(27,45,79,0.2), transparent)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(27,74,140,0.2), transparent)" }} />
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(27,74,140,0.2), transparent)" }} />
 
       {/* Background glow */}
       <div
@@ -136,7 +136,7 @@ export default function Credenciales() {
           width: "600px",
           height: "600px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(27,45,79,0.03) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(27,74,140,0.03) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -159,7 +159,7 @@ export default function Credenciales() {
               fontWeight: 600,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#1B2D4F",
+              color: "#1B4A8C",
               display: "block",
               marginBottom: "1rem",
             }}
@@ -207,20 +207,20 @@ export default function Credenciales() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
             gap: "1px",
-            background: "#2A4070",
+            background: "#2A5FA8",
             borderRadius: "0.75rem",
             overflow: "hidden",
             marginBottom: "3.5rem",
             opacity: visible ? 1 : 0,
             transition: "opacity 0.6s ease 0.2s",
-            boxShadow: "0 8px 32px rgba(27,45,79,0.2)",
+            boxShadow: "0 8px 32px rgba(27,74,140,0.2)",
           }}
         >
           {STATS.map((stat, i) => (
             <div
               key={stat.label}
               style={{
-                background: "#1B2D4F",
+                background: "#1B4A8C",
                 padding: "1.75rem 1.5rem",
                 textAlign: "center",
                 opacity: visible ? 1 : 0,
@@ -233,7 +233,7 @@ export default function Credenciales() {
                   fontFamily: "var(--font-oswald), sans-serif",
                   fontWeight: 700,
                   fontSize: "2.25rem",
-                  color: "#C8A850",
+                  color: "#FFFFFF",
                   lineHeight: 1,
                   marginBottom: "0.375rem",
                 }}
@@ -288,8 +288,8 @@ export default function Credenciales() {
                     width: "52px",
                     height: "52px",
                     borderRadius: "0.625rem",
-                    background: cred.color === "#B91C1C" ? "rgba(185,28,28,0.08)" : "rgba(27,45,79,0.07)",
-                    border: `1px solid ${cred.color === "#B91C1C" ? "rgba(185,28,28,0.2)" : "rgba(27,45,79,0.12)"}`,
+                    background: cred.color === "#5E3090" ? "rgba(94,48,144,0.08)" : "rgba(27,74,140,0.07)",
+                    border: `1px solid ${cred.color === "#5E3090" ? "rgba(94,48,144,0.2)" : "rgba(27,74,140,0.12)"}`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -320,7 +320,7 @@ export default function Credenciales() {
                         fontWeight: 700,
                         fontSize: "0.8125rem",
                         color: cred.color,
-                        background: cred.color === "#B91C1C" ? "rgba(185,28,28,0.08)" : "rgba(27,45,79,0.07)",
+                        background: cred.color === "#5E3090" ? "rgba(94,48,144,0.08)" : "rgba(27,74,140,0.07)",
                         border: `1px solid ${cred.color}33`,
                         padding: "0.125rem 0.5rem",
                         borderRadius: "0.25rem",
@@ -364,9 +364,9 @@ export default function Credenciales() {
           style={{
             marginTop: "3.5rem",
             padding: "2.5rem",
-            border: "1px solid rgba(27,45,79,0.2)",
+            border: "1px solid rgba(27,74,140,0.2)",
             borderRadius: "0.875rem",
-            background: "rgba(27,45,79,0.03)",
+            background: "rgba(27,74,140,0.03)",
             textAlign: "center",
             position: "relative",
             opacity: visible ? 1 : 0,
@@ -381,7 +381,7 @@ export default function Credenciales() {
               transform: "translateX(-50%)",
               width: "80px",
               height: "2px",
-              background: "#1B2D4F",
+              background: "#1B4A8C",
             }}
           />
           <blockquote
@@ -414,7 +414,7 @@ export default function Credenciales() {
             style={{
               fontFamily: "var(--font-inter), sans-serif",
               fontSize: "0.8125rem",
-              color: "#1B2D4F",
+              color: "#1B4A8C",
               fontStyle: "normal",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
