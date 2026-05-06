@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\User\\\\Desktop\\\\samuray-bjj\\\\src\\\\components\")",
-      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\User\\\\Desktop\\\\samuray-bjj\\\\public\\\\images\")"
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\User\\\\Desktop\\\\samuray-bjj\\\\public\\\\images\")",
+      "Bash(git add *)",
+      "Bash(git restore *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
