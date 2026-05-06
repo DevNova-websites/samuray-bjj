@@ -24,7 +24,7 @@ const CLASES = [
     title: "Principiantes",
     desc: "El punto de partida ideal. Aprendé la base del Jiu-Jitsu desde cero: posiciones, caídas, escapes y los primeros movimientos en el piso. Sin experiencia previa requerida. Kimono blanco los lunes y viernes.",
     features: ["Técnicas básicas de guardia", "Barridos y escapes", "Terminaciones fundamentales", "Seguridad en el tatami"],
-    accent: "#00B4B4",
+    accent: "#1B2D4F",
   },
   {
     icon: Zap,
@@ -32,7 +32,7 @@ const CLASES = [
     title: "Intermedios",
     desc: "Para los que ya conocen los fundamentos. Profundizamos técnicas, encadenamos movimientos y comenzamos a desarrollar un juego propio. Kimono negro los miércoles.",
     features: ["Combinaciones avanzadas", "Juego de guardia activo", "Pasadas de guardia", "Estrategia situacional"],
-    accent: "#00B4B4",
+    accent: "#1B2D4F",
   },
   {
     icon: Trophy,
@@ -40,7 +40,7 @@ const CLASES = [
     title: "Avanzados",
     desc: "Clases de élite para cintas intermedias y avanzadas. Entrenamiento orientado a la competencia bajo reglamento IBJJF, análisis táctico y refinamiento técnico.",
     features: ["Preparación para torneos", "Reglamento IBJJF", "Drilling intensivo", "Sparring competitivo"],
-    accent: "#CC0000",
+    accent: "#B91C1C",
   },
   {
     icon: Heart,
@@ -48,7 +48,7 @@ const CLASES = [
     title: "Niños y Jóvenes",
     desc: "Programa especial para los más pequeños. El Jiu-Jitsu como herramienta de desarrollo personal: disciplina, respeto, confianza y los valores que el código de la academia nos enseña.",
     features: ["Metodología lúdica", "Valores y disciplina", "Coordinación motriz", "Defensa personal básica"],
-    accent: "#00B4B4",
+    accent: "#1B2D4F",
   },
   {
     icon: Target,
@@ -56,7 +56,7 @@ const CLASES = [
     title: "Defensa Personal",
     desc: "Técnicas aplicadas al mundo real. Aprendé a manejar situaciones de riesgo con calma y efectividad usando principios del Jiu-Jitsu. Control sin violencia.",
     features: ["Situaciones reales", "Control sin violencia", "Conciencia situacional", "Para toda la familia"],
-    accent: "#00B4B4",
+    accent: "#1B2D4F",
   },
   {
     icon: Users,
@@ -64,7 +64,7 @@ const CLASES = [
     title: "Open Mat",
     desc: "Sesiones libres de sparring para todos los niveles. Intercambiá técnicas, probá nuevos movimientos y conectá con la hermandad del tatami. OSS.",
     features: ["Sparring libre", "Todos los niveles", "Intercambio técnico", "Ambiente colaborativo"],
-    accent: "#00B4B4",
+    accent: "#1B2D4F",
   },
 ];
 
@@ -76,13 +76,13 @@ export default function Servicios() {
       id="servicios"
       ref={ref}
       style={{
-        background: "#111111",
+        background: "#F5F3EF",
         padding: "6rem 1.5rem",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Decorative lines */}
+      {/* Decorative borders */}
       <div
         style={{
           position: "absolute",
@@ -90,7 +90,7 @@ export default function Servicios() {
           left: 0,
           right: 0,
           height: "1px",
-          background: "linear-gradient(90deg, transparent, rgba(0,180,180,0.3), transparent)",
+          background: "linear-gradient(90deg, transparent, rgba(27,45,79,0.2), transparent)",
         }}
       />
       <div
@@ -100,7 +100,7 @@ export default function Servicios() {
           left: 0,
           right: 0,
           height: "1px",
-          background: "linear-gradient(90deg, transparent, rgba(0,180,180,0.3), transparent)",
+          background: "linear-gradient(90deg, transparent, rgba(27,45,79,0.2), transparent)",
         }}
       />
 
@@ -122,7 +122,7 @@ export default function Servicios() {
               fontWeight: 600,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#00B4B4",
+              color: "#1B2D4F",
               display: "block",
               marginBottom: "1rem",
             }}
@@ -135,7 +135,7 @@ export default function Servicios() {
               fontWeight: 700,
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
               textTransform: "uppercase",
-              color: "#F5F5F5",
+              color: "#1A1615",
               lineHeight: 1.05,
               marginBottom: "1rem",
             }}
@@ -146,7 +146,7 @@ export default function Servicios() {
             style={{
               height: "3px",
               border: "none",
-              background: "linear-gradient(90deg, transparent, #00B4B4, transparent)",
+              background: "linear-gradient(90deg, transparent, #1B2D4F, transparent)",
               maxWidth: "180px",
               margin: "0 auto 1.5rem",
             }}
@@ -155,7 +155,7 @@ export default function Servicios() {
             style={{
               fontFamily: "var(--font-inter), sans-serif",
               fontSize: "1rem",
-              color: "#737373",
+              color: "#6B6460",
               maxWidth: "520px",
               margin: "0 auto",
               lineHeight: 1.65,
@@ -180,8 +180,8 @@ export default function Servicios() {
                 key={clase.title}
                 className="card-hover"
                 style={{
-                  background: "#0a0a0a",
-                  border: "1px solid #1a1a1a",
+                  background: "#FFFFFF",
+                  border: "1px solid #D4D0C8",
                   borderRadius: "0.875rem",
                   padding: "2rem",
                   display: "flex",
@@ -200,7 +200,7 @@ export default function Servicios() {
                       width: "52px",
                       height: "52px",
                       borderRadius: "0.625rem",
-                      background: clase.accent === "#CC0000" ? "rgba(204,0,0,0.12)" : "rgba(0,180,180,0.1)",
+                      background: clase.accent === "#B91C1C" ? "rgba(185,28,28,0.08)" : "rgba(27,45,79,0.07)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -217,7 +217,7 @@ export default function Servicios() {
                       letterSpacing: "0.12em",
                       textTransform: "uppercase",
                       color: clase.accent,
-                      background: clase.accent === "#CC0000" ? "rgba(204,0,0,0.1)" : "rgba(0,180,180,0.1)",
+                      background: clase.accent === "#B91C1C" ? "rgba(185,28,28,0.07)" : "rgba(27,45,79,0.07)",
                       border: `1px solid ${clase.accent}33`,
                       padding: "0.25rem 0.625rem",
                       borderRadius: "999px",
@@ -234,7 +234,7 @@ export default function Servicios() {
                     fontWeight: 700,
                     fontSize: "1.375rem",
                     textTransform: "uppercase",
-                    color: "#F5F5F5",
+                    color: "#1A1615",
                     lineHeight: 1.1,
                   }}
                 >
@@ -247,7 +247,7 @@ export default function Servicios() {
                     fontFamily: "var(--font-inter), sans-serif",
                     fontSize: "0.9rem",
                     lineHeight: 1.65,
-                    color: "#737373",
+                    color: "#6B6460",
                     flex: 1,
                   }}
                 >
@@ -265,7 +265,7 @@ export default function Servicios() {
                         gap: "0.625rem",
                         fontFamily: "var(--font-inter), sans-serif",
                         fontSize: "0.8125rem",
-                        color: "#a3a3a3",
+                        color: "#6B6460",
                       }}
                     >
                       <span
@@ -286,7 +286,7 @@ export default function Servicios() {
                 <div
                   style={{
                     height: "1px",
-                    background: "linear-gradient(90deg, rgba(0,180,180,0.3), transparent)",
+                    background: "linear-gradient(90deg, rgba(27,45,79,0.2), transparent)",
                   }}
                 />
 
@@ -319,20 +319,19 @@ export default function Servicios() {
           })}
         </div>
 
-        {/* Schedule + bottom note */}
+        {/* Schedule */}
         <div
           style={{
             textAlign: "center",
             marginTop: "3rem",
             padding: "1.75rem 2rem",
-            border: "1px solid rgba(0,180,180,0.15)",
+            border: "1px solid rgba(27,45,79,0.15)",
             borderRadius: "0.75rem",
-            background: "rgba(0,180,180,0.03)",
+            background: "rgba(27,45,79,0.03)",
             opacity: visible ? 1 : 0,
             transition: "opacity 0.6s ease 0.7s",
           }}
         >
-          {/* Schedule */}
           <div
             style={{
               display: "flex",
@@ -362,7 +361,7 @@ export default function Servicios() {
                     fontWeight: 700,
                     fontSize: "0.9375rem",
                     textTransform: "uppercase",
-                    color: "#F5F5F5",
+                    color: "#1A1615",
                     letterSpacing: "0.06em",
                   }}
                 >
@@ -372,7 +371,7 @@ export default function Servicios() {
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
                     fontSize: "0.8125rem",
-                    color: "#00B4B4",
+                    color: "#1B2D4F",
                   }}
                 >
                   {item.time}
@@ -381,7 +380,7 @@ export default function Servicios() {
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
                     fontSize: "0.6875rem",
-                    color: "#525252",
+                    color: "#9C9890",
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
                   }}
@@ -395,7 +394,7 @@ export default function Servicios() {
           <div
             style={{
               height: "1px",
-              background: "linear-gradient(90deg, transparent, rgba(0,180,180,0.2), transparent)",
+              background: "linear-gradient(90deg, transparent, rgba(27,45,79,0.15), transparent)",
               marginBottom: "1.25rem",
             }}
           />
@@ -404,7 +403,7 @@ export default function Servicios() {
             style={{
               fontFamily: "var(--font-inter), sans-serif",
               fontSize: "0.9375rem",
-              color: "#a3a3a3",
+              color: "#6B6460",
               lineHeight: 1.6,
             }}
           >
@@ -414,7 +413,7 @@ export default function Servicios() {
               style={{
                 background: "none",
                 border: "none",
-                color: "#00B4B4",
+                color: "#1B2D4F",
                 fontWeight: 600,
                 cursor: "pointer",
                 fontFamily: "inherit",

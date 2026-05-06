@@ -64,19 +64,23 @@ samuray-bjj/
 
 ## Paleta de colores
 
-Extraída del logo oficial (fondo negro, bulldog samurái en teal, banner rojo).
+Estilo clásico BJJ — modo claro con navy, oro y carmesí.
 
 | Variable | Hex | Uso |
 |---|---|---|
-| `--teal` | `#00B4B4` | Acento primario (textos destacados, bordes, íconos) |
-| `--teal-light` | `#00CCCC` | Hover de botones principales |
-| `--crimson` | `#CC0000` | Acento secundario (tarjeta Avanzados, detalles rojos) |
-| `--bg` | `#0a0a0a` | Fondo principal |
-| `--surface` | `#111111` | Fondo de secciones alternadas y cards |
-| `--surface2` | `#1a1a1a` | Hover de cards |
-| `--border` | `#2a2a2a` | Bordes sutiles |
-| `--text` | `#F5F5F5` | Texto principal |
-| `--muted` | `#737373` | Texto secundario |
+| `--navy` | `#1B2D4F` | Acento primario (textos destacados, bordes, íconos, footer) |
+| `--navy-light` | `#2A4070` | Hover de botones principales |
+| `--gold` | `#C8A850` | Acento dorado (hero, footer, prestige elements) |
+| `--crimson` | `#B91C1C` | Acento secundario (tarjeta Avanzados, detalles) |
+| `--bg` | `#FFFFFF` | Fondo principal |
+| `--surface` | `#F5F3EF` | Fondo de secciones alternadas y cards |
+| `--surface2` | `#EEECEA` | Hover de cards |
+| `--border` | `#D4D0C8` | Bordes sutiles |
+| `--text` | `#1A1615` | Texto principal |
+| `--muted` | `#6B6460` | Texto secundario |
+| `--subtle` | `#9C9890` | Texto muy secundario / placeholders |
+
+Secciones alternadas: Hero (dark navy `#0c1220`) → Nosotros (white) → Servicios (cream) → Timeline (white) → Credenciales (cream) → Contacto (white) → Footer (navy `#1B2D4F`).
 
 **Fuentes**: `Oswald` (títulos, uppercase) + `Inter` (cuerpo, labels).
 

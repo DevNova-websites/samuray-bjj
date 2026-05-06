@@ -103,7 +103,7 @@ export default function Timeline() {
       id="historia"
       ref={sectionRef}
       style={{
-        background: "#0a0a0a",
+        background: "#FFFFFF",
         padding: "6rem 1.5rem",
         position: "relative",
         overflow: "hidden",
@@ -114,7 +114,7 @@ export default function Timeline() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,180,180,0.03) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(27,45,79,0.02) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -129,7 +129,7 @@ export default function Timeline() {
               fontWeight: 600,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#00B4B4",
+              color: "#1B2D4F",
               display: "block",
               marginBottom: "1rem",
             }}
@@ -142,7 +142,7 @@ export default function Timeline() {
               fontWeight: 700,
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
               textTransform: "uppercase",
-              color: "#F5F5F5",
+              color: "#1A1615",
               lineHeight: 1.05,
               marginBottom: "1rem",
             }}
@@ -153,7 +153,7 @@ export default function Timeline() {
             style={{
               height: "3px",
               border: "none",
-              background: "linear-gradient(90deg, transparent, #00B4B4, transparent)",
+              background: "linear-gradient(90deg, transparent, #1B2D4F, transparent)",
               maxWidth: "180px",
               margin: "0 auto 1.5rem",
             }}
@@ -162,7 +162,7 @@ export default function Timeline() {
             style={{
               fontFamily: "var(--font-inter), sans-serif",
               fontSize: "1rem",
-              color: "#737373",
+              color: "#6B6460",
               maxWidth: "500px",
               margin: "0 auto",
             }}
@@ -173,7 +173,7 @@ export default function Timeline() {
 
         {/* Timeline */}
         <div style={{ position: "relative" }}>
-          {/* Center line (desktop) */}
+          {/* Center line */}
           <div
             id="timeline-center-line"
             style={{
@@ -182,7 +182,7 @@ export default function Timeline() {
               top: 0,
               bottom: 0,
               width: "2px",
-              background: "linear-gradient(180deg, transparent, #00B4B4 5%, #00B4B4 95%, transparent)",
+              background: "linear-gradient(180deg, transparent, #1B2D4F 5%, #1B2D4F 95%, transparent)",
               transform: "translateX(-50%)",
             }}
           />
@@ -211,7 +211,7 @@ export default function Timeline() {
                     {isLeft ? (
                       <TimelineCard event={event} index={i} onClick={() => setActiveIndex(i)} />
                     ) : (
-                      <span style={{ color: "#737373", fontFamily: "var(--font-oswald), sans-serif", fontSize: "0.75rem", letterSpacing: "0.1em" }} />
+                      <span />
                     )}
                   </div>
 
@@ -223,14 +223,14 @@ export default function Timeline() {
                         width: "48px",
                         height: "48px",
                         borderRadius: "50%",
-                        background: activeIndex === i ? "#00B4B4" : "#111111",
-                        border: `2px solid ${activeIndex === i ? "#00B4B4" : "rgba(0,180,180,0.5)"}`,
+                        background: activeIndex === i ? "#1B2D4F" : "#FFFFFF",
+                        border: `2px solid ${activeIndex === i ? "#1B2D4F" : "rgba(27,45,79,0.4)"}`,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         cursor: "pointer",
                         transition: "background 0.2s, border-color 0.2s, box-shadow 0.2s",
-                        boxShadow: activeIndex === i ? "0 0 20px rgba(0,180,180,0.4)" : "none",
+                        boxShadow: activeIndex === i ? "0 0 20px rgba(27,45,79,0.25)" : "0 2px 8px rgba(27,45,79,0.1)",
                         zIndex: 1,
                         position: "relative",
                         flexShrink: 0,
@@ -242,7 +242,7 @@ export default function Timeline() {
                           fontWeight: 700,
                           fontSize: "0.625rem",
                           letterSpacing: "0.02em",
-                          color: activeIndex === i ? "#0a0a0a" : "#00B4B4",
+                          color: activeIndex === i ? "#FFFFFF" : "#1B2D4F",
                         }}
                       >
                         {event.year}
@@ -272,7 +272,7 @@ export default function Timeline() {
           style={{
             position: "fixed",
             inset: 0,
-            background: "rgba(0,0,0,0.85)",
+            background: "rgba(12,18,32,0.8)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -284,20 +284,21 @@ export default function Timeline() {
         >
           <div
             style={{
-              background: "#111111",
-              border: "1px solid rgba(0,180,180,0.3)",
+              background: "#FFFFFF",
+              border: "1px solid #D4D0C8",
               borderRadius: "1rem",
               maxWidth: "620px",
               width: "100%",
               overflow: "hidden",
               animation: "slideUpModal 0.3s ease",
+              boxShadow: "0 24px 80px rgba(12,18,32,0.3)",
             }}
           >
             {/* Modal image placeholder */}
             <div
               style={{
                 height: "220px",
-                background: "linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)",
+                background: "linear-gradient(135deg, #F5F3EF 0%, #EEECEA 100%)",
                 position: "relative",
                 overflow: "hidden",
                 display: "flex",
@@ -308,14 +309,14 @@ export default function Timeline() {
               <img
                 src={`/images/timeline-${activeEvent.year}.jpg`}
                 alt={activeEvent.title}
-                style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.6 }}
+                style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.7 }}
                 onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
               />
               <div
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "linear-gradient(135deg, rgba(0,180,180,0.06), transparent)",
+                  background: "linear-gradient(135deg, rgba(27,45,79,0.05), transparent)",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -328,7 +329,7 @@ export default function Timeline() {
                     fontFamily: "var(--font-oswald), sans-serif",
                     fontWeight: 700,
                     fontSize: "5rem",
-                    color: "rgba(0,180,180,0.15)",
+                    color: "rgba(27,45,79,0.1)",
                     lineHeight: 1,
                     userSelect: "none",
                   }}
@@ -339,7 +340,7 @@ export default function Timeline() {
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
                     fontSize: "0.6875rem",
-                    color: "#525252",
+                    color: "#9C9890",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                   }}
@@ -354,8 +355,8 @@ export default function Timeline() {
                   position: "absolute",
                   top: "1rem",
                   left: "1rem",
-                  background: "#00B4B4",
-                  color: "#0a0a0a",
+                  background: "#1B2D4F",
+                  color: "#FFFFFF",
                   fontFamily: "var(--font-oswald), sans-serif",
                   fontWeight: 700,
                   fontSize: "1rem",
@@ -374,9 +375,9 @@ export default function Timeline() {
                   position: "absolute",
                   top: "1rem",
                   right: "1rem",
-                  background: "rgba(0,0,0,0.6)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  color: "#F5F5F5",
+                  background: "rgba(255,255,255,0.9)",
+                  border: "1px solid rgba(27,45,79,0.15)",
+                  color: "#1A1615",
                   width: "36px",
                   height: "36px",
                   borderRadius: "50%",
@@ -386,8 +387,8 @@ export default function Timeline() {
                   cursor: "pointer",
                   transition: "background 0.2s",
                 }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(0,180,180,0.3)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(0,0,0,0.6)"; }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(27,45,79,0.1)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.9)"; }}
               >
                 <X size={16} />
               </button>
@@ -401,7 +402,7 @@ export default function Timeline() {
                   fontWeight: 700,
                   fontSize: "1.5rem",
                   textTransform: "uppercase",
-                  color: "#F5F5F5",
+                  color: "#1A1615",
                   marginBottom: "1rem",
                 }}
               >
@@ -412,7 +413,7 @@ export default function Timeline() {
                   fontFamily: "var(--font-inter), sans-serif",
                   fontSize: "0.9375rem",
                   lineHeight: 1.7,
-                  color: "#a3a3a3",
+                  color: "#6B6460",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -426,9 +427,9 @@ export default function Timeline() {
                   disabled={activeIndex === 0}
                   style={{
                     background: "none",
-                    border: "1px solid rgba(0,180,180,0.3)",
-                    color: activeIndex === 0 ? "#404040" : "#00B4B4",
-                    borderColor: activeIndex === 0 ? "#2a2a2a" : "rgba(0,180,180,0.3)",
+                    border: "1px solid rgba(27,45,79,0.25)",
+                    color: activeIndex === 0 ? "#D4D0C8" : "#1B2D4F",
+                    borderColor: activeIndex === 0 ? "#D4D0C8" : "rgba(27,45,79,0.25)",
                     borderRadius: "0.375rem",
                     padding: "0.5rem 1rem",
                     cursor: activeIndex === 0 ? "not-allowed" : "pointer",
@@ -439,13 +440,13 @@ export default function Timeline() {
                     fontSize: "0.8125rem",
                     transition: "background 0.2s",
                   }}
-                  onMouseEnter={(e) => { if (activeIndex !== 0) (e.currentTarget as HTMLElement).style.background = "rgba(0,180,180,0.08)"; }}
+                  onMouseEnter={(e) => { if (activeIndex !== 0) (e.currentTarget as HTMLElement).style.background = "rgba(27,45,79,0.06)"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "none"; }}
                 >
                   <ChevronLeft size={14} /> Anterior
                 </button>
 
-                <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.75rem", color: "#525252" }}>
+                <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.75rem", color: "#9C9890" }}>
                   {(activeIndex ?? 0) + 1} / {EVENTS.length}
                 </span>
 
@@ -454,9 +455,9 @@ export default function Timeline() {
                   disabled={activeIndex === EVENTS.length - 1}
                   style={{
                     background: "none",
-                    border: "1px solid rgba(0,180,180,0.3)",
-                    color: activeIndex === EVENTS.length - 1 ? "#404040" : "#00B4B4",
-                    borderColor: activeIndex === EVENTS.length - 1 ? "#2a2a2a" : "rgba(0,180,180,0.3)",
+                    border: "1px solid rgba(27,45,79,0.25)",
+                    color: activeIndex === EVENTS.length - 1 ? "#D4D0C8" : "#1B2D4F",
+                    borderColor: activeIndex === EVENTS.length - 1 ? "#D4D0C8" : "rgba(27,45,79,0.25)",
                     borderRadius: "0.375rem",
                     padding: "0.5rem 1rem",
                     cursor: activeIndex === EVENTS.length - 1 ? "not-allowed" : "pointer",
@@ -467,7 +468,7 @@ export default function Timeline() {
                     fontSize: "0.8125rem",
                     transition: "background 0.2s",
                   }}
-                  onMouseEnter={(e) => { if (activeIndex !== EVENTS.length - 1) (e.currentTarget as HTMLElement).style.background = "rgba(0,180,180,0.08)"; }}
+                  onMouseEnter={(e) => { if (activeIndex !== EVENTS.length - 1) (e.currentTarget as HTMLElement).style.background = "rgba(27,45,79,0.06)"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "none"; }}
                 >
                   Siguiente <ChevronRight size={14} />
@@ -499,8 +500,8 @@ function TimelineCard({ event, onClick }: { event: TimelineEvent; index: number;
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? "#1a1a1a" : "#111111",
-        border: `1px solid ${hovered ? "rgba(0,180,180,0.4)" : "#2a2a2a"}`,
+        background: hovered ? "#F5F3EF" : "#FFFFFF",
+        border: `1px solid ${hovered ? "rgba(27,45,79,0.3)" : "#D4D0C8"}`,
         borderRadius: "0.75rem",
         padding: "1.25rem 1.5rem",
         textAlign: "left",
@@ -508,7 +509,7 @@ function TimelineCard({ event, onClick }: { event: TimelineEvent; index: number;
         maxWidth: "380px",
         width: "100%",
         transform: hovered ? "translateY(-2px)" : "translateY(0)",
-        boxShadow: hovered ? "0 12px 40px rgba(0,180,180,0.1)" : "none",
+        boxShadow: hovered ? "0 12px 40px rgba(27,45,79,0.1)" : "0 2px 8px rgba(27,45,79,0.05)",
         transition: "background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s",
       }}
     >
@@ -518,7 +519,7 @@ function TimelineCard({ event, onClick }: { event: TimelineEvent; index: number;
           fontWeight: 700,
           fontSize: "0.75rem",
           letterSpacing: "0.1em",
-          color: "#00B4B4",
+          color: "#1B2D4F",
           marginBottom: "0.5rem",
           textTransform: "uppercase",
         }}
@@ -531,7 +532,7 @@ function TimelineCard({ event, onClick }: { event: TimelineEvent; index: number;
           fontWeight: 600,
           fontSize: "1rem",
           textTransform: "uppercase",
-          color: "#F5F5F5",
+          color: "#1A1615",
           lineHeight: 1.2,
           marginBottom: "0.625rem",
         }}
@@ -543,7 +544,7 @@ function TimelineCard({ event, onClick }: { event: TimelineEvent; index: number;
           fontFamily: "var(--font-inter), sans-serif",
           fontSize: "0.8125rem",
           lineHeight: 1.6,
-          color: "#737373",
+          color: "#6B6460",
         }}
       >
         {event.description}
@@ -553,7 +554,7 @@ function TimelineCard({ event, onClick }: { event: TimelineEvent; index: number;
           marginTop: "0.75rem",
           fontFamily: "var(--font-inter), sans-serif",
           fontSize: "0.75rem",
-          color: "#00B4B4",
+          color: "#1B2D4F",
           opacity: hovered ? 1 : 0,
           transition: "opacity 0.2s",
         }}

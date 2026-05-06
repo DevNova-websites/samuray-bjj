@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --teal: #00B4B4;
-  --teal-light: #00CCCC;
-  --crimson: #CC0000;
-  --bg: #0a0a0a;
-  --surface: #111111;
-  --surface2: #1a1a1a;
-  --border: #2a2a2a;
-  --text: #F5F5F5;
-  --muted: #737373;
+  --navy: #1B2D4F;
+  --navy-light: #2A4070;
+  --gold: #C8A850;
+  --gold-dark: #A8882A;
+  --crimson: #B91C1C;
+  --bg: #FFFFFF;
+  --surface: #F5F3EF;
+  --surface2: #EEECEA;
+  --border: #D4D0C8;
+  --text: #1A1615;
+  --muted: #6B6460;
+  --subtle: #9C9890;
 }
 
 * {
@@ -32,13 +35,28 @@ body {
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #111; }
-::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+::-webkit-scrollbar-track { background: #F5F3EF; }
+::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 3px; }
 
-::selection { background: rgba(0,180,180,0.27); color: var(--teal-light); }
+::selection { background: rgba(27,45,79,0.15); color: var(--navy); }
 
+.text-navy-gradient {
+  background: linear-gradient(135deg, #1B2D4F 0%, #2A4070 50%, #1B2D4F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C8A850 0%, #E0C070 50%, #C8A850 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* kept for backward compat */
 .text-teal-gradient {
-  background: linear-gradient(135deg, #00B4B4 0%, #00D4D4 50%, #00B4B4 100%);
+  background: linear-gradient(135deg, #C8A850 0%, #E0C070 50%, #C8A850 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -46,7 +64,7 @@ body {
 
 .teal-divider {
   height: 3px;
-  background: linear-gradient(90deg, transparent, #00B4B4, transparent);
+  background: linear-gradient(90deg, transparent, #1B2D4F, transparent);
   border: none;
 }
 
@@ -55,25 +73,25 @@ body {
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0,180,180,0.15);
-  border-color: rgba(0,180,180,0.3);
+  box-shadow: 0 20px 60px rgba(27,45,79,0.1);
+  border-color: rgba(27,45,79,0.2);
 }
 
 .form-input {
   width: 100%;
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
-  color: #f5f5f5;
+  background: #FFFFFF;
+  border: 1px solid #D4D0C8;
+  color: #1A1615;
   padding: 0.875rem 1rem;
   border-radius: 0.5rem;
   font-size: 0.9375rem;
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
 }
-.form-input::placeholder { color: #525252; }
+.form-input::placeholder { color: #9C9890; }
 .form-input:focus {
-  border-color: #00B4B4;
-  box-shadow: 0 0 0 3px rgba(0,180,180,0.12);
+  border-color: #1B2D4F;
+  box-shadow: 0 0 0 3px rgba(27,45,79,0.1);
 }
 
 .animated-underline {
@@ -86,7 +104,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--teal);
+  background: var(--navy);
   transition: width 0.3s ease;
 }
 .animated-underline:hover::after {

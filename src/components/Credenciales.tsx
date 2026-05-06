@@ -3,6 +3,33 @@
 import { useEffect, useRef, useState } from "react";
 import { Shield, Award, Medal, Star, Globe, CheckCircle } from "lucide-react";
 
+function BJJBeltMini({ degrees = 4 }: { degrees?: number }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "stretch",
+          height: "18px",
+          borderRadius: "3px",
+          overflow: "hidden",
+          boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+        }}
+      >
+        <div style={{ width: "120px", background: "#1A1615" }} />
+        <div style={{ width: "24px", background: "#B91C1C" }} />
+        {Array.from({ length: degrees }).map((_, i) => (
+          <div key={i} style={{ width: "6px", background: "white" }} />
+        ))}
+        <div style={{ width: "10px", background: "white" }} />
+      </div>
+      <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#9C9890" }}>
+        Faixa Preta · 4° Grado
+      </span>
+    </div>
+  );
+}
+
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -25,7 +52,7 @@ const CREDS = [
     number: "32285",
     label: "N° de Miembro",
     desc: "Miembro oficial del organismo rector del Jiu-Jitsu a nivel mundial.",
-    color: "#00B4B4",
+    color: "#1B2D4F",
   },
   {
     icon: Award,
@@ -34,7 +61,7 @@ const CREDS = [
     number: "1080",
     label: "N° de Registro",
     desc: "Registrado en la confederación oficial del Jiu-Jitsu de Brasil.",
-    color: "#00B4B4",
+    color: "#1B2D4F",
   },
   {
     icon: Medal,
@@ -43,7 +70,7 @@ const CREDS = [
     number: "10580",
     label: "N° de Academia",
     desc: "La JL Samuray BJJ Academy cuenta con afiliación oficial como academia IBJJF.",
-    color: "#CC0000",
+    color: "#B91C1C",
   },
   {
     icon: Globe,
@@ -52,7 +79,7 @@ const CREDS = [
     number: "Afiliada",
     label: "Federación",
     desc: "Parte de la red internacional Sukata, conectando academias de élite en todo el mundo.",
-    color: "#00B4B4",
+    color: "#1B2D4F",
   },
   {
     icon: Star,
@@ -61,7 +88,7 @@ const CREDS = [
     number: "Afiliada",
     label: "Nacional",
     desc: "Afiliada a la Confederación Argentina de Jiu-Jitsu, participando del circuito nacional.",
-    color: "#00B4B4",
+    color: "#1B2D4F",
   },
   {
     icon: CheckCircle,
@@ -70,7 +97,7 @@ const CREDS = [
     number: "Desde 1975",
     label: "Trayectoria",
     desc: "Más de cinco décadas de práctica y enseñanza en múltiples disciplinas marciales.",
-    color: "#00B4B4",
+    color: "#1B2D4F",
   },
 ];
 
@@ -89,15 +116,15 @@ export default function Credenciales() {
       id="credenciales"
       ref={ref}
       style={{
-        background: "#111111",
+        background: "#F5F3EF",
         padding: "6rem 1.5rem",
         position: "relative",
         overflow: "hidden",
       }}
     >
       {/* Top / bottom borders */}
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(0,180,180,0.3), transparent)" }} />
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(0,180,180,0.3), transparent)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(27,45,79,0.2), transparent)" }} />
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(27,45,79,0.2), transparent)" }} />
 
       {/* Background glow */}
       <div
@@ -109,7 +136,7 @@ export default function Credenciales() {
           width: "600px",
           height: "600px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0,180,180,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(27,45,79,0.03) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -132,7 +159,7 @@ export default function Credenciales() {
               fontWeight: 600,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#00B4B4",
+              color: "#1B2D4F",
               display: "block",
               marginBottom: "1rem",
             }}
@@ -145,7 +172,7 @@ export default function Credenciales() {
               fontWeight: 700,
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
               textTransform: "uppercase",
-              color: "#F5F5F5",
+              color: "#1A1615",
               lineHeight: 1.05,
               marginBottom: "1rem",
             }}
@@ -156,7 +183,7 @@ export default function Credenciales() {
             style={{
               height: "3px",
               border: "none",
-              background: "linear-gradient(90deg, transparent, #00B4B4, transparent)",
+              background: "linear-gradient(90deg, transparent, #1B2D4F, transparent)",
               maxWidth: "180px",
               margin: "0 auto 1.5rem",
             }}
@@ -165,7 +192,7 @@ export default function Credenciales() {
             style={{
               fontFamily: "var(--font-inter), sans-serif",
               fontSize: "1rem",
-              color: "#737373",
+              color: "#6B6460",
               maxWidth: "480px",
               margin: "0 auto",
             }}
@@ -174,25 +201,26 @@ export default function Credenciales() {
           </p>
         </div>
 
-        {/* Stats bar */}
+        {/* Stats bar — dark navy panel */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
             gap: "1px",
-            background: "#2a2a2a",
+            background: "#2A4070",
             borderRadius: "0.75rem",
             overflow: "hidden",
             marginBottom: "3.5rem",
             opacity: visible ? 1 : 0,
             transition: "opacity 0.6s ease 0.2s",
+            boxShadow: "0 8px 32px rgba(27,45,79,0.2)",
           }}
         >
           {STATS.map((stat, i) => (
             <div
               key={stat.label}
               style={{
-                background: "#0a0a0a",
+                background: "#1B2D4F",
                 padding: "1.75rem 1.5rem",
                 textAlign: "center",
                 opacity: visible ? 1 : 0,
@@ -205,7 +233,7 @@ export default function Credenciales() {
                   fontFamily: "var(--font-oswald), sans-serif",
                   fontWeight: 700,
                   fontSize: "2.25rem",
-                  color: "#00B4B4",
+                  color: "#C8A850",
                   lineHeight: 1,
                   marginBottom: "0.375rem",
                 }}
@@ -216,7 +244,7 @@ export default function Credenciales() {
                 style={{
                   fontFamily: "var(--font-inter), sans-serif",
                   fontSize: "0.6875rem",
-                  color: "#525252",
+                  color: "rgba(245,243,239,0.6)",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                 }}
@@ -242,8 +270,8 @@ export default function Credenciales() {
                 key={cred.org}
                 className="card-hover"
                 style={{
-                  background: "#0a0a0a",
-                  border: "1px solid #1a1a1a",
+                  background: "#FFFFFF",
+                  border: "1px solid #D4D0C8",
                   borderRadius: "0.875rem",
                   padding: "1.75rem",
                   display: "flex",
@@ -260,8 +288,8 @@ export default function Credenciales() {
                     width: "52px",
                     height: "52px",
                     borderRadius: "0.625rem",
-                    background: cred.color === "#CC0000" ? "rgba(204,0,0,0.1)" : "rgba(0,180,180,0.08)",
-                    border: `1px solid ${cred.color === "#CC0000" ? "rgba(204,0,0,0.2)" : "rgba(0,180,180,0.15)"}`,
+                    background: cred.color === "#B91C1C" ? "rgba(185,28,28,0.08)" : "rgba(27,45,79,0.07)",
+                    border: `1px solid ${cred.color === "#B91C1C" ? "rgba(185,28,28,0.2)" : "rgba(27,45,79,0.12)"}`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -280,7 +308,7 @@ export default function Credenciales() {
                         fontWeight: 700,
                         fontSize: "1.0625rem",
                         textTransform: "uppercase",
-                        color: "#F5F5F5",
+                        color: "#1A1615",
                         letterSpacing: "0.04em",
                       }}
                     >
@@ -292,7 +320,7 @@ export default function Credenciales() {
                         fontWeight: 700,
                         fontSize: "0.8125rem",
                         color: cred.color,
-                        background: cred.color === "#CC0000" ? "rgba(204,0,0,0.1)" : "rgba(0,180,180,0.1)",
+                        background: cred.color === "#B91C1C" ? "rgba(185,28,28,0.08)" : "rgba(27,45,79,0.07)",
                         border: `1px solid ${cred.color}33`,
                         padding: "0.125rem 0.5rem",
                         borderRadius: "0.25rem",
@@ -307,7 +335,7 @@ export default function Credenciales() {
                     style={{
                       fontFamily: "var(--font-inter), sans-serif",
                       fontSize: "0.6875rem",
-                      color: "#525252",
+                      color: "#9C9890",
                       letterSpacing: "0.04em",
                       textTransform: "uppercase",
                       marginBottom: "0.75rem",
@@ -320,7 +348,7 @@ export default function Credenciales() {
                       fontFamily: "var(--font-inter), sans-serif",
                       fontSize: "0.875rem",
                       lineHeight: 1.6,
-                      color: "#737373",
+                      color: "#6B6460",
                     }}
                   >
                     {cred.desc}
@@ -336,9 +364,9 @@ export default function Credenciales() {
           style={{
             marginTop: "3.5rem",
             padding: "2.5rem",
-            border: "1px solid rgba(0,180,180,0.2)",
+            border: "1px solid rgba(27,45,79,0.2)",
             borderRadius: "0.875rem",
-            background: "rgba(0,180,180,0.02)",
+            background: "rgba(27,45,79,0.03)",
             textAlign: "center",
             position: "relative",
             opacity: visible ? 1 : 0,
@@ -353,7 +381,7 @@ export default function Credenciales() {
               transform: "translateX(-50%)",
               width: "80px",
               height: "2px",
-              background: "#00B4B4",
+              background: "#1B2D4F",
             }}
           />
           <blockquote
@@ -362,7 +390,7 @@ export default function Credenciales() {
               fontWeight: 600,
               fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
               textTransform: "uppercase",
-              color: "#F5F5F5",
+              color: "#1A1615",
               lineHeight: 1.4,
               letterSpacing: "0.08em",
               marginBottom: "1rem",
@@ -374,7 +402,7 @@ export default function Credenciales() {
             style={{
               fontFamily: "var(--font-inter), sans-serif",
               fontSize: "0.9375rem",
-              color: "#737373",
+              color: "#6B6460",
               lineHeight: 1.6,
               maxWidth: "480px",
               margin: "0 auto 1.25rem",
@@ -386,7 +414,7 @@ export default function Credenciales() {
             style={{
               fontFamily: "var(--font-inter), sans-serif",
               fontSize: "0.8125rem",
-              color: "#00B4B4",
+              color: "#1B2D4F",
               fontStyle: "normal",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
@@ -394,6 +422,9 @@ export default function Credenciales() {
           >
             Prof. Jorge Omar Ledesma · Faixa Preta 4º Grado
           </cite>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "1.25rem" }}>
+            <BJJBeltMini degrees={4} />
+          </div>
         </div>
       </div>
     </section>

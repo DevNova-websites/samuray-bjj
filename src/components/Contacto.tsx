@@ -95,7 +95,7 @@ export default function Contacto() {
       id="contacto"
       ref={ref}
       style={{
-        background: "#0a0a0a",
+        background: "#FFFFFF",
         padding: "6rem 1.5rem",
         position: "relative",
         overflow: "hidden",
@@ -106,7 +106,7 @@ export default function Contacto() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(0,180,180,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(27,45,79,0.03) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -129,7 +129,7 @@ export default function Contacto() {
               fontWeight: 600,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#00B4B4",
+              color: "#1B2D4F",
               display: "block",
               marginBottom: "1rem",
             }}
@@ -142,7 +142,7 @@ export default function Contacto() {
               fontWeight: 700,
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
               textTransform: "uppercase",
-              color: "#F5F5F5",
+              color: "#1A1615",
               lineHeight: 1.05,
               marginBottom: "1rem",
             }}
@@ -153,7 +153,7 @@ export default function Contacto() {
             style={{
               height: "3px",
               border: "none",
-              background: "linear-gradient(90deg, transparent, #00B4B4, transparent)",
+              background: "linear-gradient(90deg, transparent, #1B2D4F, transparent)",
               maxWidth: "180px",
               margin: "0 auto",
             }}
@@ -182,7 +182,7 @@ export default function Contacto() {
                 fontWeight: 600,
                 fontSize: "1.375rem",
                 textTransform: "uppercase",
-                color: "#F5F5F5",
+                color: "#1A1615",
                 marginBottom: "0.625rem",
               }}
             >
@@ -193,7 +193,7 @@ export default function Contacto() {
                 fontFamily: "var(--font-inter), sans-serif",
                 fontSize: "0.9375rem",
                 lineHeight: 1.65,
-                color: "#737373",
+                color: "#6B6460",
                 marginBottom: "2rem",
               }}
             >
@@ -204,8 +204,8 @@ export default function Contacto() {
             {/* Schedule block */}
             <div
               style={{
-                background: "#111111",
-                border: "1px solid rgba(0,180,180,0.15)",
+                background: "#F5F3EF",
+                border: "1px solid rgba(27,45,79,0.12)",
                 borderRadius: "0.75rem",
                 padding: "1.25rem 1.5rem",
                 marginBottom: "2rem",
@@ -219,7 +219,7 @@ export default function Contacto() {
                   marginBottom: "1rem",
                 }}
               >
-                <Clock size={14} color="#00B4B4" />
+                <Clock size={14} color="#1B2D4F" />
                 <span
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
@@ -227,7 +227,7 @@ export default function Contacto() {
                     fontWeight: 600,
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    color: "#00B4B4",
+                    color: "#1B2D4F",
                   }}
                 >
                   Horario de Clases — Adultos
@@ -253,7 +253,7 @@ export default function Contacto() {
                         fontWeight: 600,
                         fontSize: "0.9375rem",
                         textTransform: "uppercase",
-                        color: "#F5F5F5",
+                        color: "#1A1615",
                         letterSpacing: "0.04em",
                       }}
                     >
@@ -264,7 +264,7 @@ export default function Contacto() {
                         style={{
                           fontFamily: "var(--font-inter), sans-serif",
                           fontSize: "0.875rem",
-                          color: "#a3a3a3",
+                          color: "#6B6460",
                         }}
                       >
                         {item.time}
@@ -273,9 +273,9 @@ export default function Contacto() {
                         style={{
                           fontFamily: "var(--font-inter), sans-serif",
                           fontSize: "0.6875rem",
-                          color: "#00B4B4",
-                          background: "rgba(0,180,180,0.08)",
-                          border: "1px solid rgba(0,180,180,0.2)",
+                          color: "#1B2D4F",
+                          background: "rgba(27,45,79,0.07)",
+                          border: "1px solid rgba(27,45,79,0.15)",
                           padding: "0.125rem 0.5rem",
                           borderRadius: "999px",
                           letterSpacing: "0.06em",
@@ -292,10 +292,10 @@ export default function Contacto() {
                 style={{
                   marginTop: "1rem",
                   paddingTop: "1rem",
-                  borderTop: "1px solid rgba(255,255,255,0.06)",
+                  borderTop: "1px solid rgba(27,45,79,0.08)",
                   fontFamily: "var(--font-inter), sans-serif",
                   fontSize: "0.75rem",
-                  color: "#525252",
+                  color: "#9C9890",
                 }}
               >
                 Cuota mensual — pago hasta el día 10. Presencial o transferencia bancaria.
@@ -305,13 +305,13 @@ export default function Contacto() {
             {/* Contact items */}
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem", marginBottom: "2.5rem" }}>
               <ContactItem
-                icon={<Phone size={18} color="#00B4B4" />}
+                icon={<Phone size={18} color="#1B2D4F" />}
                 label="Teléfono"
                 value="+54 11 6178-1198"
                 href="tel:+541161781198"
               />
               <ContactItem
-                icon={<Mail size={18} color="#00B4B4" />}
+                icon={<Mail size={18} color="#1B2D4F" />}
                 label="Email"
                 value="samurayledesma@gmail.com"
                 href="mailto:samurayledesma@gmail.com"
@@ -326,7 +326,7 @@ export default function Contacto() {
                   fontSize: "0.6875rem",
                   letterSpacing: "0.14em",
                   textTransform: "uppercase",
-                  color: "#525252",
+                  color: "#9C9890",
                   marginBottom: "1rem",
                 }}
               >
@@ -405,8 +405,8 @@ export default function Contacto() {
           >
             <div
               style={{
-                background: "#111111",
-                border: "1px solid #2a2a2a",
+                background: "#F5F3EF",
+                border: "1px solid #D4D0C8",
                 borderRadius: "1rem",
                 padding: "2rem",
               }}
@@ -428,14 +428,14 @@ export default function Contacto() {
                       width: "64px",
                       height: "64px",
                       borderRadius: "50%",
-                      background: "rgba(0,180,180,0.1)",
-                      border: "2px solid rgba(0,180,180,0.4)",
+                      background: "rgba(27,45,79,0.08)",
+                      border: "2px solid rgba(27,45,79,0.3)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                     }}
                   >
-                    <CheckCircle size={28} color="#00B4B4" />
+                    <CheckCircle size={28} color="#1B2D4F" />
                   </div>
                   <h4
                     style={{
@@ -443,7 +443,7 @@ export default function Contacto() {
                       fontWeight: 700,
                       fontSize: "1.375rem",
                       textTransform: "uppercase",
-                      color: "#F5F5F5",
+                      color: "#1A1615",
                     }}
                   >
                     ¡Mensaje Enviado!
@@ -452,7 +452,7 @@ export default function Contacto() {
                     style={{
                       fontFamily: "var(--font-inter), sans-serif",
                       fontSize: "0.9375rem",
-                      color: "#737373",
+                      color: "#6B6460",
                       lineHeight: 1.6,
                       maxWidth: "320px",
                     }}
@@ -463,8 +463,8 @@ export default function Contacto() {
                     onClick={() => { setFormState("idle"); setFormData({ nombre: "", email: "", telefono: "", nivel: "", mensaje: "" }); }}
                     style={{
                       background: "transparent",
-                      border: "1px solid rgba(0,180,180,0.4)",
-                      color: "#00B4B4",
+                      border: "1px solid rgba(27,45,79,0.3)",
+                      color: "#1B2D4F",
                       fontFamily: "var(--font-inter), sans-serif",
                       fontSize: "0.875rem",
                       padding: "0.625rem 1.5rem",
@@ -483,7 +483,7 @@ export default function Contacto() {
                       fontWeight: 600,
                       fontSize: "1.125rem",
                       textTransform: "uppercase",
-                      color: "#F5F5F5",
+                      color: "#1A1615",
                       marginBottom: "0.25rem",
                       letterSpacing: "0.04em",
                     }}
@@ -530,7 +530,7 @@ export default function Contacto() {
                       style={{ cursor: "pointer" }}
                     >
                       {NIVELES.map((n) => (
-                        <option key={n.value} value={n.value} style={{ background: "#1a1a1a" }}>
+                        <option key={n.value} value={n.value}>
                           {n.label}
                         </option>
                       ))}
@@ -555,10 +555,10 @@ export default function Contacto() {
                         alignItems: "center",
                         gap: "0.5rem",
                         padding: "0.75rem 1rem",
-                        background: "rgba(204,0,0,0.1)",
-                        border: "1px solid rgba(204,0,0,0.3)",
+                        background: "rgba(185,28,28,0.07)",
+                        border: "1px solid rgba(185,28,28,0.2)",
                         borderRadius: "0.5rem",
-                        color: "#ef4444",
+                        color: "#B91C1C",
                         fontSize: "0.875rem",
                         fontFamily: "var(--font-inter), sans-serif",
                       }}
@@ -572,9 +572,9 @@ export default function Contacto() {
                     type="submit"
                     disabled={formState === "loading"}
                     style={{
-                      background: formState === "loading" ? "#007070" : "#00B4B4",
+                      background: formState === "loading" ? "#2A4070" : "#1B2D4F",
                       border: "none",
-                      color: "#0a0a0a",
+                      color: "#FFFFFF",
                       fontFamily: "var(--font-oswald), sans-serif",
                       fontWeight: 700,
                       fontSize: "0.9375rem",
@@ -588,15 +588,16 @@ export default function Contacto() {
                       justifyContent: "center",
                       gap: "0.5rem",
                       transition: "background 0.2s, transform 0.2s",
+                      boxShadow: "0 4px 16px rgba(27,45,79,0.25)",
                     }}
                     onMouseEnter={(e) => {
                       if (formState !== "loading") {
-                        (e.currentTarget as HTMLElement).style.background = "#00CCCC";
+                        (e.currentTarget as HTMLElement).style.background = "#2A4070";
                         (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
                       }
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.background = formState === "loading" ? "#007070" : "#00B4B4";
+                      (e.currentTarget as HTMLElement).style.background = formState === "loading" ? "#2A4070" : "#1B2D4F";
                       (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                     }}
                   >
@@ -619,7 +620,7 @@ export default function Contacto() {
                     style={{
                       fontFamily: "var(--font-inter), sans-serif",
                       fontSize: "0.75rem",
-                      color: "#404040",
+                      color: "#9C9890",
                       textAlign: "center",
                       lineHeight: 1.5,
                     }}
@@ -658,7 +659,7 @@ function FormField({
           fontWeight: 600,
           letterSpacing: "0.06em",
           textTransform: "uppercase",
-          color: "#a3a3a3",
+          color: "#6B6460",
         }}
       >
         {label}
@@ -669,7 +670,7 @@ function FormField({
           style={{
             fontFamily: "var(--font-inter), sans-serif",
             fontSize: "0.75rem",
-            color: "#ef4444",
+            color: "#B91C1C",
           }}
         >
           {error}
@@ -700,18 +701,18 @@ function ContactItem({
         textDecoration: "none",
         color: "inherit",
         padding: "1rem 1.25rem",
-        background: "#111111",
-        border: "1px solid #1a1a1a",
+        background: "#F5F3EF",
+        border: "1px solid #D4D0C8",
         borderRadius: "0.625rem",
         transition: "border-color 0.2s, background 0.2s",
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,180,180,0.3)";
-        (e.currentTarget as HTMLElement).style.background = "#1a1a1a";
+        (e.currentTarget as HTMLElement).style.borderColor = "rgba(27,45,79,0.25)";
+        (e.currentTarget as HTMLElement).style.background = "#EEECEA";
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = "#1a1a1a";
-        (e.currentTarget as HTMLElement).style.background = "#111111";
+        (e.currentTarget as HTMLElement).style.borderColor = "#D4D0C8";
+        (e.currentTarget as HTMLElement).style.background = "#F5F3EF";
       }}
     >
       <div
@@ -719,7 +720,7 @@ function ContactItem({
           width: "40px",
           height: "40px",
           borderRadius: "0.5rem",
-          background: "rgba(0,180,180,0.08)",
+          background: "rgba(27,45,79,0.07)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -735,7 +736,7 @@ function ContactItem({
             fontSize: "0.6875rem",
             letterSpacing: "0.08em",
             textTransform: "uppercase",
-            color: "#525252",
+            color: "#9C9890",
             marginBottom: "2px",
           }}
         >
@@ -746,7 +747,7 @@ function ContactItem({
             fontFamily: "var(--font-inter), sans-serif",
             fontSize: "0.9375rem",
             fontWeight: 500,
-            color: "#F5F5F5",
+            color: "#1A1615",
           }}
         >
           {value}
@@ -775,10 +776,10 @@ function SocialBtn({
         alignItems: "center",
         gap: "0.5rem",
         padding: "0.5rem 0.875rem",
-        background: "#111111",
-        border: "1px solid #2a2a2a",
+        background: "#F5F3EF",
+        border: "1px solid #D4D0C8",
         borderRadius: "0.375rem",
-        color: "#a3a3a3",
+        color: "#6B6460",
         textDecoration: "none",
         fontFamily: "var(--font-inter), sans-serif",
         fontSize: "0.8125rem",
@@ -786,14 +787,14 @@ function SocialBtn({
         transition: "color 0.2s, border-color 0.2s, background 0.2s",
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.color = "#00B4B4";
-        (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,180,180,0.4)";
-        (e.currentTarget as HTMLElement).style.background = "rgba(0,180,180,0.06)";
+        (e.currentTarget as HTMLElement).style.color = "#1B2D4F";
+        (e.currentTarget as HTMLElement).style.borderColor = "rgba(27,45,79,0.3)";
+        (e.currentTarget as HTMLElement).style.background = "rgba(27,45,79,0.06)";
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.color = "#a3a3a3";
-        (e.currentTarget as HTMLElement).style.borderColor = "#2a2a2a";
-        (e.currentTarget as HTMLElement).style.background = "#111111";
+        (e.currentTarget as HTMLElement).style.color = "#6B6460";
+        (e.currentTarget as HTMLElement).style.borderColor = "#D4D0C8";
+        (e.currentTarget as HTMLElement).style.background = "#F5F3EF";
       }}
     >
       {icon}

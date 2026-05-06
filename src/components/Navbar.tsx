@@ -48,10 +48,10 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 50,
-        transition: "background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s",
-        background: scrolled ? "rgba(10,10,10,0.92)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        boxShadow: scrolled ? "0 1px 0 rgba(0,180,180,0.15)" : "none",
+        transition: "background 0.3s, box-shadow 0.3s",
+        background: scrolled ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.85)",
+        backdropFilter: "blur(12px)",
+        boxShadow: scrolled ? "0 1px 0 rgba(27,45,79,0.1)" : "0 1px 0 rgba(27,45,79,0.06)",
       }}
     >
       <nav
@@ -78,7 +78,7 @@ export default function Navbar() {
               height: "44px",
               borderRadius: "50%",
               objectFit: "cover",
-              border: "1px solid rgba(0,180,180,0.3)",
+              border: "1px solid rgba(27,45,79,0.2)",
             }}
           />
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
@@ -88,7 +88,7 @@ export default function Navbar() {
                 fontWeight: 700,
                 fontSize: "1.25rem",
                 letterSpacing: "0.08em",
-                color: "#00B4B4",
+                color: "#1B2D4F",
                 lineHeight: 1.1,
               }}
             >
@@ -99,7 +99,7 @@ export default function Navbar() {
                 fontFamily: "var(--font-inter), system-ui, sans-serif",
                 fontSize: "0.625rem",
                 letterSpacing: "0.18em",
-                color: "#737373",
+                color: "#9C9890",
                 textTransform: "uppercase",
               }}
             >
@@ -115,7 +115,6 @@ export default function Navbar() {
             gap: "0.25rem",
             listStyle: "none",
           }}
-          className="md-nav-list"
           id="desktop-nav"
         >
           {NAV_LINKS.map((link) => (
@@ -133,17 +132,17 @@ export default function Navbar() {
                   textTransform: "uppercase",
                   padding: "0.5rem 0.75rem",
                   borderRadius: "0.375rem",
-                  color: activeHash === link.href ? "#00B4B4" : "#a3a3a3",
-                  transition: "color 0.2s, background 0.2s",
+                  color: activeHash === link.href ? "#1B2D4F" : "#6B6460",
+                  transition: "color 0.2s",
                   position: "relative",
                 }}
                 onMouseEnter={(e) => {
                   if (activeHash !== link.href)
-                    (e.currentTarget as HTMLElement).style.color = "#F5F5F5";
+                    (e.currentTarget as HTMLElement).style.color = "#1A1615";
                 }}
                 onMouseLeave={(e) => {
                   if (activeHash !== link.href)
-                    (e.currentTarget as HTMLElement).style.color = "#a3a3a3";
+                    (e.currentTarget as HTMLElement).style.color = "#6B6460";
                 }}
               >
                 {link.label}
@@ -156,7 +155,7 @@ export default function Navbar() {
                       transform: "translateX(-50%)",
                       width: "20px",
                       height: "2px",
-                      background: "#00B4B4",
+                      background: "#1B2D4F",
                       borderRadius: "1px",
                     }}
                   />
@@ -173,8 +172,8 @@ export default function Navbar() {
           style={{
             display: "none",
             background: "transparent",
-            border: "1px solid #00B4B4",
-            color: "#00B4B4",
+            border: "1px solid #1B2D4F",
+            color: "#1B2D4F",
             fontFamily: "var(--font-oswald), system-ui, sans-serif",
             fontWeight: 600,
             fontSize: "0.8125rem",
@@ -186,12 +185,12 @@ export default function Navbar() {
             transition: "background 0.2s, color 0.2s",
           }}
           onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.background = "#00B4B4";
-            (e.currentTarget as HTMLElement).style.color = "#0a0a0a";
+            (e.currentTarget as HTMLElement).style.background = "#1B2D4F";
+            (e.currentTarget as HTMLElement).style.color = "#FFFFFF";
           }}
           onMouseLeave={(e) => {
             (e.currentTarget as HTMLElement).style.background = "transparent";
-            (e.currentTarget as HTMLElement).style.color = "#00B4B4";
+            (e.currentTarget as HTMLElement).style.color = "#1B2D4F";
           }}
         >
           Inscribirse
@@ -205,7 +204,7 @@ export default function Navbar() {
             background: "none",
             border: "none",
             cursor: "pointer",
-            color: "#00B4B4",
+            color: "#1B2D4F",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -223,9 +222,10 @@ export default function Navbar() {
           overflow: "hidden",
           maxHeight: isOpen ? "400px" : "0",
           transition: "max-height 0.35s ease",
-          background: "rgba(10,10,10,0.97)",
+          background: "rgba(255,255,255,0.98)",
           backdropFilter: "blur(12px)",
-          borderTop: isOpen ? "1px solid rgba(0,180,180,0.15)" : "none",
+          borderTop: isOpen ? "1px solid rgba(27,45,79,0.08)" : "none",
+          boxShadow: isOpen ? "0 8px 24px rgba(27,45,79,0.08)" : "none",
         }}
       >
         <ul
@@ -253,8 +253,8 @@ export default function Navbar() {
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   padding: "0.75rem 0.5rem",
-                  color: activeHash === link.href ? "#00B4B4" : "#a3a3a3",
-                  borderBottom: "1px solid rgba(255,255,255,0.05)",
+                  color: activeHash === link.href ? "#1B2D4F" : "#6B6460",
+                  borderBottom: "1px solid rgba(27,45,79,0.07)",
                 }}
               >
                 {link.label}
@@ -266,9 +266,9 @@ export default function Navbar() {
               onClick={() => handleNavClick("#contacto")}
               style={{
                 width: "100%",
-                background: "#00B4B4",
+                background: "#1B2D4F",
                 border: "none",
-                color: "#0a0a0a",
+                color: "#FFFFFF",
                 fontFamily: "var(--font-oswald), system-ui, sans-serif",
                 fontWeight: 700,
                 fontSize: "0.9375rem",

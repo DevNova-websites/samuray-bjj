@@ -3,6 +3,49 @@
 import { useEffect, useRef, useState } from "react";
 import { Shield, Star, Award } from "lucide-react";
 
+function BJJBelt({ degrees = 4 }: { degrees?: number }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "stretch",
+          height: "22px",
+          borderRadius: "4px",
+          overflow: "hidden",
+          width: "fit-content",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.18)",
+        }}
+      >
+        {/* Main black body */}
+        <div style={{ width: "150px", background: "#1A1615", position: "relative" }}>
+          <div style={{ position: "absolute", top: "6px", left: "10px", right: "10px", height: "1px", background: "rgba(255,255,255,0.06)" }} />
+          <div style={{ position: "absolute", bottom: "6px", left: "10px", right: "10px", height: "1px", background: "rgba(255,255,255,0.06)" }} />
+        </div>
+        {/* Red panel */}
+        <div style={{ width: "30px", background: "#B91C1C" }} />
+        {/* Degree stripes (white) */}
+        {Array.from({ length: degrees }).map((_, i) => (
+          <div key={i} style={{ width: "7px", background: "white" }} />
+        ))}
+        {/* White end cap */}
+        <div style={{ width: "12px", background: "white" }} />
+      </div>
+      <span
+        style={{
+          fontFamily: "var(--font-inter), sans-serif",
+          fontSize: "0.625rem",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          color: "#9C9890",
+        }}
+      >
+        Faixa Preta · {degrees}° Grado
+      </span>
+    </div>
+  );
+}
+
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -45,7 +88,7 @@ export default function Nosotros() {
       id="nosotros"
       ref={ref}
       style={{
-        background: "#0a0a0a",
+        background: "#FFFFFF",
         padding: "6rem 1.5rem",
         position: "relative",
         overflow: "hidden",
@@ -61,7 +104,7 @@ export default function Nosotros() {
           width: "500px",
           height: "500px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0,180,180,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(27,45,79,0.03) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -84,7 +127,7 @@ export default function Nosotros() {
               fontWeight: 600,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#00B4B4",
+              color: "#1B2D4F",
               display: "block",
               marginBottom: "1rem",
             }}
@@ -97,7 +140,7 @@ export default function Nosotros() {
               fontWeight: 700,
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
               textTransform: "uppercase",
-              color: "#F5F5F5",
+              color: "#1A1615",
               lineHeight: 1.05,
               marginBottom: "1rem",
             }}
@@ -108,7 +151,7 @@ export default function Nosotros() {
             style={{
               height: "3px",
               border: "none",
-              background: "linear-gradient(90deg, transparent, #00B4B4, transparent)",
+              background: "linear-gradient(90deg, transparent, #1B2D4F, transparent)",
               maxWidth: "180px",
               margin: "0 auto",
             }}
@@ -125,7 +168,7 @@ export default function Nosotros() {
             marginBottom: "5rem",
           }}
         >
-          {/* Image placeholder */}
+          {/* Image */}
           <div
             style={{
               opacity: visible ? 1 : 0,
@@ -140,10 +183,9 @@ export default function Nosotros() {
                 maxHeight: "560px",
                 borderRadius: "0.75rem",
                 overflow: "hidden",
-                border: "1px solid rgba(0,180,180,0.2)",
+                border: "1px solid rgba(27,45,79,0.15)",
               }}
             >
-              {/* Image */}
               <img
                 src="/images/instructor.jpg"
                 alt="Profesor Jorge Omar Ledesma"
@@ -162,7 +204,7 @@ export default function Nosotros() {
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "linear-gradient(135deg, #111 0%, #1a1a1a 100%)",
+                  background: "linear-gradient(135deg, #F5F3EF 0%, #EEECEA 100%)",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -175,7 +217,7 @@ export default function Nosotros() {
                     width: "80px",
                     height: "80px",
                     borderRadius: "50%",
-                    border: "2px dashed rgba(0,180,180,0.3)",
+                    border: "2px dashed rgba(27,45,79,0.2)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -187,7 +229,7 @@ export default function Nosotros() {
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
                     fontSize: "0.75rem",
-                    color: "#525252",
+                    color: "#9C9890",
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
                   }}
@@ -196,7 +238,7 @@ export default function Nosotros() {
                 </span>
               </div>
 
-              {/* Teal frame accent */}
+              {/* Frame accent */}
               <div
                 style={{
                   position: "absolute",
@@ -204,7 +246,7 @@ export default function Nosotros() {
                   left: "16px",
                   right: "16px",
                   bottom: "16px",
-                  border: "1px solid rgba(0,180,180,0.15)",
+                  border: "1px solid rgba(27,45,79,0.1)",
                   borderRadius: "0.5rem",
                   pointerEvents: "none",
                 }}
@@ -216,11 +258,12 @@ export default function Nosotros() {
                   position: "absolute",
                   bottom: "1.25rem",
                   right: "1.25rem",
-                  background: "rgba(10,10,10,0.9)",
-                  border: "1px solid rgba(0,180,180,0.4)",
+                  background: "rgba(255,255,255,0.95)",
+                  border: "1px solid rgba(27,45,79,0.2)",
                   borderRadius: "0.5rem",
                   padding: "0.75rem 1rem",
                   backdropFilter: "blur(8px)",
+                  boxShadow: "0 4px 20px rgba(27,45,79,0.1)",
                 }}
               >
                 <div
@@ -228,7 +271,7 @@ export default function Nosotros() {
                     fontFamily: "var(--font-oswald), sans-serif",
                     fontWeight: 700,
                     fontSize: "1.25rem",
-                    color: "#00B4B4",
+                    color: "#1B2D4F",
                     lineHeight: 1,
                   }}
                 >
@@ -238,7 +281,7 @@ export default function Nosotros() {
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
                     fontSize: "0.625rem",
-                    color: "#737373",
+                    color: "#6B6460",
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
                     marginTop: "2px",
@@ -264,7 +307,7 @@ export default function Nosotros() {
                 fontWeight: 700,
                 fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
                 textTransform: "uppercase",
-                color: "#F5F5F5",
+                color: "#1A1615",
                 lineHeight: 1.1,
                 marginBottom: "0.5rem",
               }}
@@ -277,7 +320,7 @@ export default function Nosotros() {
                 fontWeight: 700,
                 fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
                 textTransform: "uppercase",
-                background: "linear-gradient(135deg, #00B4B4, #00D4D4)",
+                background: "linear-gradient(135deg, #1B2D4F, #2A4070)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -300,7 +343,7 @@ export default function Nosotros() {
                 style={{
                   width: "32px",
                   height: "2px",
-                  background: "#CC0000",
+                  background: "#B91C1C",
                   flexShrink: 0,
                 }}
               />
@@ -308,7 +351,7 @@ export default function Nosotros() {
                 style={{
                   fontFamily: "var(--font-inter), sans-serif",
                   fontSize: "0.8125rem",
-                  color: "#737373",
+                  color: "#6B6460",
                   letterSpacing: "0.06em",
                   textTransform: "uppercase",
                 }}
@@ -317,32 +360,36 @@ export default function Nosotros() {
               </span>
             </div>
 
+            <div style={{ marginBottom: "2rem" }}>
+              <BJJBelt degrees={4} />
+            </div>
+
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
               <p
                 style={{
                   fontFamily: "var(--font-inter), sans-serif",
                   fontSize: "1rem",
                   lineHeight: 1.75,
-                  color: "#a3a3a3",
+                  color: "#6B6460",
                 }}
               >
-                Con más de <strong style={{ color: "#F5F5F5" }}>50 años de trayectoria</strong> en las artes
+                Con más de <strong style={{ color: "#1A1615" }}>50 años de trayectoria</strong> en las artes
                 marciales, el Profesor Jorge Omar Ledesma fundó la{" "}
-                <strong style={{ color: "#00B4B4" }}>JL Samuray BJJ Academy</strong> con una misión clara:
+                <strong style={{ color: "#1B2D4F" }}>JL Samuray BJJ Academy</strong> con una misión clara:
                 formar atletas fuertes técnica y moralmente. Alumno de{" "}
-                <strong style={{ color: "#F5F5F5" }}>Frederico Peixoto Sukata</strong>.
+                <strong style={{ color: "#1A1615" }}>Frederico Peixoto Sukata</strong>.
               </p>
               <p
                 style={{
                   fontFamily: "var(--font-inter), sans-serif",
                   fontSize: "1rem",
                   lineHeight: 1.75,
-                  color: "#a3a3a3",
+                  color: "#6B6460",
                 }}
               >
-                Afiliada a <strong style={{ color: "#F5F5F5" }}>Sukata Internacional</strong>, la academia
-                cuenta con reconocimientos del <strong style={{ color: "#F5F5F5" }}>IBJJF</strong> y la{" "}
-                <strong style={{ color: "#F5F5F5" }}>CBJJE</strong>. El Jiu-Jitsu tiene origen japonés y fue
+                Afiliada a <strong style={{ color: "#1A1615" }}>Sukata Internacional</strong>, la academia
+                cuenta con reconocimientos del <strong style={{ color: "#1A1615" }}>IBJJF</strong> y la{" "}
+                <strong style={{ color: "#1A1615" }}>CBJJE</strong>. El Jiu-Jitsu tiene origen japonés y fue
                 adaptado por la familia Gracie en Brasil — y aquí lo transmitimos con esa misma esencia.
               </p>
               <p
@@ -350,11 +397,11 @@ export default function Nosotros() {
                   fontFamily: "var(--font-inter), sans-serif",
                   fontSize: "1rem",
                   lineHeight: 1.75,
-                  color: "#a3a3a3",
+                  color: "#6B6460",
                 }}
               >
                 Creemos que el Jiu-Jitsu es un camino de vida. Cada clase refuerza los valores que nos
-                definen: <strong style={{ color: "#F5F5F5" }}>disciplina, respeto, honor, humildad,
+                definen: <strong style={{ color: "#1A1615" }}>disciplina, respeto, honor, humildad,
                 lealtad y hermandad</strong>. OSS.
               </p>
             </div>
@@ -370,9 +417,9 @@ export default function Nosotros() {
               <button
                 onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })}
                 style={{
-                  background: "#00B4B4",
+                  background: "#1B2D4F",
                   border: "none",
-                  color: "#0a0a0a",
+                  color: "#FFFFFF",
                   fontFamily: "var(--font-oswald), sans-serif",
                   fontWeight: 700,
                   fontSize: "0.875rem",
@@ -382,13 +429,14 @@ export default function Nosotros() {
                   borderRadius: "0.375rem",
                   cursor: "pointer",
                   transition: "background 0.2s, transform 0.2s",
+                  boxShadow: "0 4px 16px rgba(27,45,79,0.25)",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#00CCCC";
+                  (e.currentTarget as HTMLElement).style.background = "#2A4070";
                   (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#00B4B4";
+                  (e.currentTarget as HTMLElement).style.background = "#1B2D4F";
                   (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                 }}
               >
@@ -413,8 +461,8 @@ export default function Nosotros() {
                 key={pilar.title}
                 className="card-hover"
                 style={{
-                  background: "#111111",
-                  border: "1px solid #2a2a2a",
+                  background: "#F5F3EF",
+                  border: "1px solid #D4D0C8",
                   borderRadius: "0.75rem",
                   padding: "2rem",
                   opacity: visible ? 1 : 0,
@@ -427,14 +475,14 @@ export default function Nosotros() {
                     width: "48px",
                     height: "48px",
                     borderRadius: "0.5rem",
-                    background: "rgba(0,180,180,0.1)",
+                    background: "rgba(27,45,79,0.08)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     marginBottom: "1.25rem",
                   }}
                 >
-                  <Icon size={22} color="#00B4B4" />
+                  <Icon size={22} color="#1B2D4F" />
                 </div>
                 <h4
                   style={{
@@ -442,7 +490,7 @@ export default function Nosotros() {
                     fontWeight: 600,
                     fontSize: "1.125rem",
                     textTransform: "uppercase",
-                    color: "#F5F5F5",
+                    color: "#1A1615",
                     marginBottom: "0.75rem",
                   }}
                 >
@@ -453,7 +501,7 @@ export default function Nosotros() {
                     fontFamily: "var(--font-inter), sans-serif",
                     fontSize: "0.9rem",
                     lineHeight: 1.65,
-                    color: "#737373",
+                    color: "#6B6460",
                   }}
                 >
                   {pilar.text}
