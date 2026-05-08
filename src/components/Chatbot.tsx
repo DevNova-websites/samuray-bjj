@@ -52,6 +52,9 @@ export default function Chatbot() {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [showCta, setShowCta] = useState(true);
+  const lastUserMessageRef = useRef<HTMLDivElement>(null);
+
+  const lastUserIndex = messages.reduce((acc, msg, idx) => (msg.role === "user" ? idx : acc), -1);
 
   // Alternar la burbuja CTA para que no tape siempre la pantalla
   useEffect(() => {
@@ -62,10 +65,16 @@ export default function Chatbot() {
     return () => clearInterval(interval);
   }, [isOpen]);
 
-  // Auto-scroll hacia el último mensaje
+  // Auto-scroll inteligente
   useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    if (!isOpen) return;
+    if (isTyping) {
+      // Mientras escribe, bajamos para ver el indicador
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    } else if (messages.length > 1 && lastUserMessageRef.current) {
+      // Cuando responde, enfocamos la pregunta del usuario arriba
+      // para que la respuesta se lea cómodamente hacia abajo
+      lastUserMessageRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, [messages, isTyping, isOpen]);
 
@@ -159,8 +168,16 @@ export default function Chatbot() {
 
         {/* Historial de Mensajes */}
         <div style={{ flex: 1, padding: "1.25rem", overflowY: "auto", display: "flex", flexDirection: "column", gap: "1rem" }}>
-          {messages.map((msg) => (
-            <div key={msg.id} style={{ display: "flex", justifyContent: msg.role === "user" ? "flex-end" : "flex-start" }}>
+          {messages.map((msg, idx) => (
+            <div
+              key={msg.id}
+              ref={idx === lastUserIndex ? lastUserMessageRef : null}
+              style={{
+                display: "flex",
+                justifyContent: msg.role === "user" ? "flex-end" : "flex-start",
+                scrollMarginTop: "1.25rem",
+              }}
+            >
               <div
                 style={{
                   maxWidth: "85%",
