@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Nosotros from "@/components/Nosotros";
-import Servicios from "@/components/Servicios";
+import Clases from "@/components/Clases";
 import Timeline from "@/components/Timeline";
 import Credenciales from "@/components/Credenciales";
 import Contacto from "@/components/Contacto";
@@ -14,7 +14,7 @@ export default function Home() {
       <main>
         <Hero />
         <Nosotros />
-        <Servicios />
+        <Clases />
         <Timeline />
         <Credenciales />
         <Contacto />
