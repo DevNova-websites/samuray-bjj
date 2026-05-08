@@ -58,7 +58,7 @@ export default function Servicios() {
         </div>
 
         {/* Cards */}
-        <div style={{
+        <div id="svc-grid-cards" style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
           gap: "1.25rem",

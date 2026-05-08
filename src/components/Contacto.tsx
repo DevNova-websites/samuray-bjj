@@ -462,7 +462,7 @@ export default function Contacto() {
                     />
                   </FormField>
 
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+                  <div id="contact-email-tel" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                     <FormField label="Email *" error={errors.email}>
                       <input
                         className="form-input"
@@ -597,6 +597,9 @@ export default function Contacto() {
 
       <style>{`
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @media (max-width: 480px) {
+          #contact-email-tel { grid-template-columns: 1fr !important; }
+        }
       `}</style>
     </section>
   );

@@ -41,7 +41,7 @@ export default function Hero() {
       </svg>
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "6rem 1.5rem 4rem", maxWidth: "900px", width: "100%" }}>
+      <div id="hero-content" style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "6rem 1.5rem 4rem", maxWidth: "900px", width: "100%" }}>
 
         {/* Eyebrow */}
         <div style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.75rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s" }}>
@@ -115,6 +115,9 @@ export default function Hero() {
         @keyframes bounce {
           0%, 100% { transform: translateX(-50%) translateY(0); }
           50% { transform: translateX(-50%) translateY(8px); }
+        }
+        @media (max-width: 640px) {
+          #hero-content { padding-top: calc(72px + 1.5rem) !important; padding-bottom: 3rem !important; }
         }
       `}</style>
     </section>

@@ -89,7 +89,7 @@ export default function Nosotros() {
 
           {/* Image */}
           <div style={{ opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(-30px)", transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s" }}>
-            <div style={{ position: "relative", aspectRatio: "4/5", maxHeight: "560px", borderRadius: "0.75rem", overflow: "hidden", border: "1px solid rgba(185,28,28,0.15)" }}>
+            <div id="nosotros-img" style={{ position: "relative", aspectRatio: "4/5", maxHeight: "560px", borderRadius: "0.75rem", overflow: "hidden", border: "1px solid rgba(185,28,28,0.15)" }}>
               <img src="/images/instructor.jpg" alt="Profesor Jorge Omar Ledesma" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }} />
               {/* Fallback */}
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #F5F3EF 0%, #EEECEA 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
@@ -159,7 +159,7 @@ export default function Nosotros() {
         </div>
 
         {/* Pilares */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
+        <div id="nosotros-pilares" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
           {PILARES.map((pilar, i) => {
             const Icon = pilar.icon;
             const color = PILAR_COLORS[i];
@@ -180,6 +180,13 @@ export default function Nosotros() {
           })}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          #nosotros-img { aspect-ratio: 3/2 !important; max-height: 280px !important; }
+          #nosotros-pilares { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   );
 }

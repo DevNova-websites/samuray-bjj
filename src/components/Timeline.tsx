@@ -109,6 +109,7 @@ export default function Timeline() {
       <div
         key={event.year}
         ref={(el) => { itemRefs.current[i] = el; }}
+        className="tl-row"
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 80px 1fr",
@@ -119,7 +120,8 @@ export default function Timeline() {
           transition: `opacity 0.6s ease ${i * 0.05}s, transform 0.6s ease ${i * 0.05}s`,
         }}
       >
-        <div style={{ display: "flex", justifyContent: "flex-end", paddingRight: "2rem" }}>
+        {/* Left slot — hidden on mobile */}
+        <div className="tl-left" style={{ display: "flex", justifyContent: "flex-end", paddingRight: "2rem" }}>
           {isLeft ? (
             <TimelineCard event={event} index={i} onClick={() => setActiveIndex(i)} />
           ) : (
@@ -127,7 +129,8 @@ export default function Timeline() {
           )}
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
+        {/* Dot */}
+        <div className="tl-dot" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
           <button
             onClick={() => setActiveIndex(activeIndex === i ? null : i)}
             style={{
@@ -161,11 +164,14 @@ export default function Timeline() {
           </button>
         </div>
 
-        <div style={{ paddingLeft: "2rem" }}>
+        {/* Right slot — always visible. On mobile also renders left-side cards. */}
+        <div className="tl-right" style={{ paddingLeft: "2rem" }}>
           {!isLeft ? (
             <TimelineCard event={event} index={i} onClick={() => setActiveIndex(i)} />
           ) : (
-            <span />
+            <span className="tl-mobile-card">
+              <TimelineCard event={event} index={i} onClick={() => setActiveIndex(i)} />
+            </span>
           )}
         </div>
       </div>
@@ -527,8 +533,14 @@ export default function Timeline() {
         @keyframes fadeInModal { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUpModal { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInBtn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .tl-mobile-card { display: none; }
         @media (max-width: 640px) {
           #timeline-center-line { left: 24px !important; transform: none !important; }
+          .tl-row { grid-template-columns: 48px 1fr !important; }
+          .tl-left { display: none !important; }
+          .tl-dot { align-items: flex-start !important; padding-top: 1.25rem; }
+          .tl-right { padding-left: 0.75rem !important; }
+          .tl-mobile-card { display: block !important; }
         }
       `}</style>
     </section>
