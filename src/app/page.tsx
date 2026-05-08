@@ -6,6 +6,7 @@ import Timeline from "@/components/Timeline";
 import Credenciales from "@/components/Credenciales";
 import Contacto from "@/components/Contacto";
 import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Contacto />
       </main>
       <Footer />
+      <Chatbot />
     </>
   );
 }

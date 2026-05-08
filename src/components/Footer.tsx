@@ -1,4 +1,4 @@
-﻿"use client";
+﻿﻿"use client";
 
 import { Phone, Mail } from "lucide-react";
 
@@ -74,7 +74,7 @@ export default function Footer() {
               onClick={() => scrollTo("#inicio")}
               style={{ background: "none", border: "none", cursor: "pointer", textAlign: "left", marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "0.625rem" }}
             >
-              <img src="/images/logo.jpeg" alt="JL Samuray BJJ Academy" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(248,113,113,0.35)", flexShrink: 0 }} />
+              <img src="/images/logo-nuevo.png" alt="JL Samuray BJJ Academy" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(248,113,113,0.35)", flexShrink: 0 }} />
               <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                 <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1.375rem", letterSpacing: "0.06em", color: "#F87171", lineHeight: 1.1, display: "block" }}>
                   JL SAMURAY
