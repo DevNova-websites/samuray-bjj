@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { Phone, Mail, Send, CheckCircle, AlertCircle, Clock } from "lucide-react";
@@ -44,11 +44,9 @@ interface FormData {
 const NIVELES = [
   { value: "", label: "Seleccioná tu nivel" },
   { value: "principiante", label: "Principiante (sin experiencia)" },
-  { value: "basico", label: "Básico (alguna experiencia)" },
-  { value: "intermedio", label: "Intermedio" },
+  { value: "inicial", label: "Inicial (0 a 3 meses)" },
+  { value: "intermedio", label: "Intermedio (3 a 6 meses)" },
   { value: "avanzado", label: "Avanzado / Cinturón de color" },
-  { value: "nino", label: "Niño / Joven" },
-  { value: "otro", label: "Otro / No lo sé" },
 ];
 
 export default function Contacto() {
@@ -95,7 +93,7 @@ export default function Contacto() {
       id="contacto"
       ref={ref}
       style={{
-        background: "#FFFFFF",
+        background: "#F8F8F6",
         padding: "6rem 1.5rem",
         position: "relative",
         overflow: "hidden",
@@ -106,7 +104,7 @@ export default function Contacto() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(27,74,140,0.03) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(185,28,28,0.03) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -129,7 +127,7 @@ export default function Contacto() {
               fontWeight: 600,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#1B4A8C",
+              color: "#8B1A1A",
               display: "block",
               marginBottom: "1rem",
             }}
@@ -153,7 +151,7 @@ export default function Contacto() {
             style={{
               height: "3px",
               border: "none",
-              background: "linear-gradient(90deg, transparent, #1B2D4F, transparent)",
+              background: "linear-gradient(90deg, transparent, #8B1A1A, transparent)",
               maxWidth: "180px",
               margin: "0 auto",
             }}
@@ -186,7 +184,7 @@ export default function Contacto() {
                 marginBottom: "0.625rem",
               }}
             >
-              Iniciá tu Camino
+              {"Iniciá tu Camino"}
             </h3>
             <p
               style={{
@@ -198,14 +196,14 @@ export default function Contacto() {
               }}
             >
               Ya seas principiante o experimentado, llegaste al lugar correcto.
-              La primera clase es de prueba y totalmente gratuita. OSS.
+              <br></br>La primera clase es de prueba y totalmente gratuita. OSS.
             </p>
 
             {/* Schedule block */}
             <div
               style={{
                 background: "#F5F3EF",
-                border: "1px solid rgba(27,74,140,0.12)",
+                border: "1px solid rgba(185,28,28,0.12)",
                 borderRadius: "0.75rem",
                 padding: "1.25rem 1.5rem",
                 marginBottom: "2rem",
@@ -219,7 +217,7 @@ export default function Contacto() {
                   marginBottom: "1rem",
                 }}
               >
-                <Clock size={14} color="#1B4A8C" />
+                <Clock size={14} color="#8B1A1A" />
                 <span
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
@@ -227,19 +225,18 @@ export default function Contacto() {
                     fontWeight: 600,
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    color: "#1B4A8C",
+                    color: "#8B1A1A",
                   }}
                 >
                   Horario de Clases
                 </span>
               </div>
-              {/* Adultos */}
-              <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#1B4A8C", display: "block", marginBottom: "0.5rem" }}>Adultos</span>
+              <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#8B1A1A", display: "block", marginBottom: "0.5rem" }}>Adultos</span>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "1rem" }}>
                 {[
-                  { day: "Lunes", time: "20:00 – 21:15" },
-                  { day: "Miércoles", time: "20:00 – 21:15" },
-                  { day: "Viernes", time: "20:00 – 21:15" },
+                  { day: "Lunes", time: "20:00 - 21:15" },
+                  { day: "Miércoles", time: "20:00 - 21:15" },
+                  { day: "Viernes", time: "20:00 - 21:15" },
                 ].map((item) => (
                   <div key={item.day} style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "0.9375rem", textTransform: "uppercase", color: "#1A1615", letterSpacing: "0.04em" }}>
@@ -251,31 +248,31 @@ export default function Contacto() {
                   </div>
                 ))}
               </div>
-             
+
               <div
                 style={{
                   marginTop: "1rem",
                   paddingTop: "1rem",
-                  borderTop: "1px solid rgba(27,74,140,0.08)",
+                  borderTop: "1px solid rgba(185,28,28,0.08)",
                   fontFamily: "var(--font-inter), sans-serif",
                   fontSize: "0.75rem",
                   color: "#9C9890",
                 }}
               >
-                Cuota mensual — pago hasta el día 10. Presencial o transferencia bancaria.
+                {"Cuota mensual — pago hasta el día 10. Presencial o transferencia bancaria."}
               </div>
             </div>
 
             {/* Contact items */}
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem", marginBottom: "2.5rem" }}>
               <ContactItem
-                icon={<Phone size={18} color="#1B4A8C" />}
+                icon={<Phone size={18} color="#8B1A1A" />}
                 label="Teléfono"
                 value="+54 11 6178-1198"
                 href="tel:+541161781198"
               />
               <ContactItem
-                icon={<Mail size={18} color="#1B4A8C" />}
+                icon={<Mail size={18} color="#8B1A1A" />}
                 label="Email"
                 value="samurayledesma@gmail.com"
                 href="mailto:samurayledesma@gmail.com"
@@ -392,14 +389,14 @@ export default function Contacto() {
                       width: "64px",
                       height: "64px",
                       borderRadius: "50%",
-                      background: "rgba(27,74,140,0.08)",
-                      border: "2px solid rgba(27,74,140,0.3)",
+                      background: "rgba(185,28,28,0.08)",
+                      border: "2px solid rgba(185,28,28,0.3)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                     }}
                   >
-                    <CheckCircle size={28} color="#1B4A8C" />
+                    <CheckCircle size={28} color="#8B1A1A" />
                   </div>
                   <h4
                     style={{
@@ -410,7 +407,7 @@ export default function Contacto() {
                       color: "#1A1615",
                     }}
                   >
-                    ¡Mensaje Enviado!
+                    {"¡Mensaje Enviado!"}
                   </h4>
                   <p
                     style={{
@@ -421,14 +418,14 @@ export default function Contacto() {
                       maxWidth: "320px",
                     }}
                   >
-                    Gracias por tu interés. El Profesor Ledesma se pondrá en contacto con vos a la brevedad. OSS.
+                    {"Gracias por tu interés. El Profesor Ledesma se pondrá en contacto con vos a la brevedad. OSS."}
                   </p>
                   <button
                     onClick={() => { setFormState("idle"); setFormData({ nombre: "", email: "", telefono: "", nivel: "", mensaje: "" }); }}
                     style={{
                       background: "transparent",
-                      border: "1px solid rgba(27,74,140,0.3)",
-                      color: "#1B4A8C",
+                      border: "1px solid rgba(185,28,28,0.3)",
+                      color: "#8B1A1A",
                       fontFamily: "var(--font-inter), sans-serif",
                       fontSize: "0.875rem",
                       padding: "0.625rem 1.5rem",
@@ -452,7 +449,7 @@ export default function Contacto() {
                       letterSpacing: "0.04em",
                     }}
                   >
-                    Solicitar Información
+                    {"Solicitar Información"}
                   </div>
 
                   <FormField label="Nombre completo *" error={errors.nombre}>
@@ -504,7 +501,7 @@ export default function Contacto() {
                   <FormField label="Mensaje *" error={errors.mensaje}>
                     <textarea
                       className="form-input"
-                      placeholder="Contanos qué te interesa, qué días podés entrenar, cualquier consulta..."
+                      placeholder={"Contanos qué te interesa, qué días podés entrenar, cualquier consulta..."}
                       value={formData.mensaje}
                       onChange={handleChange("mensaje")}
                       rows={4}
@@ -522,13 +519,13 @@ export default function Contacto() {
                         background: "rgba(185,28,28,0.07)",
                         border: "1px solid rgba(185,28,28,0.2)",
                         borderRadius: "0.5rem",
-                        color: "#B91C1C",
+                        color: "#8B1A1A",
                         fontSize: "0.875rem",
                         fontFamily: "var(--font-inter), sans-serif",
                       }}
                     >
                       <AlertCircle size={16} />
-                      Hubo un error al enviar. Intentá de nuevo o contactanos por WhatsApp.
+                      {"Hubo un error al enviar. Intentá de nuevo o contactanos por WhatsApp."}
                     </div>
                   )}
 
@@ -536,7 +533,7 @@ export default function Contacto() {
                     type="submit"
                     disabled={formState === "loading"}
                     style={{
-                      background: formState === "loading" ? "#2A5FA8" : "#1B4A8C",
+                      background: formState === "loading" ? "#A31919" : "#8B1A1A",
                       border: "none",
                       color: "#FFFFFF",
                       fontFamily: "var(--font-oswald), sans-serif",
@@ -552,16 +549,16 @@ export default function Contacto() {
                       justifyContent: "center",
                       gap: "0.5rem",
                       transition: "background 0.2s, transform 0.2s",
-                      boxShadow: "0 4px 16px rgba(27,74,140,0.25)",
+                      boxShadow: "0 4px 16px rgba(185,28,28,0.3)",
                     }}
                     onMouseEnter={(e) => {
                       if (formState !== "loading") {
-                        (e.currentTarget as HTMLElement).style.background = "#2A5FA8";
+                        (e.currentTarget as HTMLElement).style.background = "#A31919";
                         (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
                       }
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.background = formState === "loading" ? "#2A5FA8" : "#1B4A8C";
+                      (e.currentTarget as HTMLElement).style.background = formState === "loading" ? "#A31919" : "#8B1A1A";
                       (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                     }}
                   >
@@ -589,7 +586,7 @@ export default function Contacto() {
                       lineHeight: 1.5,
                     }}
                   >
-                    Al enviar aceptás que nos comuniquemos con vos. No compartimos tu información con terceros.
+                    {"Al enviar aceptás que nos comuniquemos con vos. No compartimos tu información con terceros."}
                   </p>
                 </form>
               )}
@@ -634,7 +631,7 @@ function FormField({
           style={{
             fontFamily: "var(--font-inter), sans-serif",
             fontSize: "0.75rem",
-            color: "#B91C1C",
+            color: "#8B1A1A",
           }}
         >
           {error}
@@ -671,7 +668,7 @@ function ContactItem({
         transition: "border-color 0.2s, background 0.2s",
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = "rgba(27,74,140,0.25)";
+        (e.currentTarget as HTMLElement).style.borderColor = "rgba(185,28,28,0.25)";
         (e.currentTarget as HTMLElement).style.background = "#EEECEA";
       }}
       onMouseLeave={(e) => {
@@ -684,7 +681,7 @@ function ContactItem({
           width: "40px",
           height: "40px",
           borderRadius: "0.5rem",
-          background: "rgba(27,74,140,0.07)",
+          background: "rgba(185,28,28,0.07)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -751,9 +748,9 @@ function SocialBtn({
         transition: "color 0.2s, border-color 0.2s, background 0.2s",
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.color = "#1B4A8C";
-        (e.currentTarget as HTMLElement).style.borderColor = "rgba(27,74,140,0.3)";
-        (e.currentTarget as HTMLElement).style.background = "rgba(27,74,140,0.06)";
+        (e.currentTarget as HTMLElement).style.color = "#8B1A1A";
+        (e.currentTarget as HTMLElement).style.borderColor = "rgba(185,28,28,0.3)";
+        (e.currentTarget as HTMLElement).style.background = "rgba(185,28,28,0.06)";
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLElement).style.color = "#6B6460";

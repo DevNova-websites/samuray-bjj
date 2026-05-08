@@ -1,13 +1,15 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 :root {
-  --blue: #1B4A8C;
-  --blue-light: #2A5FA8;
-  --purple: #5E3090;
-  --purple-light: #7040A8;
-  --brown: #7A4028;
-  --brown-light: #9A5030;
-  --bg: #FFFFFF;
+  --red: #8B1A1A;
+  --red-light: #A31919;
+  --blue: #8B1A1A;
+  --blue-light: #A31919;
+  --purple: #991515;
+  --purple-light: #B32020;
+  --brown: #7A1010;
+  --brown-light: #9A1818;
+  --bg: #F8F8F6;
   --surface: #F5F3EF;
   --surface2: #EEECEA;
   --border: #D4D0C8;
@@ -37,17 +39,17 @@ body {
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #F5F3EF; }
-::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
 
-::selection { background: rgba(27,74,140,0.15); color: var(--blue); }
+::selection { background: rgba(185,28,28,0.15); color: var(--red); }
 
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(27,74,140,0.1);
-  border-color: rgba(27,74,140,0.2);
+  box-shadow: 0 20px 60px rgba(185,28,28,0.1);
+  border-color: rgba(185,28,28,0.2);
 }
 
 .form-input {
@@ -63,8 +65,8 @@ body {
 }
 .form-input::placeholder { color: #9C9890; }
 .form-input:focus {
-  border-color: #1B4A8C;
-  box-shadow: 0 0 0 3px rgba(27,74,140,0.1);
+  border-color: #8B1A1A;
+  box-shadow: 0 0 0 3px rgba(185,28,28,0.1);
 }
 
 .animated-underline {
@@ -77,7 +79,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--blue);
+  background: var(--red);
   transition: width 0.3s ease;
 }
 .animated-underline:hover::after {

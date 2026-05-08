@@ -5,25 +5,40 @@ import { Shield, Star, Award } from "lucide-react";
 
 function BJJBelt({ degrees = 4 }: { degrees?: number }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-      <div style={{ display: "flex", alignItems: "stretch", height: "22px", borderRadius: "4px", overflow: "hidden", width: "fit-content", boxShadow: "0 2px 8px rgba(0,0,0,0.18)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+      <div style={{
+        display: "flex",
+        alignItems: "stretch",
+        height: "22px",
+        borderRadius: "3px",
+        overflow: "hidden",
+        width: "fit-content",
+        border: "1px solid #000000",
+      }}>
         {/* Main black body */}
-        <div style={{ width: "150px", background: "#1A1615", position: "relative" }}>
-          <div style={{ position: "absolute", top: "6px", left: "10px", right: "10px", height: "1px", background: "rgba(255,255,255,0.06)" }} />
-          <div style={{ position: "absolute", bottom: "6px", left: "10px", right: "10px", height: "1px", background: "rgba(255,255,255,0.06)" }} />
-        </div>
-        {/* Red panel (standard for black belt) */}
-        <div style={{ width: "30px", background: "#B91C1C" }} />
-        {/* Degree stripes (white) */}
+        <div style={{ width: "150px", background: "#111111", flexShrink: 0 }} />
+        {/* Black separator */}
+        <div style={{ width: "2px", background: "#000000", flexShrink: 0 }} />
+        {/* Red dan panel */}
+        <div style={{ width: "28px", background: "#8B1A1A", flexShrink: 0 }} />
+        {/* Black separator */}
+        <div style={{ width: "2px", background: "#000000", flexShrink: 0 }} />
+        {/* Degree stripes */}
         {Array.from({ length: degrees }).map((_, i) => (
-          <div key={i} style={{ width: "7px", background: "white" }} />
+          <div key={i} style={{ display: "flex", alignSelf: "stretch" }}>
+            {i > 0 && <div style={{ width: "2px", background: "#000000" }} />}
+            <div style={{ width: "8px", background: "#FFFFFF" }} />
+          </div>
         ))}
+        {/* Black separator */}
+        <div style={{ width: "2px", background: "#000000", flexShrink: 0 }} />
         {/* White end cap */}
-        <div style={{ width: "12px", background: "white" }} />
+        <div style={{
+          width: "12px",
+          background: "#FFFFFF",
+          flexShrink: 0,
+        }} />
       </div>
-      <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.625rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#9C9890" }}>
-        Faixa Preta · {degrees}° Grado
-      </span>
     </div>
   );
 }
@@ -48,25 +63,25 @@ const PILARES = [
   { icon: Award,  title: "Lealtad y Hermandad",  text: "Somos una familia. Nos apoyamos, entrenamos y crecemos juntos bajo la bandera de Sukata Internacional. La hermandad que se forja en el tatami trasciende el deporte." },
 ];
 
-const PILAR_COLORS = ["#1B4A8C", "#5E3090", "#7A4028"];
+const PILAR_COLORS = ["#8B1A1A", "#991515", "#7A1010"];
 
 export default function Nosotros() {
   const { ref, visible } = useInView();
 
   return (
-    <section id="nosotros" ref={ref} style={{ background: "#FFFFFF", padding: "6rem 1.5rem", position: "relative", overflow: "hidden" }}>
-      <div style={{ position: "absolute", top: "50%", right: "-200px", transform: "translateY(-50%)", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(27,74,140,0.03) 0%, transparent 70%)", pointerEvents: "none" }} />
+    <section id="nosotros" ref={ref} style={{ background: "#F8F8F6", padding: "6rem 1.5rem", position: "relative", overflow: "hidden" }}>
+      <div style={{ position: "absolute", top: "50%", right: "-200px", transform: "translateY(-50%)", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(185,28,28,0.03) 0%, transparent 70%)", pointerEvents: "none" }} />
 
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         {/* Section header */}
         <div style={{ textAlign: "center", marginBottom: "4rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(30px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
-          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "#1B4A8C", display: "block", marginBottom: "1rem" }}>
+          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "#8B1A1A", display: "block", marginBottom: "1rem" }}>
             Quiénes Somos
           </span>
           <h2 style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 5vw, 3.5rem)", textTransform: "uppercase", color: "#1A1615", lineHeight: 1.05, marginBottom: "1rem" }}>
             La Academia
           </h2>
-          <hr style={{ height: "3px", border: "none", background: "linear-gradient(90deg, transparent, #1B4A8C, transparent)", maxWidth: "180px", margin: "0 auto" }} />
+          <hr style={{ height: "3px", border: "none", background: "linear-gradient(90deg, transparent, #8B1A1A, transparent)", maxWidth: "180px", margin: "0 auto" }} />
         </div>
 
         {/* Main content grid */}
@@ -74,20 +89,20 @@ export default function Nosotros() {
 
           {/* Image */}
           <div style={{ opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(-30px)", transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s" }}>
-            <div style={{ position: "relative", aspectRatio: "4/5", maxHeight: "560px", borderRadius: "0.75rem", overflow: "hidden", border: "1px solid rgba(27,74,140,0.15)" }}>
+            <div style={{ position: "relative", aspectRatio: "4/5", maxHeight: "560px", borderRadius: "0.75rem", overflow: "hidden", border: "1px solid rgba(185,28,28,0.15)" }}>
               <img src="/images/instructor.jpg" alt="Profesor Jorge Omar Ledesma" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }} />
               {/* Fallback */}
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #F5F3EF 0%, #EEECEA 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
-                <div style={{ width: "80px", height: "80px", borderRadius: "50%", border: "2px dashed rgba(27,74,140,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ width: "80px", height: "80px", borderRadius: "50%", border: "2px dashed rgba(185,28,28,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <span style={{ fontSize: "2rem" }}>🥋</span>
                 </div>
                 <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.75rem", color: "#9C9890", letterSpacing: "0.08em", textTransform: "uppercase" }}>Foto del Instructor</span>
               </div>
               {/* Inner frame */}
-              <div style={{ position: "absolute", top: "16px", left: "16px", right: "16px", bottom: "16px", border: "1px solid rgba(27,74,140,0.1)", borderRadius: "0.5rem", pointerEvents: "none" }} />
+              <div style={{ position: "absolute", top: "16px", left: "16px", right: "16px", bottom: "16px", border: "1px solid rgba(185,28,28,0.1)", borderRadius: "0.5rem", pointerEvents: "none" }} />
               {/* Badge */}
-              <div style={{ position: "absolute", bottom: "1.25rem", right: "1.25rem", background: "rgba(255,255,255,0.95)", border: "1px solid rgba(27,74,140,0.2)", borderRadius: "0.5rem", padding: "0.75rem 1rem", backdropFilter: "blur(8px)", boxShadow: "0 4px 20px rgba(27,74,140,0.1)" }}>
-                <div style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4A8C", lineHeight: 1 }}>+50</div>
+              <div style={{ position: "absolute", bottom: "1.25rem", right: "1.25rem", background: "rgba(255,255,255,0.95)", border: "1px solid rgba(185,28,28,0.2)", borderRadius: "0.5rem", padding: "0.75rem 1rem", backdropFilter: "blur(8px)", boxShadow: "0 4px 20px rgba(185,28,28,0.1)" }}>
+                <div style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#8B1A1A", lineHeight: 1 }}>+50</div>
                 <div style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.625rem", color: "#6B6460", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: "2px" }}>Años en Artes Marciales</div>
               </div>
             </div>
@@ -98,14 +113,14 @@ export default function Nosotros() {
             <h3 style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 3vw, 2.25rem)", textTransform: "uppercase", color: "#1A1615", lineHeight: 1.1, marginBottom: "0.5rem" }}>
               Prof. Jorge Omar
             </h3>
-            <h3 style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 3vw, 2.25rem)", textTransform: "uppercase", background: "linear-gradient(135deg, #1B4A8C, #5E3090)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", lineHeight: 1.1, marginBottom: "1.25rem" }}>
+            <h3 style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 3vw, 2.25rem)", textTransform: "uppercase", background: "linear-gradient(135deg, #8B1A1A, #991515)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", lineHeight: 1.1, marginBottom: "1.25rem" }}>
               Ledesma
             </h3>
 
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
-              <div style={{ width: "32px", height: "2px", background: "#7A4028", flexShrink: 0 }} />
+              <div style={{ width: "32px", height: "2px", background: "#8B1A1A", flexShrink: 0 }} />
               <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#6B6460", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                Faixa Preta 4º Grado · Fundador &amp; Profesor
+                Cinta Negra 4º Dan · Fundador &amp; Profesor
               </span>
             </div>
 
@@ -117,7 +132,7 @@ export default function Nosotros() {
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
               <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", lineHeight: 1.75, color: "#6B6460" }}>
                 Con más de <strong style={{ color: "#1A1615" }}>50 años de trayectoria</strong> en las artes marciales, el Profesor Jorge Omar Ledesma fundó la{" "}
-                <strong style={{ color: "#1B4A8C" }}>JL Samuray BJJ Academy</strong> con una misión clara: formar atletas fuertes técnica y moralmente. Alumno de{" "}
+                <strong style={{ color: "#8B1A1A" }}>JL Samuray BJJ Academy</strong> con una misión clara: formar atletas fuertes técnica y moralmente. Alumno de{" "}
                 <strong style={{ color: "#1A1615" }}>Frederico Peixoto Sukata</strong>.
               </p>
               <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", lineHeight: 1.75, color: "#6B6460" }}>
@@ -133,9 +148,9 @@ export default function Nosotros() {
             <div style={{ marginTop: "2.5rem" }}>
               <button
                 onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })}
-                style={{ background: "#1B4A8C", border: "none", color: "#FFFFFF", fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "0.875rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "0.75rem 1.75rem", borderRadius: "0.375rem", cursor: "pointer", transition: "background 0.2s, transform 0.2s", boxShadow: "0 4px 16px rgba(27,74,140,0.25)" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#2A5FA8"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#1B4A8C"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
+                style={{ background: "#8B1A1A", border: "none", color: "#FFFFFF", fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "0.875rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "0.75rem 1.75rem", borderRadius: "0.375rem", cursor: "pointer", transition: "background 0.2s, transform 0.2s", boxShadow: "0 4px 16px rgba(185,28,28,0.3)" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#A31919"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#8B1A1A"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
               >
                 Sumate al Tatami
               </button>
@@ -150,7 +165,7 @@ export default function Nosotros() {
             const color = PILAR_COLORS[i];
             return (
               <div key={pilar.title} className="card-hover" style={{ background: "#F5F3EF", border: "1px solid #D4D0C8", borderRadius: "0.75rem", padding: "2rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(30px)", transition: `opacity 0.6s ease ${0.4 + i * 0.1}s, transform 0.6s ease ${0.4 + i * 0.1}s` }}>
-                <div style={{ width: "48px", height: "48px", borderRadius: "0.5rem", background: `${color}12`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.25rem" }}>
+                <div style={{ width: "48px", height: "48px", borderRadius: "0.5rem", background: `${color}18`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.25rem" }}>
                   <Icon size={22} color={color} />
                 </div>
                 <div style={{ width: "32px", height: "2px", background: color, marginBottom: "1rem", borderRadius: "1px" }} />
