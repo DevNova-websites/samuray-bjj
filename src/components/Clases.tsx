@@ -23,12 +23,12 @@ const SCHEDULE = [
   { key: "viernes",  label: "Viernes",   abrev: "VIE", hora: "20:00", fin: "21:15" },
 ];
 
-export default function Servicios() {
+export default function Clases() {
   const { ref, visible } = useInView();
 
   return (
     <section
-      id="servicios"
+      id="clases"
       ref={ref}
       style={{ background: "#F5F3EF", padding: "6rem 1.5rem", position: "relative", overflow: "hidden" }}
     >
