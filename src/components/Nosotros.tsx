@@ -132,12 +132,12 @@ export default function Nosotros() {
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
               <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", lineHeight: 1.75, color: "#6B6460" }}>
                 Con más de <strong style={{ color: "#1A1615" }}>50 años de trayectoria</strong> en las artes marciales, el Profesor Jorge Omar Ledesma fundó la{" "}
-                <strong style={{ color: "#8B1A1A" }}>JL Samuray BJJ Academy</strong> con una misión clara: formar atletas fuertes técnica y moralmente. Alumno de{" "}
-                <strong style={{ color: "#1A1615" }}>Frederico Peixoto Sukata</strong>.
+                <strong style={{ color: "#8B1A1A" }}>JL Samuray BJJ Academy</strong> con una misión clara: formar atletas fuertes técnica y moralmente. Alumno del mestre{" "}
+                <strong style={{ color: "#1A1615" }}>Frederico Peixoto</strong>.
               </p>
               <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", lineHeight: 1.75, color: "#6B6460" }}>
                 Afiliada a <strong style={{ color: "#1A1615" }}>Sukata Internacional</strong>, la academia cuenta con reconocimientos del{" "}
-                <strong style={{ color: "#1A1615" }}>IBJJF</strong> y la <strong style={{ color: "#1A1615" }}>CBJJE</strong>. El Jiu-Jitsu tiene origen japonés y fue adaptado por la familia Gracie en Brasil — y aquí lo transmitimos con esa misma esencia.
+                <strong style={{ color: "#1A1615" }}>IBJJF</strong> y la <strong style={{ color: "#1A1615" }}>CBJJE</strong>. El Jiu-Jitsu tiene origen japonés y fue adaptado por la familia Gracie en Brasil - aquí lo transmitimos con esa misma esencia.
               </p>
               <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", lineHeight: 1.75, color: "#6B6460" }}>
                 Creemos que el Jiu-Jitsu es un camino de vida. Cada clase refuerza los valores que nos definen:{" "}
