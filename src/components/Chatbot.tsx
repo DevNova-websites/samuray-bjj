@@ -51,6 +51,16 @@ export default function Chatbot() {
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [showCta, setShowCta] = useState(true);
+
+  // Alternar la burbuja CTA para que no tape siempre la pantalla
+  useEffect(() => {
+    if (isOpen) return; // Si el chat está abierto, pausamos el temporizador
+    const interval = setInterval(() => {
+      setShowCta((prev) => !prev);
+    }, 5000); // 5000ms = Alterna cada 5 segundos
+    return () => clearInterval(interval);
+  }, [isOpen]);
 
   // Auto-scroll hacia el último mensaje
   useEffect(() => {
@@ -118,9 +128,16 @@ export default function Chatbot() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                overflow: "hidden",
+                border: "1px solid rgba(139,26,26,0.2)",
               }}
             >
               <Bot size={20} color="#8B1A1A" />
+              <img
+                src="/images/prof-jorge-omar-ledesma.png"
+                alt="Avatar de Samu"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
             </div>
             <div>
               <div style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "1.125rem", color: "#FFFFFF", lineHeight: 1.1, letterSpacing: "0.04em" }}>
@@ -226,6 +243,9 @@ export default function Chatbot() {
             whiteSpace: "nowrap",
             animation: "bounceTooltip 2s infinite ease-in-out",
             cursor: "pointer",
+            opacity: showCta ? 1 : 0,
+            pointerEvents: showCta ? "auto" : "none",
+            transition: "opacity 0.6s ease-in-out",
           }}
         >
           ¡Hola! ¿Tenés dudas? estoy para ayudarte 🥋
