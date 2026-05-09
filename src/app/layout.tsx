@@ -23,11 +23,31 @@ export const metadata: Metadata = {
     "jiu jitsu", "BJJ", "Samuray", "academia", "artes marciales",
     "Ledesma", "IBJJF", "Sukata", "grappling", "defensa personal",
   ],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico"
+  },
   openGraph: {
     title: "JL Samuray BJJ Academy",
     description: "Academia de Brazilian Jiu-Jitsu — Sukata Internacional",
     type: "website",
     locale: "es_AR",
+    url: "https://samuraybjj.com",
+    siteName: "JL Samuray BJJ Academy",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "JL Samuray BJJ Academy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JL Samuray BJJ Academy",
+    description: "Academia de Brazilian Jiu-Jitsu — Sukata Internacional",
+    images: ["/images/og-image.png"],
   },
 };
 
