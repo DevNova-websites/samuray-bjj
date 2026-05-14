@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Inicio",        href: "#inicio" },
@@ -54,7 +55,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <button onClick={() => handleNavClick("#inicio")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "0.625rem" }}>
-          <img src="/images/logo-nuevo.png" alt="JL Samuray BJJ Academy" style={{ width: "44px", height: "44px", borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(185,28,28,0.25)" }} />
+          <Image src="/images/logo-nuevo.png" alt="JL Samuray BJJ Academy" width={44} height={44} style={{ borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(185,28,28,0.25)" }} />
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
             <span style={{ fontFamily: "var(--font-oswald), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", letterSpacing: "0.08em", color: "#8B1A1A", lineHeight: 1.1 }}>
               JL SAMURAY

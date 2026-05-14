@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Phone, Mail, Send, CheckCircle, AlertCircle, Clock } from "lucide-react";
+import useSendEmail from "@/hooks/useSendEmail";
 
 const InstagramIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -51,6 +52,7 @@ const NIVELES = [
 
 export default function Contacto() {
   const { ref, visible } = useInView();
+  const sendEmail = useSendEmail();
   const [formData, setFormData] = useState<FormData>({
     nombre: "",
     email: "",
@@ -60,6 +62,7 @@ export default function Contacto() {
   });
   const [formState, setFormState] = useState<FormState>("idle");
   const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [submitError, setSubmitError] = useState("");
 
   const validate = (): boolean => {
     const newErrors: Partial<FormData> = {};
@@ -75,8 +78,19 @@ export default function Contacto() {
     e.preventDefault();
     if (!validate()) return;
     setFormState("loading");
-    await new Promise((r) => setTimeout(r, 1500));
-    setFormState("success");
+    setSubmitError("");
+
+    try {
+      await sendEmail(formData);
+      setFormState("success");
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Hubo un error al enviar. Intentá de nuevo o contactanos por WhatsApp."
+      );
+      setFormState("error");
+    }
   };
 
   const handleChange = (field: keyof FormData) => (
@@ -525,7 +539,7 @@ export default function Contacto() {
                       }}
                     >
                       <AlertCircle size={16} />
-                      {"Hubo un error al enviar. Intentá de nuevo o contactanos por WhatsApp."}
+                      {submitError || "Hubo un error al enviar. Intentá de nuevo o contactanos por WhatsApp."}
                     </div>
                   )}
 
