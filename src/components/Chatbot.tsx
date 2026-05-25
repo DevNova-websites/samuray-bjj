@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { MessageCircle, X, Bot } from "lucide-react";
+import { X } from "lucide-react";
 
 const QA_DATA = [
   {
@@ -46,7 +46,7 @@ export default function Chatbot() {
     {
       id: 1,
       role: "bot",
-      text: "¡Hola! Soy Samu 🥋 y estoy para responder tus preguntas rápidas. ¿En qué te puedo ayudar?",
+      text: "¡Hola! Soy Sami 🥋 y estoy para responder tus preguntas rápidas. ¿En qué te puedo ayudar?",
     },
   ]);
   const [isTyping, setIsTyping] = useState(false);
@@ -141,16 +141,15 @@ export default function Chatbot() {
                 border: "1px solid rgba(139,26,26,0.2)",
               }}
             >
-              <Bot size={20} color="#8B1A1A" />
               <img
-                src="/images/prof-jorge-omar-ledesma.png"
-                alt="Avatar de Samu"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                src="/images/ChibiSamu.jpg"
+                alt="Avatar de Sami"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
               />
             </div>
             <div>
               <div style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "1.125rem", color: "#FFFFFF", lineHeight: 1.1, letterSpacing: "0.04em" }}>
-                Samu
+                Sami
               </div>
               <div style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", color: "rgba(255,255,255,0.7)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                 Asistente Virtual
@@ -305,7 +304,15 @@ export default function Chatbot() {
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#8B1A1A"; }}
         aria-label="Abrir asistente virtual"
       >
-        {isOpen ? <X size={28} /> : <MessageCircle size={28} />}
+        {isOpen ? (
+          <X size={28} />
+        ) : (
+          <img
+            src="/images/ChibiSamu.jpg"
+            alt="Abrir asistente virtual Sami"
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", borderRadius: "50%" }}
+          />
+        )}
       </button>
 
       <style>{`

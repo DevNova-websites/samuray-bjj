@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Clock } from "lucide-react";
+import { Clock, MapPin } from "lucide-react";
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,10 +21,26 @@ function useInView(threshold = 0.1) {
   return { ref, visible };
 }
 
-const SCHEDULE = [
-  { key: "lunes",    label: "Lunes",     abrev: "LUN", hora: "20:00", fin: "21:15" },
-  { key: "miercoles", label: "Miércoles", abrev: "MIÉ", hora: "20:00", fin: "21:15" },
-  { key: "viernes",  label: "Viernes",   abrev: "VIE", hora: "20:00", fin: "21:15" },
+const BRANCHES = [
+  {
+    key: "central",
+    name: "Central",
+    address: "Av.Rivadavia 5040 (galería Cavour 2do piso), Caballito",
+    schedule: [
+      { key: "central-lunes",     label: "Lunes",     abrev: "LUN", hora: "20:00", fin: "21:15" },
+      { key: "central-miercoles", label: "Miércoles", abrev: "MIÉ", hora: "20:00", fin: "21:15" },
+      { key: "central-viernes",   label: "Viernes",   abrev: "VIE", hora: "20:00", fin: "21:15" },
+    ],
+  },
+  {
+    key: "filial-1",
+    name: "Filial 1",
+    address: "Av.Rivadavia 2283, Balbanera",
+    schedule: [
+      { key: "filial-1-martes", label: "Martes", abrev: "MAR", hora: "18:30", fin: "20:00" },
+      { key: "filial-1-jueves", label: "Jueves", abrev: "JUE", hora: "18:30", fin: "20:00" },
+    ],
+  },
 ];
 
 export default function Clases() {
@@ -56,73 +72,107 @@ export default function Clases() {
             Horarios
           </h2>
           <hr style={{ height: "3px", border: "none", background: "linear-gradient(90deg, transparent, #8B1A1A, transparent)", maxWidth: "180px", margin: "0 auto 1.5rem" }} />
-          <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", color: "#6B6460", maxWidth: "400px", margin: "0 auto", lineHeight: 1.65 }}>
-            Clases de Brazilian Jiu-Jitsu para adultos, tres veces por semana.
+          <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", color: "#6B6460", maxWidth: "460px", margin: "0 auto", lineHeight: 1.65 }}>
+            Clases de Brazilian Jiu-Jitsu para adultos en nuestras sedes.
           </p>
         </div>
 
         {/* Cards */}
         <div id="svc-grid-cards" style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "1.25rem",
+          gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+          gap: "1.5rem",
           marginBottom: "2.5rem",
         }}>
-          {SCHEDULE.map((dia, i) => (
+          {BRANCHES.map((branch, branchIndex) => (
             <div
-              key={dia.key}
+              key={branch.key}
               style={{
                 background: "#FFFFFF",
                 border: "1px solid #D4D0C8",
                 borderRadius: "1rem",
-                padding: "2rem 1.5rem",
-                textAlign: "center",
+                padding: "1.5rem",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                gap: "1rem",
+                gap: "1.5rem",
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(24px)",
-                transition: `opacity 0.6s ease ${0.15 + i * 0.1}s, transform 0.6s ease ${0.15 + i * 0.1}s`,
+                transition: `opacity 0.6s ease ${0.15 + branchIndex * 0.12}s, transform 0.6s ease ${0.15 + branchIndex * 0.12}s`,
               }}
             >
-              {/* Day abbrev */}
-              <div style={{
-                width: "52px",
-                height: "52px",
-                borderRadius: "50%",
-                background: "rgba(139,26,26,0.07)",
-                border: "1px solid rgba(139,26,26,0.15)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}>
-                <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "0.875rem", color: "#8B1A1A", letterSpacing: "0.08em" }}>
-                  {dia.abrev}
-                </span>
-              </div>
-
-              {/* Full day name */}
-              <div>
-                <div style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1.375rem", textTransform: "uppercase", color: "#1A1615", letterSpacing: "0.04em", lineHeight: 1 }}>
-                  {dia.label}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "1rem", borderBottom: "1px solid rgba(185,28,28,0.1)", paddingBottom: "1.25rem" }}>
+                <div>
+                  <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#8B1A1A", display: "block", marginBottom: "0.5rem" }}>
+                    Sucursal
+                  </span>
+                  <h3 style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "2rem", textTransform: "uppercase", color: "#1A1615", lineHeight: 1 }}>
+                    {branch.name}
+                  </h3>
+                </div>
+                <div style={{ background: "rgba(139,26,26,0.07)", border: "1px solid rgba(139,26,26,0.15)", borderRadius: "999px", padding: "0.45rem 0.75rem", flexShrink: 0 }}>
+                  <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#8B1A1A" }}>
+                    {branch.schedule.length} días
+                  </span>
                 </div>
               </div>
 
-              {/* Divider */}
-              <div style={{ width: "32px", height: "2px", background: "#8B1A1A", borderRadius: "1px" }} />
-
-              {/* Time */}
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                <Clock size={14} color="#8B1A1A" />
-                <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1.5rem", color: "#1A1615", letterSpacing: "0.02em" }}>
-                  {dia.hora}
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem", color: "#6B6460" }}>
+                <MapPin size={16} color="#8B1A1A" style={{ marginTop: "0.125rem", flexShrink: 0 }} />
+                <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.9375rem", lineHeight: 1.5 }}>
+                  {branch.address}
                 </span>
               </div>
 
-              <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#9C9890" }}>
-                hasta las {dia.fin} hs
-              </span>
+              <div className="branch-days" style={{ display: "flex", gap: "0.75rem", justifyContent: "center" }}>
+                {branch.schedule.map((dia) => (
+                  <div
+                    key={dia.key}
+                    style={{
+                      background: "#F8F8F6",
+                      border: "1px solid rgba(212,208,200,0.9)",
+                      borderRadius: "0.875rem",
+                      padding: "1.25rem 1rem",
+                      textAlign: "center",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "0.75rem",
+                    }}
+                  >
+                    <div style={{
+                      width: "48px",
+                      height: "48px",
+                      borderRadius: "50%",
+                      background: "rgba(139,26,26,0.07)",
+                      border: "1px solid rgba(139,26,26,0.15)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}>
+                      <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "0.8125rem", color: "#8B1A1A", letterSpacing: "0.08em" }}>
+                        {dia.abrev}
+                      </span>
+                    </div>
+
+                    <div style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1.125rem", textTransform: "uppercase", color: "#1A1615", letterSpacing: "0.04em", lineHeight: 1 }}>
+                      {dia.label}
+                    </div>
+
+                    <div style={{ width: "28px", height: "2px", background: "#8B1A1A", borderRadius: "1px" }} />
+
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                      <Clock size={14} color="#8B1A1A" />
+                      <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1.35rem", color: "#1A1615", letterSpacing: "0.02em" }}>
+                        {dia.hora}
+                      </span>
+                    </div>
+
+                    <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#9C9890" }}>
+                      hasta las {dia.fin} hs
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -166,8 +216,11 @@ export default function Clases() {
       </div>
 
       <style>{`
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
           #svc-grid-cards { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 600px) {
+          .branch-days { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>
