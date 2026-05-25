@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Phone, Mail, Send, CheckCircle, AlertCircle, Clock } from "lucide-react";
+import { Phone, Mail, Send, CheckCircle, AlertCircle, Clock, MapPin } from "lucide-react";
 import useSendEmail from "@/hooks/useSendEmail";
 
 const InstagramIcon = () => (
@@ -48,6 +48,28 @@ const NIVELES = [
   { value: "inicial", label: "Inicial (0 a 3 meses)" },
   { value: "intermedio", label: "Intermedio (3 a 6 meses)" },
   { value: "avanzado", label: "Avanzado / Cinturón de color" },
+];
+
+const BRANCHES = [
+  {
+    key: "central",
+    name: "Central",
+    address: "Av.Rivadavia 5040 (galería Cavour 2do piso), Caballito",
+    schedule: [
+      { key: "central-lunes", day: "Lunes", time: "20:00 - 21:15" },
+      { key: "central-miercoles", day: "Miércoles", time: "20:00 - 21:15" },
+      { key: "central-viernes", day: "Viernes", time: "20:00 - 21:15" },
+    ],
+  },
+  {
+    key: "filial-1",
+    name: "Filial 1",
+    address: "Av.Rivadavia 2283, Balbanera",
+    schedule: [
+      { key: "filial-1-martes", day: "Martes", time: "18:30 - 20:00" },
+      { key: "filial-1-jueves", day: "Jueves", time: "18:30 - 20:00" },
+    ],
+  },
 ];
 
 export default function Contacto() {
@@ -245,20 +267,51 @@ export default function Contacto() {
                   Horario de Clases
                 </span>
               </div>
-              <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#8B1A1A", display: "block", marginBottom: "0.5rem" }}>Adultos</span>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "1rem" }}>
-                {[
-                  { day: "Lunes", time: "20:00 - 21:15" },
-                  { day: "Miércoles", time: "20:00 - 21:15" },
-                  { day: "Viernes", time: "20:00 - 21:15" },
-                ].map((item) => (
-                  <div key={item.day} style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                    <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "0.9375rem", textTransform: "uppercase", color: "#1A1615", letterSpacing: "0.04em" }}>
-                      {item.day}
-                    </span>
-                    <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.875rem", color: "#6B6460" }}>
-                      {item.time}
-                    </span>
+              <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#8B1A1A", display: "block", marginBottom: "0.75rem" }}>Adultos</span>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "1rem" }}>
+                {BRANCHES.map((branch) => (
+                  <div
+                    key={branch.key}
+                    style={{
+                      background: "#FFFFFF",
+                      border: "1px solid rgba(212,208,200,0.9)",
+                      borderRadius: "0.75rem",
+                      padding: "1rem",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem", marginBottom: "0.75rem" }}>
+                      <div>
+                        <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#8B1A1A", display: "block", marginBottom: "0.25rem" }}>
+                          Sucursal
+                        </span>
+                        <div style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1.25rem", textTransform: "uppercase", color: "#1A1615", letterSpacing: "0.04em", lineHeight: 1 }}>
+                          {branch.name}
+                        </div>
+                      </div>
+                      <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#8B1A1A", background: "rgba(139,26,26,0.07)", border: "1px solid rgba(139,26,26,0.15)", borderRadius: "999px", padding: "0.375rem 0.625rem", whiteSpace: "nowrap" }}>
+                        {branch.schedule.length} días
+                      </span>
+                    </div>
+
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", marginBottom: "0.875rem" }}>
+                      <MapPin size={14} color="#8B1A1A" style={{ marginTop: "0.125rem", flexShrink: 0 }} />
+                      <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#6B6460", lineHeight: 1.5 }}>
+                        {branch.address}
+                      </span>
+                    </div>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                      {branch.schedule.map((item) => (
+                        <div key={item.key} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", background: "#F8F8F6", border: "1px solid rgba(212,208,200,0.7)", borderRadius: "0.5rem", padding: "0.625rem 0.75rem" }}>
+                          <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "0.9375rem", textTransform: "uppercase", color: "#1A1615", letterSpacing: "0.04em" }}>
+                            {item.day}
+                          </span>
+                          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.875rem", color: "#6B6460", whiteSpace: "nowrap" }}>
+                            {item.time}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -309,7 +362,7 @@ export default function Contacto() {
               </p>
               <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
                 <SocialBtn
-                  href="https://instagram.com/samurayledesma"
+                  href="https://www.instagram.com/samuray.jiujitsu.central"
                   label="Instagram"
                   icon={<InstagramIcon />}
                 />
