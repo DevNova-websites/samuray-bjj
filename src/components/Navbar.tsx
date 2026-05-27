@@ -19,8 +19,18 @@ export default function Navbar() {
   const [activeHash, setActiveHash] = useState("#inicio");
 
   useEffect(() => {
+    // Turn solid when #nosotros enters the viewport (= left the hero)
+    const nosotros = document.getElementById("nosotros");
+    let observer: IntersectionObserver | null = null;
+    if (nosotros) {
+      observer = new IntersectionObserver(
+        ([entry]) => setScrolled(entry.isIntersecting || entry.boundingClientRect.top < 0),
+        { threshold: 0 }
+      );
+      observer.observe(nosotros);
+    }
+
     const onScroll = () => {
-      setScrolled(window.scrollY > 40);
       const sections = NAV_LINKS.map((l) => l.href.replace("#", ""));
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
@@ -31,7 +41,10 @@ export default function Navbar() {
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   const handleNavClick = (href: string) => {
@@ -45,10 +58,10 @@ export default function Navbar() {
         position: "fixed",
         top: 0, left: 0, right: 0,
         zIndex: 50,
-        transition: "background 0.3s, box-shadow 0.3s",
-        background: scrolled ? "rgba(248,248,246,0.97)" : "rgba(248,248,246,0.88)",
-        backdropFilter: "blur(12px)",
-        boxShadow: scrolled ? "0 1px 0 rgba(185,28,28,0.12)" : "0 1px 0 rgba(185,28,28,0.06)",
+        transition: "background 0.4s, box-shadow 0.4s, backdrop-filter 0.4s",
+        background: scrolled ? "rgba(248,248,246,0.97)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        boxShadow: scrolled ? "0 1px 0 rgba(185,28,28,0.12)" : "none",
       }}
     >
       <nav style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1.5rem", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -57,10 +70,10 @@ export default function Navbar() {
         <button onClick={() => handleNavClick("#inicio")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "0.625rem" }}>
           <Image src="/images/logo-nuevo.png" alt="JL Samuray BJJ Academy" width={44} height={44} style={{ borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(185,28,28,0.25)" }} />
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-            <span style={{ fontFamily: "var(--font-oswald), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", letterSpacing: "0.08em", color: "#8B1A1A", lineHeight: 1.1 }}>
+            <span style={{ fontFamily: "var(--font-oswald), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", letterSpacing: "0.08em", color: scrolled ? "#8B1A1A" : "#FFFFFF", lineHeight: 1.1, transition: "color 0.4s" }}>
               JL SAMURAY
             </span>
-            <span style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "0.625rem", letterSpacing: "0.18em", color: "#9C9890", textTransform: "uppercase" }}>
+            <span style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "0.625rem", letterSpacing: "0.18em", color: scrolled ? "#9C9890" : "rgba(255,255,255,0.55)", textTransform: "uppercase", transition: "color 0.4s" }}>
               BJJ ACADEMY
             </span>
           </div>
@@ -77,15 +90,17 @@ export default function Navbar() {
                   fontFamily: "var(--font-inter), system-ui, sans-serif",
                   fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.06em",
                   textTransform: "uppercase", padding: "0.5rem 0.75rem", borderRadius: "0.375rem",
-                  color: activeHash === link.href ? "#8B1A1A" : "#6B6460",
-                  transition: "color 0.2s", position: "relative",
+                  color: activeHash === link.href
+                    ? (scrolled ? "#8B1A1A" : "#E87070")
+                    : (scrolled ? "#6B6460" : "rgba(255,255,255,0.75)"),
+                  transition: "color 0.3s", position: "relative",
                 }}
-                onMouseEnter={(e) => { if (activeHash !== link.href) (e.currentTarget as HTMLElement).style.color = "#1A1615"; }}
-                onMouseLeave={(e) => { if (activeHash !== link.href) (e.currentTarget as HTMLElement).style.color = "#6B6460"; }}
+                onMouseEnter={(e) => { if (activeHash !== link.href) (e.currentTarget as HTMLElement).style.color = scrolled ? "#1A1615" : "#FFFFFF"; }}
+                onMouseLeave={(e) => { if (activeHash !== link.href) (e.currentTarget as HTMLElement).style.color = scrolled ? "#6B6460" : "rgba(255,255,255,0.75)"; }}
               >
                 {link.label}
                 {activeHash === link.href && (
-                  <span style={{ position: "absolute", bottom: 2, left: "50%", transform: "translateX(-50%)", width: "20px", height: "2px", background: "#8B1A1A", borderRadius: "1px" }} />
+                  <span style={{ position: "absolute", bottom: 2, left: "50%", transform: "translateX(-50%)", width: "20px", height: "2px", background: scrolled ? "#8B1A1A" : "#E87070", borderRadius: "1px" }} />
                 )}
               </button>
             </li>
@@ -96,7 +111,7 @@ export default function Navbar() {
         <button
           onClick={() => handleNavClick("#contacto")}
           id="desktop-cta"
-          style={{ display: "none", background: "transparent", border: "1px solid #8B1A1A", color: "#8B1A1A", fontFamily: "var(--font-oswald), system-ui, sans-serif", fontWeight: 600, fontSize: "0.8125rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "0.5rem 1.25rem", borderRadius: "0.375rem", cursor: "pointer", transition: "background 0.2s, color 0.2s" }}
+          style={{ display: "none", background: "transparent", border: `1px solid ${scrolled ? "#8B1A1A" : "rgba(255,255,255,0.6)"}`, color: scrolled ? "#8B1A1A" : "#FFFFFF", transition: "border-color 0.4s, color 0.4s, background 0.2s", fontFamily: "var(--font-oswald), system-ui, sans-serif", fontWeight: 600, fontSize: "0.8125rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "0.5rem 1.25rem", borderRadius: "0.375rem", cursor: "pointer" }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#8B1A1A"; (e.currentTarget as HTMLElement).style.color = "#FFFFFF"; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.color = "#8B1A1A"; }}
         >

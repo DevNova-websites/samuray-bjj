@@ -19,14 +19,15 @@ export default function Hero() {
     <section
       id="inicio"
       ref={ref}
-      style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden", background: "#F8F8F6" }}
+      style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden", background: "#100505" }}
     >
-      {/* Background image — very light watermark */}
-      <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/images/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center top", backgroundRepeat: "no-repeat", opacity: 0.05, filter: "grayscale(80%) brightness(2)" }} />
+      {/* Background group photo */}
+      <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/images/group.jpg')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", filter: "grayscale(30%)" }} />
 
-      {/* Subtle red tint */}
-      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(185,28,28,0.04) 0%, transparent 65%)" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(248,248,246,0.1) 0%, rgba(248,248,246,0) 30%, rgba(248,248,246,0.6) 85%, #F8F8F6 100%)" }} />
+      {/* Centered dark overlay — heavier where the text is, transparent at edges */}
+      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 85% 75% at 50% 48%, rgba(8,2,2,0.82) 0%, rgba(8,2,2,0.55) 55%, rgba(8,2,2,0.15) 100%)" }} />
+      {/* Bottom fade to brand dark */}
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, transparent 25%, rgba(8,2,2,0.55) 85%, #100505 100%)" }} />
 
       {/* Decorative corner lines */}
       <svg style={{ position: "absolute", top: 0, left: 0, width: "260px", opacity: 0.07, pointerEvents: "none" }} viewBox="0 0 300 300" fill="none">
@@ -45,15 +46,15 @@ export default function Hero() {
 
         {/* Eyebrow */}
         <div style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.75rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s" }}>
-          <span style={{ display: "block", width: "40px", height: "1px", background: "#8B1A1A" }} />
-          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "#8B1A1A" }}>
+          <span style={{ display: "block", width: "40px", height: "1px", background: "#E87070" }} />
+          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "#E87070" }}>
             · Sukata Internacional ·
           </span>
-          <span style={{ display: "block", width: "40px", height: "1px", background: "#8B1A1A" }} />
+          <span style={{ display: "block", width: "40px", height: "1px", background: "#E87070" }} />
         </div>
 
         {/* Main headline */}
-        <h1 style={{ fontFamily: "var(--font-oswald), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(2.8rem, 8vw, 6rem)", lineHeight: 0.95, letterSpacing: "0.02em", textTransform: "uppercase", color: "#1A1615", marginBottom: "0.5rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(30px)", transition: "opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s" }}>
+        <h1 style={{ fontFamily: "var(--font-oswald), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(2.8rem, 8vw, 6rem)", lineHeight: 0.95, letterSpacing: "0.02em", textTransform: "uppercase", color: "#FFFFFF", marginBottom: "0.5rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(30px)", transition: "opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s" }}>
           Bienvenido
         </h1>
         <h1 style={{ fontFamily: "var(--font-oswald), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(2.8rem, 8vw, 6rem)", lineHeight: 0.95, letterSpacing: "0.02em", textTransform: "uppercase", background: "linear-gradient(135deg, #8B1A1A 0%, #A31919 55%, #991515 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", marginBottom: "1.5rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(30px)", transition: "opacity 0.7s ease 0.35s, transform 0.7s ease 0.35s" }}>
@@ -61,12 +62,12 @@ export default function Hero() {
         </h1>
 
         {/* Subheadline */}
-        <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "clamp(1rem, 2.5vw, 1.2rem)", lineHeight: 1.65, color: "#6B6460", maxWidth: "600px", margin: "0 auto 2.5rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.7s ease 0.45s, transform 0.7s ease 0.45s" }}>
+        <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "clamp(1rem, 2.5vw, 1.2rem)", lineHeight: 1.65, color: "rgba(255,255,255,0.75)", maxWidth: "600px", margin: "0 auto 2.5rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.7s ease 0.45s, transform 0.7s ease 0.45s" }}>
           Disciplina. Respeto. Hermandad. <br />
-          Formamos atletas <strong style={{ color: "#1A1615" }}>técnicamente sólidos y moralmente íntegros</strong>.
+          Formamos atletas <strong style={{ color: "#FFFFFF" }}>técnicamente sólidos y moralmente íntegros</strong>.
           Afiliados al{" "}
-          <a href="https://ibjjf.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#8B1A1A", fontWeight: 700, textDecoration: "none" }}>IBJJF</a> y{" "}
-          <a href="https://sukatabjj.com" target="_blank" rel="noopener noreferrer" style={{ color: "#8B1A1A", fontWeight: 700, textDecoration: "none" }}>Sukata Internacional</a>.
+          <a href="https://ibjjf.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#E87070", fontWeight: 700, textDecoration: "none" }}>IBJJF</a> y{" "}
+          <a href="https://sukatabjj.com" target="_blank" rel="noopener noreferrer" style={{ color: "#E87070", fontWeight: 700, textDecoration: "none" }}>Sukata Internacional</a>.
         </p>
 
         {/* CTA Buttons */}
@@ -90,9 +91,9 @@ export default function Hero() {
         </div>
 
         {/* Values row */}
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", marginTop: "4rem", paddingTop: "2rem", borderTop: "1px solid rgba(185,28,28,0.1)", opacity: visible ? 1 : 0, transition: "opacity 0.7s ease 0.75s" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", marginTop: "4rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.15)", opacity: visible ? 1 : 0, transition: "opacity 0.7s ease 0.75s" }}>
           {["Disciplina", "Respeto", "Honor", "Humildad", "Lealtad", "Hermandad"].map((value) => (
-            <span key={value} style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.16em", textTransform: "uppercase", color: "#8B1A1A" }}>
+            <span key={value} style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.65)" }}>
               {value}
             </span>
           ))}
@@ -100,14 +101,14 @@ export default function Hero() {
 
         {/* OSS motto */}
         <div style={{ marginTop: "1.5rem", opacity: visible ? 1 : 0, transition: "opacity 0.7s ease 0.9s" }}>
-          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.75rem", color: "#9C9890", letterSpacing: "0.14em", textTransform: "uppercase", fontStyle: "italic" }}>
+          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.75rem", color: "rgba(255,255,255,0.4)", letterSpacing: "0.14em", textTransform: "uppercase", fontStyle: "italic" }}>
             Sé fuerte. Sé parte. OSS.
           </span>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <button onClick={scrollToNosotros} style={{ position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)", background: "none", border: "none", cursor: "pointer", color: "#8B1A1A", opacity: visible ? 0.5 : 0, transition: "opacity 0.5s ease 1.2s", animation: "bounce 2s ease infinite" }} aria-label="Desplazarse hacia abajo">
+      <button onClick={scrollToNosotros} style={{ position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)", background: "none", border: "none", cursor: "pointer", color: "#FFFFFF", opacity: visible ? 0.45 : 0, transition: "opacity 0.5s ease 1.2s", animation: "bounce 2s ease infinite" }} aria-label="Desplazarse hacia abajo">
         <ChevronDown size={28} />
       </button>
 
