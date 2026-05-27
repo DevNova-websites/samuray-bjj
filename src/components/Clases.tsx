@@ -24,6 +24,7 @@ function useInView(threshold = 0.1) {
 const BRANCHES = [
   {
     key: "central",
+    label: "Academia",
     name: "Central",
     address: "Av.Rivadavia 5040 (galería Cavour 2do piso), Caballito",
     schedule: [
@@ -34,8 +35,9 @@ const BRANCHES = [
   },
   {
     key: "filial-1",
-    name: "Filial 1",
-    address: "Av.Rivadavia 2283, Balbanera",
+    label: "Filial 1",
+    name: "Balvanera",
+    address: "Av.Rivadavia 2283, Balvanera",
     schedule: [
       { key: "filial-1-martes", label: "Martes", abrev: "MAR", hora: "18:30", fin: "20:00" },
       { key: "filial-1-jueves", label: "Jueves", abrev: "JUE", hora: "18:30", fin: "20:00" },
@@ -102,8 +104,8 @@ export default function Clases() {
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "1rem", borderBottom: "1px solid rgba(185,28,28,0.1)", paddingBottom: "1.25rem" }}>
                 <div>
-                  <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#8B1A1A", display: "block", marginBottom: "0.5rem" }}>
-                    Sucursal
+                  <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#8B1A1A", display: "block", marginBottom: "0.25rem" }}>
+                    {branch.label}
                   </span>
                   <h3 style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "2rem", textTransform: "uppercase", color: "#1A1615", lineHeight: 1 }}>
                     {branch.name}

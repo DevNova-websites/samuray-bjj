@@ -9,6 +9,7 @@ interface TimelineEvent {
   description: string;
   detail: string;
   image?: string;
+  imagePosition?: string;
   side: "left" | "right";
 }
 
@@ -32,6 +33,7 @@ const EVENTS: TimelineEvent[] = [
     title: "Encuentro con el BJJ",
     description: "El descubrimiento del Brazilian Jiu-Jitsu abre una nueva dimensión. La fascinación por el arte suave se convierte en misión de vida.",
     detail: "El encuentro con el Brazilian Jiu-Jitsu cambia todo. El Profesor Ledesma queda cautivado por la profundidad técnica y la filosofía del arte suave. Decide dedicarse de lleno, viajando, entrenando y aprendiendo de los mejores instructores. El BJJ no es solo un deporte — es su misión.",
+    image: "/images/foto-3-historia.JPG",
     side: "right",
   },
   {
@@ -39,6 +41,8 @@ const EVENTS: TimelineEvent[] = [
     title: "Nace JL Samuray BJJ Academy",
     description: "Fundación oficial de la academia, materialización de un sueño y compromiso con la comunidad.",
     detail: "Con más de 35 años de experiencia marcial, el Profesor Ledesma da vida a la JL Samuray BJJ Academy. La academia nace con un propósito claro: formar atletas fuertes técnica y moralmente, en un entorno de respeto y hermandad. Los primeros alumnos son testigos del nacimiento de una familia.",
+    image: "/images/image-4-nacimientojlacademy.jpeg",
+    imagePosition: "center center",
     side: "left",
   },
   {
@@ -46,6 +50,7 @@ const EVENTS: TimelineEvent[] = [
     title: "Afiliación IBJJF",
     description: "La academia obtiene la afiliación oficial al IBJJF (N° 10580), el organismo más reconocido del Jiu-Jitsu mundial.",
     detail: "La afiliación al International Brazilian Jiu-Jitsu Federation (IBJJF N° 10580) representa un hito fundamental. Este reconocimiento avala la calidad técnica de la academia y abre las puertas a la competencia a nivel internacional bajo las reglas oficiales de la IBJJF.",
+    image: "/images/image5-historia-afiliacion.jpg",
     side: "right",
   },
   {
@@ -53,6 +58,7 @@ const EVENTS: TimelineEvent[] = [
     title: "Sukata Internacional",
     description: "Incorporación a la federación Sukata Internacional, expandiendo la red de entrenamiento y conexiones globales.",
     detail: "La afiliación a Sukata Internacional establece lazos con una red global de academias y competidores de élite. Esto enriquece enormemente la formación de los alumnos, que acceden a seminarios, torneos y la experiencia de instructores de todo el mundo. La familia Samuray crece.",
+    image: "/images/image6-historia.jpg",
     side: "left",
   },
   {
@@ -60,6 +66,7 @@ const EVENTS: TimelineEvent[] = [
     title: "Reconocimiento CBJJE",
     description: "Registro en la Confederación Brasileña de Jiu-Jitsu Esportivo (N° 1080), consolidando la presencia institucional.",
     detail: "El registro en la CBJJE (N° 1080) consolida el reconocimiento institucional de la academia tanto a nivel nacional como internacional. Este aval certifica la seriedad del proyecto y el compromiso con los estándares más altos del deporte.",
+    image: "/images/image7.jpg",
     side: "right",
   },
   {
@@ -67,6 +74,7 @@ const EVENTS: TimelineEvent[] = [
     title: "Más de 10 Años de Legado",
     description: "Una década de dedicación, cientos de alumnos formados y un legado que continúa creciendo cada día en el tatami.",
     detail: "Más de una década después de su fundación, la JL Samuray BJJ Academy sigue siendo un referente del Jiu-Jitsu. Disciplina, respeto, honor, humildad, lealtad y hermandad — los valores del código que guía a cada alumno dentro y fuera del tatami. El camino continúa. OSS.",
+    image: "/images/image8.jpg",
     side: "left",
   },
 ];
@@ -351,7 +359,7 @@ export default function Timeline() {
           >
             <div
               style={{
-                height: "220px",
+                height: "300px",
                 background: "linear-gradient(135deg, #F5F3EF 0%, #EEECEA 100%)",
                 position: "relative",
                 overflow: "hidden",
@@ -360,48 +368,49 @@ export default function Timeline() {
                 justifyContent: "center",
               }}
             >
-              <img
-                src={`/images/timeline-${activeEvent.year}.jpg`}
-                alt={activeEvent.title}
-                style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.7 }}
-                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  background: "linear-gradient(135deg, rgba(139,26,26,0.05), transparent)",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.5rem",
-                }}
-              >
+              {activeEvent.image ? (
+                <img
+                  src={activeEvent.image}
+                  alt={activeEvent.title}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: activeEvent.imagePosition ?? "center 20%" }}
+                />
+              ) : (
                 <div
                   style={{
-                    fontFamily: "var(--font-oswald), sans-serif",
-                    fontWeight: 700,
-                    fontSize: "5rem",
-                    color: "rgba(139,26,26,0.1)",
-                    lineHeight: 1,
-                    userSelect: "none",
+                    position: "absolute",
+                    inset: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "0.5rem",
                   }}
                 >
-                  {activeEvent.year}
+                  <div
+                    style={{
+                      fontFamily: "var(--font-oswald), sans-serif",
+                      fontWeight: 700,
+                      fontSize: "5rem",
+                      color: "rgba(139,26,26,0.1)",
+                      lineHeight: 1,
+                      userSelect: "none",
+                    }}
+                  >
+                    {activeEvent.year}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-inter), sans-serif",
+                      fontSize: "0.6875rem",
+                      color: "#9C9890",
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Foto del período — próximamente
+                  </div>
                 </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-inter), sans-serif",
-                    fontSize: "0.6875rem",
-                    color: "#9C9890",
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Foto del período — próximamente
-                </div>
-              </div>
+              )}
 
               <div
                 style={{
