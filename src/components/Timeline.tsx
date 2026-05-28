@@ -83,10 +83,21 @@ const INITIAL_COUNT = 3;
 
 export default function Timeline() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [imgLoaded, setImgLoaded] = useState(false);
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const [showAll, setShowAll] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Preload adjacent images whenever the active event changes
+  useEffect(() => {
+    if (activeIndex === null) return;
+    setImgLoaded(false);
+    const toPreload = [activeIndex - 1, activeIndex, activeIndex + 1]
+      .filter((i) => i >= 0 && i < EVENTS.length && EVENTS[i].image)
+      .map((i) => EVENTS[i].image as string);
+    toPreload.forEach((src) => { const img = new Image(); img.src = src; });
+  }, [activeIndex]);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -370,9 +381,11 @@ export default function Timeline() {
             >
               {activeEvent.image ? (
                 <img
+                  key={activeEvent.image}
                   src={activeEvent.image}
                   alt={activeEvent.title}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: activeEvent.imagePosition ?? "center 20%" }}
+                  onLoad={() => setImgLoaded(true)}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: activeEvent.imagePosition ?? "center 20%", opacity: imgLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
                 />
               ) : (
                 <div
