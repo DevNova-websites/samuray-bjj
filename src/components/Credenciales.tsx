@@ -2,28 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-function BJJBeltMini({ degrees = 4 }: { degrees?: number }) {
-  return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
-      <div style={{ display: "flex", alignItems: "stretch", height: "16px", borderRadius: "2px", overflow: "hidden" }}>
-        <div style={{ width: "110px", background: "#111111" }} />
-        <div style={{ width: "2px", background: "#000000" }} />
-        <div style={{ width: "22px", background: "#8B1A1A" }} />
-        <div style={{ width: "2px", background: "#000000" }} />
-        {Array.from({ length: degrees }).map((_, i) => (
-          <div key={i} style={{ display: "flex", alignSelf: "stretch" }}>
-            {i > 0 && <div style={{ width: "2px", background: "#000000" }} />}
-            <div style={{ width: "6px", background: "#FFFFFF" }} />
-          </div>
-        ))}
-      </div>
-      <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#9C9890" }}>
-        Cinta Negra · 4° Dan
-      </span>
-    </div>
-  );
-}
-
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -256,37 +234,6 @@ export default function Credenciales() {
               }} />
             </div>
           ))}
-        </div>
-
-        {/* Quote block */}
-        <div
-          style={{
-            marginTop: "3.5rem",
-            padding: "2.5rem",
-            border: "1px solid rgba(139,26,26,0.18)",
-            borderRadius: "0.875rem",
-            background: "rgba(139,26,26,0.025)",
-            textAlign: "center",
-            position: "relative",
-            opacity: visible ? 1 : 0,
-            transition: "opacity 0.7s ease 0.85s",
-          }}
-        >
-          <div style={{ position: "absolute", top: "-1px", left: "50%", transform: "translateX(-50%)", width: "80px", height: "2px", background: "#8B1A1A" }} />
-          <blockquote style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)", textTransform: "uppercase", color: "#1A1615", lineHeight: 1.4, letterSpacing: "0.08em", marginBottom: "1rem" }}>
-            &ldquo; La Promesa del Tatami &rdquo;
-          </blockquote>
-          <div style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.9375rem", color: "#6B6460", lineHeight: 1.7, maxWidth: "660px", margin: "0 auto 1.25rem" }}>
-            En J.L. SAMURAY BJJ Academy, entrenar va más allá de aprender técnicas:{" "}
-            <br /><strong>Es un camino de crecimiento personal basado en disciplina, respeto, hermandad y lealtad.</strong>{" "}
-            Cada clase es una oportunidad para fortalecerse física y mentalmente, superando desafíos junto a un equipo que acompaña como una familia.
-          </div>
-          <cite style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#8B1A1A", fontStyle: "normal", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-            Prof. Jorge Omar Ledesma
-          </cite>
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "0.625rem" }}>
-            <BJJBeltMini degrees={4} />
-          </div>
         </div>
 
       </div>

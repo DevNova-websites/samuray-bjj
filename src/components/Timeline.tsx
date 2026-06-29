@@ -28,12 +28,13 @@ const EVENTS: TimelineEvent[] = [
     title: "Expansión Marcial",
     description: "Décadas de entrenamiento en múltiples artes marciales consolidan una base técnica excepcional y una filosofía de vida.",
     detail: "Tras años de dedicación intensa, el Mestre profundiza en diversas disciplinas marciales, enriqueciendo su arsenal técnico y su visión filosófica. Este período de exploración y aprendizaje constante lo prepara para lo que se convertiría en su gran pasión: el Brazilian Jiu-Jitsu.",
+    image: "/images/el-camino-del-guerrero-2.jpeg",
     side: "left",
   },
   {
     year: "2005",
     title: "Encuentro con el BJJ",
-    description: "En la Academia Sukata Brothers Argentina, con el Mestre Frederico Peixoto, nace una pasión que cambiaría su vida para siempre.",
+    description: "En la Academia Sukata Brothers Argentina, con el Mestre Frederico Peixoto.",
     detail: "El encuentro con el Brazilian Jiu-Jitsu cambia todo. En la Academia Sukata Brothers Argentina, bajo la guía del Mestre Frederico Peixoto, el Mestre Ledesma queda cautivado por la profundidad técnica y la filosofía del arte suave. El BJJ no es solo un deporte — es su misión.",
     image: "/images/foto-3-historia.webp",
     side: "right",
@@ -50,8 +51,8 @@ const EVENTS: TimelineEvent[] = [
   {
     year: "HOY",
     title: "Lealtad y Hermandad",
-    description: "Somos familia: nos apoyamos, entrenamos y crecemos juntos bajo la bandera de JL Samuray BJJ Academy.",
-    detail: "La hermandad que se forja en el fuego del tatami trasciende el jiu-jitsu. Somos familia: nos apoyamos, entrenamos y crecemos juntos bajo la bandera de JL Samuray BJJ Academy. Aquí no solo se aprende a combatir — se aprende a vivir.",
+    description: "Somos familia: nos apoyamos, entrenamos y crecemos juntos bajo la bandera de JL Samuray BJJ Academy, la hermandad que se forja en el fuego del tatami trasciende el jiu-jitsu.",
+    detail: "Somos familia: nos apoyamos, entrenamos y crecemos juntos bajo la bandera de JL Samuray BJJ Academy. La hermandad que se forja en el fuego del tatami trasciende el jiu-jitsu. Aquí no solo se aprende a combatir — se aprende a vivir.",
     image: "/images/image8.webp",
     side: "right",
   },
@@ -60,6 +61,7 @@ const EVENTS: TimelineEvent[] = [
     title: "Cinturón Negro 5.° Dan de Kung Fu",
     description: "Más de 50 años de dedicación formando alumnos, con un legado que sigue creciendo cada día dentro y fuera del tatami.",
     detail: "Competidor en torneos de USKA, años 1992/93. 2.° Dan de Kick Boxing. Instructor Superior de Muay Thai. Mestre de Jiu-Jitsu Faixa Preta 4.° Grado. Campeón Mundial de Jiu-Jitsu categoría absoluto, año 2009, en Tuyuca, Brasil. Más de 50 años de dedicación formando alumnos y construyendo un legado que sigue creciendo cada día dentro y fuera del tatami.",
+    image: "/images/el-camino-del-guerrero.webp",
     side: "left",
   },
 ];

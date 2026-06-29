@@ -7,32 +7,37 @@ import { useInView } from "@/hooks/useInView";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const GALERIA = [
-  // Fila 1-2: hero full-width
+  // Fila 1-2: hero landscape full-width
   { src: "/images/group.webp",                       alt: "Familia Samuray BJJ",            cols: 4, rows: 2, objectPosition: "center 55%" },
-  // Fila 3-4: grande (2×2) + portrait (1×2) + 2 apiladas
-  { src: "/images/profe-mostrando-tecnica.webp",     alt: "Profe mostrando técnica",        cols: 2, rows: 2, objectPosition: "center" },
+
+  // Fila 3-4: 2 portraits + 1 landscape como cuadrado grande (2×2)
+  { src: "/images/profe-mostrando-tecnica.webp",     alt: "Profe mostrando técnica",        cols: 1, rows: 2, objectPosition: "center" },
   { src: "/images/mujer-haciendo-tecnica.webp",      alt: "Mujer practicando técnica",      cols: 1, rows: 2, objectPosition: "center" },
-  { src: "/images/la-clase.webp",                    alt: "La clase",                       cols: 1, rows: 1, objectPosition: "center" },
-  { src: "/images/hombres-entrenando.webp",          alt: "Hombres entrenando",             cols: 1, rows: 1, objectPosition: "center" },
-  // Fila 5-6: 2 apiladas + grande (2×2)
-  { src: "/images/chica-riendo.webp",                alt: "Comunidad y alegría",            cols: 1, rows: 1, objectPosition: "center" },
+  { src: "/images/la-clase.webp",                    alt: "La clase",                       cols: 2, rows: 2, objectPosition: "center" },
+
+  // Fila 5-6: portrait + landscapes variados
+  { src: "/images/alumnos-entrenando.webp",          alt: "Alumnos entrenando",             cols: 1, rows: 2, objectPosition: "center" },
+  { src: "/images/hombres-entrenando.webp",          alt: "Hombres entrenando",             cols: 2, rows: 1, objectPosition: "center" },
   { src: "/images/llave-de-brazo.webp",              alt: "Llave de brazo",                 cols: 1, rows: 1, objectPosition: "center" },
-  { src: "/images/alumnos-entrenando.webp",          alt: "Alumnos entrenando",             cols: 2, rows: 2, objectPosition: "center" },
-  { src: "/images/samu-con-nino.webp",               alt: "Samu con alumno",                cols: 1, rows: 1, objectPosition: "center top" },
+  { src: "/images/chica-riendo.webp",                alt: "Comunidad y alegría",            cols: 1, rows: 1, objectPosition: "center" },
+  { src: "/images/samu-con-nino.webp",               alt: "Samu con alumno",                cols: 1, rows: 1, objectPosition: "center" },
   { src: "/images/foto-3-historia.webp",             alt: "Entrenamiento en el tatami",     cols: 1, rows: 1, objectPosition: "center" },
-  // Fila 7: franja de 4 iguales
+
+  // Fila 7: franja de 4 landscapes iguales
   { src: "/images/image5-historia-afiliacion.webp",  alt: "Afiliación IBJJF",               cols: 1, rows: 1, objectPosition: "center" },
   { src: "/images/image6-historia.webp",             alt: "Sukata Internacional",            cols: 1, rows: 1, objectPosition: "center" },
   { src: "/images/image7.webp",                      alt: "Competencia CBJJE",               cols: 1, rows: 1, objectPosition: "center" },
   { src: "/images/image8.webp",                      alt: "10 años de legado",               cols: 1, rows: 1, objectPosition: "center" },
-  // Fila 8-9: grande izquierda + portrait + 2 apiladas
+
+  // Fila 8-9: landscape grande (2×2) + 2 portraits
   { src: "/images/familia-tatami.webp",              alt: "Familia en el tatami",            cols: 2, rows: 2, objectPosition: "center" },
   { src: "/images/el-camino-del-guerrero.webp",      alt: "El camino del guerrero",          cols: 1, rows: 2, objectPosition: "center top" },
-  { src: "/images/image-4-nacimientojlacademy.webp", alt: "Nace JL Samuray Academy",        cols: 1, rows: 1, objectPosition: "center" },
-  { src: "/images/hombre-cinturon-marron.jpg",       alt: "Cinturón marrón",                cols: 1, rows: 1, objectPosition: "center top" },
-  // Fila 10: cierre — 2 fotos
-  { src: "/images/hombres-luchando.jpg",             alt: "Entrenamiento BJJ",               cols: 2, rows: 1, objectPosition: "center" },
-  { src: "/images/hombre-luchando.jpg",              alt: "Técnica en el tatami",            cols: 2, rows: 1, objectPosition: "center" },
+  { src: "/images/hombre-cinturon-marron.jpg",       alt: "Cinturón marrón",                cols: 1, rows: 2, objectPosition: "center top" },
+
+  // Fila 10-11: portrait + landscape grande (2×2) + portrait
+  { src: "/images/hombres-luchando.jpg",             alt: "Entrenamiento BJJ",               cols: 1, rows: 2, objectPosition: "center top" },
+  { src: "/images/image-4-nacimientojlacademy.webp", alt: "Nace JL Samuray Academy",        cols: 2, rows: 2, objectPosition: "center" },
+  { src: "/images/hombre-luchando.jpg",              alt: "Técnica en el tatami",            cols: 1, rows: 2, objectPosition: "center" },
 ];
 
 const BLOQUES = [
@@ -565,6 +570,15 @@ function Lightbox({
   );
 }
 
+// El grid tiene 4 columnas y max-width 1200px en desktop; ancho real de celda = cols/4 del contenedor.
+// Por debajo de 900px el grid pasa a 2 columnas y todo se fuerza a span 1 (ver media query más abajo);
+// por debajo de 480px pasa a 1 columna. Sin esto, las celdas grandes (2×, 4×) pedían una imagen de
+// solo 400px y el navegador la estiraba, pixelando las fotos más grandes.
+function getGaleriaSizes(cols: number) {
+  const desktopWidth = Math.round((1200 / 4) * cols);
+  return `(max-width: 480px) 100vw, (max-width: 900px) 50vw, ${desktopWidth}px`;
+}
+
 function GaleriaItem({
   img,
   index,
@@ -602,13 +616,14 @@ function GaleriaItem({
         src={img.src}
         alt={img.alt}
         fill
+        quality={90}
         style={{
           objectFit: "cover",
           objectPosition: img.objectPosition ?? "center",
           transform: hovered ? "scale(1.06)" : "scale(1)",
           transition: "transform 0.5s ease",
         }}
-        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 400px"
+        sizes={getGaleriaSizes(img.cols)}
         loading="lazy"
       />
       <div

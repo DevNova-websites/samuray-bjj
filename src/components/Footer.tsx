@@ -51,7 +51,7 @@ const NAV_LINKS: FooterLink[] = [
   { label: "Clases",    href: "/#clases",   type: "anchor", id: "clases" },
   { label: "Comunidad", href: "/comunidad", type: "page" },
   { label: "Historia",  href: "/historia",  type: "page" },
-  { label: "Contacto",  href: "/#contacto", type: "anchor", id: "contacto" },
+  { label: "Afiliaciones", href: "/credenciales-y-afiliaciones", type: "page" },
 ];
 
 export default function Footer() {
