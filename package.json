@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "build": "node scripts/optimize-images.mjs && next build",
     "start": "next start",
     "lint": "eslint"
   },
@@ -16,7 +17,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-hook-form": "^7.75.0",
-    "resend": "^6.12.3",
+    "resend": "^6.16.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {

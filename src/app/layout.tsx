@@ -16,6 +16,7 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://samuraybjj.com"),
   title: "JL Samuray BJJ Academy | Jiu-Jitsu Brasileño",
   description:
     "Academia de Brazilian Jiu-Jitsu con más de 10 años de experiencia. Afiliada a IBJJF, CBJJE y Sukata Internacional. Dirigida por el Profesor Jorge Omar Ledesma.",

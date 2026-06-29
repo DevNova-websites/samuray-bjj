@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { X } from "lucide-react";
 
 const QA_DATA = [
@@ -141,10 +142,13 @@ export default function Chatbot() {
                 border: "1px solid rgba(139,26,26,0.2)",
               }}
             >
-              <img
-                src="/images/ChibiSamu.jpg"
+              <Image
+                src="/images/ChibiSamu.webp"
                 alt="Avatar de Sami"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+                width={36}
+                height={36}
+                style={{ objectFit: "cover", objectPosition: "center top" }}
+                loading="lazy"
               />
             </div>
             <div>
@@ -299,6 +303,8 @@ export default function Chatbot() {
           boxShadow: "0 8px 24px rgba(139,26,26,0.3)",
           transition: "transform 0.2s, background 0.2s",
           transform: isOpen ? "scale(0.9)" : "scale(1)",
+          overflow: "hidden",
+          position: "relative",
         }}
         onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#A31919"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#8B1A1A"; }}
@@ -307,10 +313,12 @@ export default function Chatbot() {
         {isOpen ? (
           <X size={28} />
         ) : (
-          <img
-            src="/images/ChibiSamu.jpg"
+          <Image
+            src="/images/ChibiSamu.webp"
             alt="Abrir asistente virtual Sami"
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", borderRadius: "50%" }}
+            fill
+            style={{ objectFit: "cover", objectPosition: "50% 0%" }}
+            priority
           />
         )}
       </button>

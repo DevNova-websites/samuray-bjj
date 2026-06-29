@@ -1,5 +1,8 @@
-﻿﻿"use client";
+"use client";
 
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import { Phone, Mail } from "lucide-react";
 
 const InstagramIcon = () => (
@@ -22,15 +25,6 @@ const TikTokIcon = () => (
   </svg>
 );
 
-const NAV_LINKS = [
-  { label: "Inicio",       href: "#inicio" },
-  { label: "Nosotros",     href: "#nosotros" },
-  { label: "Servicios",    href: "#servicios" },
-  { label: "Historia",     href: "#historia" },
-  { label: "Credenciales", href: "#credenciales" },
-  { label: "Contacto",     href: "#contacto" },
-];
-
 const SOCIAL = [
   { label: "Instagram", href: "https://instagram.com/samurayledesma", icon: <InstagramIcon /> },
   { label: "Facebook",  href: "https://facebook.com/samurayledesma",  icon: <FacebookIcon /> },
@@ -45,36 +39,57 @@ const CREDENTIALS = [
   "Sukata Internacional",
 ];
 
+interface FooterLink {
+  label: string;
+  href: string;
+  type: "page" | "anchor";
+  id?: string;
+}
+
+const NAV_LINKS: FooterLink[] = [
+  { label: "Inicio",    href: "/",          type: "page" },
+  { label: "Clases",    href: "/#clases",   type: "anchor", id: "clases" },
+  { label: "Comunidad", href: "/comunidad", type: "page" },
+  { label: "Historia",  href: "/historia",  type: "page" },
+  { label: "Contacto",  href: "/#contacto", type: "anchor", id: "contacto" },
+];
+
 export default function Footer() {
-  const scrollTo = (id: string) => {
-    document.getElementById(id.replace("#", ""))?.scrollIntoView({ behavior: "smooth" });
+  const router   = useRouter();
+  const pathname = usePathname();
+  const isHome   = pathname === "/";
+  const year     = new Date().getFullYear();
+
+  const handleClick = (link: FooterLink) => {
+    if (link.type === "anchor") {
+      if (isHome && link.id) {
+        document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        router.push(link.href);
+      }
+    } else {
+      router.push(link.href);
+    }
   };
 
-  const year = new Date().getFullYear();
-
   return (
-    <footer
-      style={{
-        background: "#1A0A0A",
-        borderTop: "1px solid rgba(248,113,113,0.15)",
-        padding: "4rem 1.5rem 2rem",
-        position: "relative",
-      }}
-    >
-      {/* Top red accent line */}
+    <footer style={{ background: "#1A0A0A", borderTop: "1px solid rgba(248,113,113,0.15)", padding: "4rem 1.5rem 2rem", position: "relative" }}>
       <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "120px", height: "2px", background: "#8B1A1A" }} />
 
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        {/* Main grid */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "3rem", marginBottom: "3rem" }}>
 
           {/* Brand column */}
-          <div style={{ gridColumn: "span 1" }}>
-            <button
-              onClick={() => scrollTo("#inicio")}
-              style={{ background: "none", border: "none", cursor: "pointer", textAlign: "left", marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "0.625rem" }}
-            >
-              <img src="/images/logo-nuevo.png" alt="JL Samuray BJJ Academy" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(248,113,113,0.35)", flexShrink: 0 }} />
+          <div>
+            <Link href="/" style={{ background: "none", border: "none", textAlign: "left", marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "0.625rem", textDecoration: "none" }}>
+              <Image
+                src="/images/logo-nuevo.webp"
+                alt="JL Samuray BJJ Academy"
+                width={40}
+                height={40}
+                style={{ borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(248,113,113,0.35)" }}
+                loading="lazy"
+              />
               <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                 <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1.375rem", letterSpacing: "0.06em", color: "#F87171", lineHeight: 1.1, display: "block" }}>
                   JL SAMURAY
@@ -83,7 +98,7 @@ export default function Footer() {
                   BJJ ACADEMY
                 </span>
               </div>
-            </button>
+            </Link>
             <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.875rem", lineHeight: 1.65, color: "rgba(248,235,235,0.5)", marginBottom: "0.75rem", maxWidth: "240px" }}>
               Fundada para formar atletas fuertes técnica y moralmente. Disciplina, respeto y hermandad en cada clase.
             </p>
@@ -117,7 +132,7 @@ export default function Footer() {
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <button
-                    onClick={() => scrollTo(link.href)}
+                    onClick={() => handleClick(link)}
                     style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-inter), sans-serif", fontSize: "0.875rem", color: "rgba(248,235,235,0.5)", padding: 0, transition: "color 0.2s" }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#F5F3EF"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(248,235,235,0.5)"; }}
@@ -185,10 +200,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(248,113,113,0.25), transparent)", marginBottom: "2rem" }} />
 
-        {/* Bottom bar */}
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
           <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.75rem", color: "rgba(248,235,235,0.3)" }}>
             {"© "}{year} JL Samuray BJJ Academy, desarrollado por devnova. Todos los derechos reservados.

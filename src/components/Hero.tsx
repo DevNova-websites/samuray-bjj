@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
@@ -22,7 +23,17 @@ export default function Hero() {
       style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden", background: "#100505" }}
     >
       {/* Background group photo */}
-      <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/images/group.jpg')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", filter: "grayscale(30%)" }} />
+      <div style={{ position: "absolute", inset: 0, filter: "grayscale(30%)" }}>
+        <Image
+          src="/images/group.webp"
+          alt="JL Samuray BJJ Academy"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
+          sizes="100vw"
+          priority
+          quality={85}
+        />
+      </div>
 
       {/* Centered dark overlay — heavier where the text is, transparent at edges */}
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 85% 75% at 50% 48%, rgba(8,2,2,0.82) 0%, rgba(8,2,2,0.55) 55%, rgba(8,2,2,0.15) 100%)" }} />
@@ -63,7 +74,6 @@ export default function Hero() {
 
         {/* Subheadline */}
         <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "clamp(1rem, 2.5vw, 1.2rem)", lineHeight: 1.65, color: "rgba(255,255,255,0.75)", maxWidth: "600px", margin: "0 auto 2.5rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.7s ease 0.45s, transform 0.7s ease 0.45s" }}>
-          Disciplina. Respeto. Hermandad. <br />
           Formamos atletas <strong style={{ color: "#FFFFFF" }}>técnicamente sólidos y moralmente íntegros</strong>.
           Afiliados al{" "}
           <a href="https://ibjjf.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#E87070", fontWeight: 700, textDecoration: "none" }}>IBJJF</a> y{" "}
@@ -82,9 +92,9 @@ export default function Hero() {
           </button>
           <button
             onClick={scrollToNosotros}
-            style={{ background: "transparent", border: "2px solid rgba(185,28,28,0.35)", color: "#8B1A1A", fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "0.9375rem", letterSpacing: "0.12em", textTransform: "uppercase", padding: "0.875rem 2rem", borderRadius: "0.375rem", cursor: "pointer", transition: "border-color 0.2s, background 0.2s, transform 0.2s" }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#8B1A1A"; (e.currentTarget as HTMLElement).style.background = "rgba(185,28,28,0.06)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(185,28,28,0.35)"; (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
+            style={{ background: "transparent", border: "2px solid rgba(255,255,255,0.45)", color: "rgba(255,255,255,0.9)", fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "0.9375rem", letterSpacing: "0.12em", textTransform: "uppercase", padding: "0.875rem 2rem", borderRadius: "0.375rem", cursor: "pointer", transition: "border-color 0.2s, background 0.2s, transform 0.2s" }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.8)"; (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.45)"; (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
           >
             Conocer Más
           </button>

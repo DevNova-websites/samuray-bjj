@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { Clock, MapPin } from "lucide-react";
@@ -27,6 +27,7 @@ const BRANCHES = [
     label: "Academia",
     name: "Central",
     address: "Av.Rivadavia 5040 (galería Cavour 2do piso), Caballito",
+    addressExtra: undefined as string | undefined,
     schedule: [
       { key: "central-lunes",     label: "Lunes",     abrev: "LUN", hora: "20:00", fin: "21:15" },
       { key: "central-miercoles", label: "Miércoles", abrev: "MIÉ", hora: "20:00", fin: "21:15" },
@@ -37,7 +38,8 @@ const BRANCHES = [
     key: "filial-1",
     label: "Filial 1",
     name: "Balvanera",
-    address: "Av.Rivadavia 2283, Balvanera",
+    address: "Av.Rivadavia 2283,",
+    addressExtra: "Balvanera",
     schedule: [
       { key: "filial-1-martes", label: "Martes", abrev: "MAR", hora: "18:30", fin: "20:00" },
       { key: "filial-1-jueves", label: "Jueves", abrev: "JUE", hora: "18:30", fin: "20:00" },
@@ -93,7 +95,7 @@ export default function Clases() {
                 background: "#FFFFFF",
                 border: "1px solid #D4D0C8",
                 borderRadius: "1rem",
-                padding: "1.5rem",
+                padding: "1.5rem 1rem",
                 display: "flex",
                 flexDirection: "column",
                 gap: "1.5rem",
@@ -122,18 +124,20 @@ export default function Clases() {
                 <MapPin size={16} color="#8B1A1A" style={{ marginTop: "0.125rem", flexShrink: 0 }} />
                 <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.9375rem", lineHeight: 1.5 }}>
                   {branch.address}
+                  {branch.addressExtra !== undefined && <><br />{branch.addressExtra}</>}
                 </span>
               </div>
 
-              <div className="branch-days" style={{ display: "flex", gap: "0.75rem", justifyContent: "center" }}>
+              <div className="branch-days" style={{ display: "flex", gap: "0.5rem", justifyContent: "center", flexWrap: "nowrap" }}>
                 {branch.schedule.map((dia) => (
                   <div
                     key={dia.key}
                     style={{
+                      flex: "0 0 calc((100% - 1rem) / 3)",
                       background: "#F8F8F6",
                       border: "1px solid rgba(212,208,200,0.9)",
                       borderRadius: "0.875rem",
-                      padding: "1.25rem 1rem",
+                      padding: "1.25rem 0.75rem",
                       textAlign: "center",
                       display: "flex",
                       flexDirection: "column",
@@ -169,7 +173,7 @@ export default function Clases() {
                       </span>
                     </div>
 
-                    <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#9C9890" }}>
+                    <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#9C9890", whiteSpace: "nowrap" }}>
                       hasta las {dia.fin} hs
                     </span>
                   </div>
@@ -190,7 +194,8 @@ export default function Clases() {
           transition: "opacity 0.6s ease 0.5s",
         }}>
           <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.9375rem", color: "#6B6460", lineHeight: 1.6, marginBottom: "1rem" }}>
-            La primera clase es de prueba y totalmente gratuita.
+            La primera clase es de prueba y totalmente gratuita.<br />
+            ¿No tenés Gi? ¡Vení igual! Te prestamos uno la primera clase.
           </p>
           <button
             onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })}
@@ -222,7 +227,8 @@ export default function Clases() {
           #svc-grid-cards { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 600px) {
-          .branch-days { grid-template-columns: 1fr !important; }
+          .branch-days { flex-direction: column !important; align-items: stretch !important; }
+          .branch-days > div { flex: 1 !important; flex-direction: row !important; justify-content: flex-start !important; gap: 1rem !important; }
         }
       `}</style>
     </section>

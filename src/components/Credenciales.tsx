@@ -16,8 +16,6 @@ function BJJBeltMini({ degrees = 4 }: { degrees?: number }) {
             <div style={{ width: "6px", background: "#FFFFFF" }} />
           </div>
         ))}
-        <div style={{ width: "2px", background: "#000000" }} />
-        <div style={{ width: "9px", background: "#FFFFFF" }} />
       </div>
       <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#9C9890" }}>
         Cinta Negra · 4° Dan
@@ -228,7 +226,7 @@ export default function Credenciales() {
                 <div style={{ textAlign: "right", flexShrink: 0 }}>
                   <div style={{
                     fontFamily: "var(--font-inter), sans-serif",
-                    fontSize: "0.5875rem",
+                    fontSize: "0.625rem",
                     letterSpacing: "0.14em",
                     textTransform: "uppercase",
                     color: "#B0ABA4",

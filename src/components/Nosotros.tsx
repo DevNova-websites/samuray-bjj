@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Shield, Star, Award } from "lucide-react";
 
 function BJJBelt({ degrees = 4 }: { degrees?: number }) {
@@ -90,15 +91,14 @@ export default function Nosotros() {
           {/* Image */}
           <div style={{ opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(-30px)", transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s" }}>
             <div id="nosotros-img" style={{ position: "relative", aspectRatio: "4/5", maxHeight: "560px", borderRadius: "0.75rem", overflow: "hidden", border: "1px solid rgba(185,28,28,0.15)" }}>
-              {/* Fallback (detrás) */}
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #F5F3EF 0%, #EEECEA 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
-                <div style={{ width: "80px", height: "80px", borderRadius: "50%", border: "2px dashed rgba(185,28,28,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ fontSize: "2rem" }}>🥋</span>
-                </div>
-                <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.75rem", color: "#9C9890", letterSpacing: "0.08em", textTransform: "uppercase" }}>Foto del Instructor</span>
-              </div>
-              {/* Foto (encima del fallback) */}
-              <img src="/images/prof-jorge-omar-ledesma.png" alt="Profesor Jorge Omar Ledesma" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }} />
+              <Image
+                src="/images/prof-jorge-omar-ledesma.webp"
+                alt="Profesor Jorge Omar Ledesma — Cinta Negra 4° Dan"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 640px) 100vw, 520px"
+                loading="lazy"
+              />
               {/* Inner frame */}
               <div style={{ position: "absolute", top: "16px", left: "16px", right: "16px", bottom: "16px", border: "1px solid rgba(185,28,28,0.1)", borderRadius: "0.5rem", pointerEvents: "none" }} />
               {/* Badge */}

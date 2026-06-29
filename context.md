@@ -33,32 +33,65 @@ Sitio web institucional de la **J.L. Samuray BJJ Academy**, academia de Brazilia
 samuray-bjj/
 ├── public/
 │   ├── images/
-│   │   ├── logo.jpeg          # Logo circular (Sukata Brothers / JL Samuray BJJ Academy)
-│   │   ├── hero-bg.jpg        # Fondo del hero
-│   │   └── instructor.jpg     # Foto del profesor (pendiente de agregar)
+│   │   ├── logo-nuevo.png     # Logo circular principal
+│   │   ├── logo.jpeg          # Logo alternativo
+│   │   ├── group.jpg          # Foto grupal (hero)
+│   │   ├── prof-jorge-omar-ledesma.png  # Foto del profesor
+│   │   ├── ChibiSamu.jpg      # Avatar del chatbot
+│   │   ├── og-image.png       # Open Graph image
+│   │   ├── foto-3-historia.JPG
+│   │   ├── image-4-nacimientojlacademy.jpeg
+│   │   ├── image5-historia-afiliacion.jpg
+│   │   ├── image6-historia.jpg
+│   │   ├── image7.jpg
+│   │   └── image8.jpg
 │   └── data/
 │       └── manual-alumno.JSON # Reglamento y filosofía de la academia
 ├── src/
 │   ├── app/
-│   │   ├── globals.css        # Variables CSS, estilos globales
-│   │   ├── layout.tsx         # Layout raíz (fuentes Oswald + Inter)
-│   │   └── page.tsx           # Página principal (ensambla todos los componentes)
-│   └── components/
-│       ├── Navbar.tsx
-│       ├── Hero.tsx
-│       ├── Nosotros.tsx
-│       ├── Servicios.tsx
-│       ├── Timeline.tsx
-│       ├── Credenciales.tsx
-│       ├── Contacto.tsx
-│       └── Footer.tsx
+│   │   ├── globals.css           # Variables CSS, estilos globales
+│   │   ├── layout.tsx            # Layout raíz (fuentes Oswald + Inter, metadataBase)
+│   │   ├── page.tsx              # Home: Hero → Nosotros → Clases → HistoriaTeaser → Credenciales → Contacto
+│   │   ├── historia/
+│   │   │   └── page.tsx          # /historia: HistoriaHero + Timeline (defaultExpanded)
+│   │   └── comunidad/
+│   │       └── page.tsx          # /comunidad: Comunidad (hero + valores + galería + código)
+│   ├── components/
+│   │   ├── Navbar.tsx            # Multi-page: Link + usePathname + anchor scroll
+│   │   ├── Hero.tsx              # next/image con priority (LCP)
+│   │   ├── Nosotros.tsx          # next/image lazy
+│   │   ├── Clases.tsx            # Sin cambios
+│   │   ├── HistoriaTeaser.tsx    # Bloque teaser en home → /historia
+│   │   ├── HistoriaHero.tsx      # Hero page /historia
+│   │   ├── Timeline.tsx          # Acepta prop defaultExpanded; next/image en modal
+│   │   ├── Comunidad.tsx         # Galería + filosofía + código
+│   │   ├── Credenciales.tsx      # Sin cambios
+│   │   ├── Contacto.tsx          # Sin cambios
+│   │   ├── Footer.tsx            # Multi-page: Link + usePathname
+│   │   └── Chatbot.tsx           # next/image lazy
+│   ├── hooks/
+│   │   └── useInView.ts          # Hook compartido de IntersectionObserver
+│   ├── interfaces/
+│   │   └── ContactEmailPayload.ts
+│   ├── services/
+│   │   └── emailService.ts
+│   └── utils/
+│       └── mailTemplate.ts
 ├── next.config.ts
 ├── netlify.toml
 ├── package.json
 ├── tailwind.config.ts
 ├── tsconfig.json
-└── context.md                 # Este archivo
+└── context.md                    # Este archivo
 ```
+
+## Páginas
+
+| Ruta | Descripción |
+|---|---|
+| `/` | Home: Hero, Nosotros, Clases, HistoriaTeaser, Credenciales, Contacto |
+| `/historia` | El Camino del Guerrero: hero + Timeline completo |
+| `/comunidad` | Comunidad: hero + filosofía + galería + código del tatami |
 
 ---
 

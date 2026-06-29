@@ -54,7 +54,9 @@ const BRANCHES = [
   {
     key: "central",
     name: "Central",
-    address: "Av.Rivadavia 5040 (galería Cavour 2do piso), Caballito",
+    address: "Av. Rivadavia 5040",
+    neighborhood: "Caballito",
+    mapsUrl: "https://maps.google.com/?q=Av.+Rivadavia+5040,+Caballito,+Buenos+Aires",
     schedule: [
       { key: "central-lunes", day: "Lunes", time: "20:00 - 21:15" },
       { key: "central-miercoles", day: "Miércoles", time: "20:00 - 21:15" },
@@ -63,8 +65,10 @@ const BRANCHES = [
   },
   {
     key: "filial-1",
-    name: "Filial 1",
-    address: "Av.Rivadavia 2283, Balbanera",
+    name: "Balvanera",
+    address: "Av. Rivadavia 2283",
+    neighborhood: "Balvanera",
+    mapsUrl: "https://maps.google.com/?q=Av.+Rivadavia+2283,+Balvanera,+Buenos+Aires",
     schedule: [
       { key: "filial-1-martes", day: "Martes", time: "18:30 - 20:00" },
       { key: "filial-1-jueves", day: "Jueves", time: "18:30 - 20:00" },
@@ -245,68 +249,47 @@ export default function Contacto() {
                 marginBottom: "2rem",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  marginBottom: "1rem",
-                }}
-              >
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1.25rem" }}>
                 <Clock size={14} color="#8B1A1A" />
-                <span
-                  style={{
-                    fontFamily: "var(--font-inter), sans-serif",
-                    fontSize: "0.6875rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "#8B1A1A",
-                  }}
-                >
+                <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8B1A1A" }}>
                   Horario de Clases
                 </span>
               </div>
-              <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#8B1A1A", display: "block", marginBottom: "0.75rem" }}>Adultos</span>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "1rem" }}>
+              <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8B1A1A", marginBottom: "0.875rem" }}>Clases para adultos</p>
+              <div id="contact-branches" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem", marginBottom: "1rem" }}>
                 {BRANCHES.map((branch) => (
                   <div
                     key={branch.key}
                     style={{
                       background: "#FFFFFF",
                       border: "1px solid rgba(212,208,200,0.9)",
-                      borderRadius: "0.75rem",
-                      padding: "1rem",
+                      borderRadius: "0.625rem",
+                      padding: "0.875rem 1rem",
                     }}
                   >
-                    <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem", marginBottom: "0.75rem" }}>
-                      <div>
-                        <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#8B1A1A", display: "block", marginBottom: "0.25rem" }}>
-                          Sucursal
-                        </span>
-                        <div style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1.25rem", textTransform: "uppercase", color: "#1A1615", letterSpacing: "0.04em", lineHeight: 1 }}>
-                          {branch.name}
-                        </div>
-                      </div>
-                      <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#8B1A1A", background: "rgba(139,26,26,0.07)", border: "1px solid rgba(139,26,26,0.15)", borderRadius: "999px", padding: "0.375rem 0.625rem", whiteSpace: "nowrap" }}>
-                        {branch.schedule.length} días
-                      </span>
+                    <div style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "1.0625rem", textTransform: "uppercase", color: "#1A1615", letterSpacing: "0.04em", lineHeight: 1, marginBottom: "0.375rem" }}>
+                      {branch.name}
                     </div>
-
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", marginBottom: "0.875rem" }}>
-                      <MapPin size={14} color="#8B1A1A" style={{ marginTop: "0.125rem", flexShrink: 0 }} />
-                      <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#6B6460", lineHeight: 1.5 }}>
-                        {branch.address}
+                    <a
+                      href={branch.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: "flex", alignItems: "center", gap: "0.375rem", marginBottom: "0.75rem", textDecoration: "none", color: "inherit" }}
+                      onMouseEnter={(e) => { (e.currentTarget.querySelector("span") as HTMLElement).style.color = "#8B1A1A"; (e.currentTarget.querySelector("svg") as SVGElement).style.color = "#8B1A1A"; }}
+                      onMouseLeave={(e) => { (e.currentTarget.querySelector("span") as HTMLElement).style.color = "#9C9890"; (e.currentTarget.querySelector("svg") as SVGElement).style.color = "#9C9890"; }}
+                    >
+                      <MapPin size={11} color="#9C9890" style={{ flexShrink: 0, transition: "color 0.2s" }} />
+                      <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.75rem", color: "#9C9890", lineHeight: 1.3, transition: "color 0.2s" }}>
+                        {branch.address} · {branch.neighborhood}
                       </span>
-                    </div>
-
-                    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                    </a>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
                       {branch.schedule.map((item) => (
-                        <div key={item.key} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", background: "#F8F8F6", border: "1px solid rgba(212,208,200,0.7)", borderRadius: "0.5rem", padding: "0.625rem 0.75rem" }}>
-                          <span style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "0.9375rem", textTransform: "uppercase", color: "#1A1615", letterSpacing: "0.04em" }}>
+                        <div key={item.key} style={{ display: "flex", justifyContent: "space-between", gap: "0.5rem", padding: "0.25rem 0", borderBottom: "1px solid rgba(212,208,200,0.5)" }}>
+                          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", color: "#1A1615", letterSpacing: "0.03em" }}>
                             {item.day}
                           </span>
-                          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.875rem", color: "#6B6460", whiteSpace: "nowrap" }}>
+                          <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.75rem", color: "#6B6460", whiteSpace: "nowrap" }}>
                             {item.time}
                           </span>
                         </div>
@@ -330,24 +313,8 @@ export default function Contacto() {
               </div>
             </div>
 
-            {/* Contact items */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem", marginBottom: "2.5rem" }}>
-              <ContactItem
-                icon={<Phone size={18} color="#8B1A1A" />}
-                label="Teléfono"
-                value="+54 11 6178-1198"
-                href="tel:+541161781198"
-              />
-              <ContactItem
-                icon={<Mail size={18} color="#8B1A1A" />}
-                label="Email"
-                value="samurayledesma@gmail.com"
-                href="mailto:samurayledesma@gmail.com"
-              />
-            </div>
-
             {/* Social links */}
-            <div style={{ marginBottom: "2.5rem" }}>
+            <div style={{ marginBottom: "1.5rem" }}>
               <p
                 style={{
                   fontFamily: "var(--font-inter), sans-serif",
@@ -383,14 +350,15 @@ export default function Contacto() {
               </div>
             </div>
 
-            {/* WhatsApp button */}
+            {/* WhatsApp */}
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: "inline-flex",
+                display: "flex",
                 alignItems: "center",
+                justifyContent: "center",
                 gap: "0.75rem",
                 background: "#25D366",
                 color: "#fff",
@@ -421,14 +389,18 @@ export default function Contacto() {
               </svg>
               Escribinos por WhatsApp
             </a>
+
           </div>
 
-          {/* Right: Form */}
+          {/* Right: Contact + Form */}
           <div
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateX(0)" : "translateX(30px)",
               transition: "opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.25rem",
             }}
           >
             <div
@@ -658,6 +630,7 @@ export default function Contacto() {
                 </form>
               )}
             </div>
+
           </div>
         </div>
       </div>

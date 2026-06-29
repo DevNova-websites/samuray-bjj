@@ -11,7 +11,8 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\User\\\\Desktop\\\\samuray-bjj\" -Recurse -Force)",
       "Bash(Select-Object -First 100)",
       "Bash(Format-Table FullName)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Read(//c/Users/User/AppData/Local/Temp/**)"
     ]
   }
 }

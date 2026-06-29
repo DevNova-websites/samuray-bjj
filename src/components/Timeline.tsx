@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 
 interface TimelineEvent {
@@ -15,77 +16,61 @@ interface TimelineEvent {
 
 const EVENTS: TimelineEvent[] = [
   {
-    year: "1975",
+    year: "1973",
     title: "Los Primeros Pasos",
-    description: "Jorge Omar Ledesma comienza su camino en las artes marciales, iniciando un viaje que transformaría su vida y la de miles de alumnos.",
-    detail: "A los jóvenes años, con una pasión que nunca se apagaría, el Profesor Ledesma da sus primeros pasos en el mundo de las artes marciales. Desde ese momento, la disciplina y el respeto se convierten en pilares de su vida. Este inicio marca el comienzo de una historia extraordinaria que aún continúa.",
+    description: "El Mestre Jorge O. Ledesma comienza su camino marcial, iniciando un viaje que transformaría su vida y la de cientos de alumnos.",
+    detail: "Con una pasión que nunca se apagaría, el Mestre Ledesma da sus primeros pasos en el mundo de las artes marciales. Desde ese momento, la disciplina y el respeto se convierten en pilares de su vida. Este inicio marca el comienzo de una historia extraordinaria que aún continúa.",
+    image: "/images/samuray-primeros-pasos.jpg",
     side: "right",
   },
   {
     year: "1990",
     title: "Expansión Marcial",
     description: "Décadas de entrenamiento en múltiples artes marciales consolidan una base técnica excepcional y una filosofía de vida.",
-    detail: "Tras años de dedicación intensa, el Profesor profundiza en diversas disciplinas marciales, enriqueciendo su arsenal técnico y su visión filosófica. Este período de exploración y aprendizaje constante lo prepara para lo que se convertiría en su gran pasión: el Brazilian Jiu-Jitsu.",
+    detail: "Tras años de dedicación intensa, el Mestre profundiza en diversas disciplinas marciales, enriqueciendo su arsenal técnico y su visión filosófica. Este período de exploración y aprendizaje constante lo prepara para lo que se convertiría en su gran pasión: el Brazilian Jiu-Jitsu.",
     side: "left",
   },
   {
-    year: "2000",
+    year: "2005",
     title: "Encuentro con el BJJ",
-    description: "El descubrimiento del Brazilian Jiu-Jitsu abre una nueva dimensión. La fascinación por el arte suave se convierte en misión de vida.",
-    detail: "El encuentro con el Brazilian Jiu-Jitsu cambia todo. El Profesor Ledesma queda cautivado por la profundidad técnica y la filosofía del arte suave. Decide dedicarse de lleno, viajando, entrenando y aprendiendo de los mejores instructores. El BJJ no es solo un deporte — es su misión.",
-    image: "/images/foto-3-historia.JPG",
+    description: "En la Academia Sukata Brothers Argentina, con el Mestre Frederico Peixoto, nace una pasión que cambiaría su vida para siempre.",
+    detail: "El encuentro con el Brazilian Jiu-Jitsu cambia todo. En la Academia Sukata Brothers Argentina, bajo la guía del Mestre Frederico Peixoto, el Mestre Ledesma queda cautivado por la profundidad técnica y la filosofía del arte suave. El BJJ no es solo un deporte — es su misión.",
+    image: "/images/foto-3-historia.webp",
     side: "right",
   },
   {
-    year: "2010",
-    title: "Nace JL Samuray BJJ Academy",
-    description: "Fundación oficial de la academia, materialización de un sueño y compromiso con la comunidad.",
-    detail: "Con más de 35 años de experiencia marcial, el Profesor Ledesma da vida a la JL Samuray BJJ Academy. La academia nace con un propósito claro: formar atletas fuertes técnica y moralmente, en un entorno de respeto y hermandad. Los primeros alumnos son testigos del nacimiento de una familia.",
-    image: "/images/image-4-nacimientojlacademy.jpeg",
+    year: "2022",
+    title: "Nace JL Samuray BJJ Academy — Sukata Internacional",
+    description: "Alumno del Mestre Frederico Peixoto, quien acompañó y avaló la creación de la academia. Un sueño y compromiso con la comunidad.",
+    detail: "Con el apoyo y el aval del Mestre Frederico Peixoto, nace la JL Samuray BJJ Academy, afiliada a Sukata Internacional. La academia surge con un propósito claro: formar personas íntegras, técnica y moralmente, en un entorno de respeto y hermandad.",
+    image: "/images/image-4-nacimientojlacademy.webp",
     imagePosition: "center center",
     side: "left",
   },
   {
-    year: "2012",
-    title: "Afiliación IBJJF",
-    description: "La academia obtiene la afiliación oficial al IBJJF (N° 10580), el organismo más reconocido del Jiu-Jitsu mundial.",
-    detail: "La afiliación al International Brazilian Jiu-Jitsu Federation (IBJJF N° 10580) representa un hito fundamental. Este reconocimiento avala la calidad técnica de la academia y abre las puertas a la competencia a nivel internacional bajo las reglas oficiales de la IBJJF.",
-    image: "/images/image5-historia-afiliacion.jpg",
+    year: "HOY",
+    title: "Lealtad y Hermandad",
+    description: "Somos familia: nos apoyamos, entrenamos y crecemos juntos bajo la bandera de JL Samuray BJJ Academy.",
+    detail: "La hermandad que se forja en el fuego del tatami trasciende el jiu-jitsu. Somos familia: nos apoyamos, entrenamos y crecemos juntos bajo la bandera de JL Samuray BJJ Academy. Aquí no solo se aprende a combatir — se aprende a vivir.",
+    image: "/images/image8.webp",
     side: "right",
   },
   {
-    year: "2015",
-    title: "Sukata Internacional",
-    description: "Incorporación a la federación Sukata Internacional, expandiendo la red de entrenamiento y conexiones globales.",
-    detail: "La afiliación a Sukata Internacional establece lazos con una red global de academias y competidores de élite. Esto enriquece enormemente la formación de los alumnos, que acceden a seminarios, torneos y la experiencia de instructores de todo el mundo. La familia Samuray crece.",
-    image: "/images/image6-historia.jpg",
-    side: "left",
-  },
-  {
-    year: "2018",
-    title: "Reconocimiento CBJJE",
-    description: "Registro en la Confederación Brasileña de Jiu-Jitsu Esportivo (N° 1080), consolidando la presencia institucional.",
-    detail: "El registro en la CBJJE (N° 1080) consolida el reconocimiento institucional de la academia tanto a nivel nacional como internacional. Este aval certifica la seriedad del proyecto y el compromiso con los estándares más altos del deporte.",
-    image: "/images/image7.jpg",
-    side: "right",
-  },
-  {
-    year: "2025",
-    title: "Más de 10 Años de Legado",
-    description: "Una década de dedicación, cientos de alumnos formados y un legado que continúa creciendo cada día en el tatami.",
-    detail: "Más de una década después de su fundación, la JL Samuray BJJ Academy sigue siendo un referente del Jiu-Jitsu. Disciplina, respeto, honor, humildad, lealtad y hermandad — los valores del código que guía a cada alumno dentro y fuera del tatami. El camino continúa. OSS.",
-    image: "/images/image8.jpg",
+    year: "LEGADO",
+    title: "Cinturón Negro 5.° Dan de Kung Fu",
+    description: "Más de 50 años de dedicación formando alumnos, con un legado que sigue creciendo cada día dentro y fuera del tatami.",
+    detail: "Competidor en torneos de USKA, años 1992/93. 2.° Dan de Kick Boxing. Instructor Superior de Muay Thai. Mestre de Jiu-Jitsu Faixa Preta 4.° Grado. Campeón Mundial de Jiu-Jitsu categoría absoluto, año 2009, en Tuyuca, Brasil. Más de 50 años de dedicación formando alumnos y construyendo un legado que sigue creciendo cada día dentro y fuera del tatami.",
     side: "left",
   },
 ];
 
 const INITIAL_COUNT = 3;
 
-export default function Timeline() {
+export default function Timeline({ defaultExpanded = false }: { defaultExpanded?: boolean }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(defaultExpanded);
   const sectionRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -96,7 +81,7 @@ export default function Timeline() {
     const toPreload = [activeIndex - 1, activeIndex, activeIndex + 1]
       .filter((i) => i >= 0 && i < EVENTS.length && EVENTS[i].image)
       .map((i) => EVENTS[i].image as string);
-    toPreload.forEach((src) => { const img = new Image(); img.src = src; });
+    toPreload.forEach((src) => { const img = new window.Image(); img.src = src; });
   }, [activeIndex]);
 
   useEffect(() => {
@@ -241,11 +226,24 @@ export default function Timeline() {
               textTransform: "uppercase",
               color: "#1A1615",
               lineHeight: 1.05,
-              marginBottom: "1rem",
+              marginBottom: "0.75rem",
             }}
           >
             El Camino del Guerrero
           </h2>
+          <p
+            style={{
+              fontFamily: "var(--font-oswald), sans-serif",
+              fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
+              fontWeight: 400,
+              fontStyle: "italic",
+              color: "#8B1A1A",
+              marginBottom: "1rem",
+              letterSpacing: "0.03em",
+            }}
+          >
+            Sé parte, cambiaré tu vida
+          </p>
           <hr
             style={{
               height: "3px",
@@ -380,12 +378,15 @@ export default function Timeline() {
               }}
             >
               {activeEvent.image ? (
-                <img
+                <Image
                   key={activeEvent.image}
                   src={activeEvent.image}
                   alt={activeEvent.title}
+                  fill
                   onLoad={() => setImgLoaded(true)}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: activeEvent.imagePosition ?? "center 20%", opacity: imgLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
+                  style={{ objectFit: "cover", objectPosition: activeEvent.imagePosition ?? "center 20%", opacity: imgLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
+                  sizes="(max-width: 640px) 100vw, 620px"
+                  loading="lazy"
                 />
               ) : (
                 <div
