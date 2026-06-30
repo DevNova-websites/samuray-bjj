@@ -49,7 +49,7 @@ function BJJBelt({ degrees = 4 }: { degrees?: number }) {
 
 const PILARES = [
   { icon: Shield, title: "Disciplina y Respeto", text: "Saludamos al entrar y salir del tatami. El código de conducta de la academia rige dentro y fuera del dojo: puntualidad, obediencia al profesor y humildad ante la victoria y la derrota." },
-  { icon: Star,   title: "Honor y Humildad",     text: "Aplicamos las sumisiones con control y responsabilidad. El honor se construye con cada rolling, y la humildad nos recuerda que siempre hay algo nuevo por aprender." },
+  { icon: Star,   title: "Honor y Humildad",     text: "Aplicamos las sumisiones con control y responsabilidad. El honor se construye con cada lucha, y la humildad nos recuerda que siempre hay algo nuevo por aprender." },
   { icon: Award,  title: "Lealtad y Hermandad",  text: "Somos una familia. Nos apoyamos, entrenamos y crecemos juntos bajo la bandera de Sukata Internacional. La hermandad que se forja en el tatami trasciende el deporte." },
 ];
 

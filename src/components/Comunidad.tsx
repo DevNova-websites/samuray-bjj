@@ -235,10 +235,10 @@ export default function Comunidad() {
         }}>
           <div>
             <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "#8B1A1A", display: "block", marginBottom: "0.75rem" }}>
-              Lo que nos une
+              conoce
             </span>
             <h2 style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 4vw, 2.75rem)", textTransform: "uppercase", color: "#1A1615", lineHeight: 1.05 }}>
-              La Familia Samuray
+              Nuestros Valores
             </h2>
           </div>
           {/* flechas */}

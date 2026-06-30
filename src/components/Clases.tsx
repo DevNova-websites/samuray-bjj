@@ -43,7 +43,7 @@ export default function Clases() {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(185,28,28,0.2), transparent)" }} />
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(185,28,28,0.2), transparent)" }} />
 
-      <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
 
         {/* Header */}
         <div style={{
@@ -123,8 +123,7 @@ export default function Clases() {
               >
                 <MapPin size={16} color="currentColor" style={{ marginTop: "0.125rem", flexShrink: 0 }} />
                 <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.9375rem", lineHeight: 1.5 }}>
-                  {branch.address}
-                  {branch.addressExtra !== undefined && <><br />{branch.addressExtra}</>}
+                  {branch.address}{branch.addressExtra !== undefined && ` ${branch.addressExtra}`}
                 </span>
               </a>
 
@@ -175,7 +174,7 @@ export default function Clases() {
                       </span>
                     </div>
 
-                    <span className="day-until" style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#9C9890" }}>
+                    <span className="day-until" style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#9C9890", whiteSpace: "nowrap" }}>
                       hasta las {dia.fin} hs
                     </span>
                   </div>
