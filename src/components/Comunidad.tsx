@@ -60,7 +60,7 @@ const BLOQUES = [
   {
     tag: "Lealtad",
     title: "Lealtad y Hermandad",
-    text: "Somos amigos antes que compañeros de entrenamiento. Lo que se construye en el tatami va mucho más allá del deporte.",
+    text: "Somos amigos antes que compañeros de entrenamiento. Lo que se construye en el tatami va mucho más allá del arte marcial.",
     src: "/images/hermandad.webp",
     alt: "Hermandad en JL Samuray BJJ Academy",
     reverse: false,
