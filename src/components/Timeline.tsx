@@ -58,9 +58,9 @@ const EVENTS: TimelineEvent[] = [
   },
   {
     year: "LEGADO",
-    title: "Cinturón Negro 5.° Dan de Kung Fu",
+    title: "Cinturón Negro 5.° Grau de Kung Fu",
     description: "Más de 50 años de dedicación formando alumnos, con un legado que sigue creciendo cada día dentro y fuera del tatami.",
-    detail: "Competidor en torneos de USKA, años 1992/93. 2.° Dan de Kick Boxing. Instructor Superior de Muay Thai. Mestre de Jiu-Jitsu Faixa Preta 4.° Grado. Campeón Mundial de Jiu-Jitsu categoría absoluto, año 2009, en Tuyuca, Brasil. Más de 50 años de dedicación formando alumnos y construyendo un legado que sigue creciendo cada día dentro y fuera del tatami.",
+    detail: "Competidor en torneos de USKA, años 1992/93. 2.° Grau de Kick Boxing. Instructor Superior de Muay Thai. Mestre de Jiu-Jitsu Faixa Preta 4.° Grado. Campeón Mundial de Jiu-Jitsu categoría absoluto, año 2009, en Tuyuca, Brasil. Más de 50 años de dedicación formando alumnos y construyendo un legado que sigue creciendo cada día dentro y fuera del tatami.",
     image: "/images/el-camino-del-guerrero.webp",
     side: "left",
   },
