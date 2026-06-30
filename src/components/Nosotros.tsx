@@ -6,43 +6,42 @@ import { Shield, Star, Award } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 
 function BJJBelt({ degrees = 4 }: { degrees?: number }) {
+  const RED = "#CC1111";
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+    <div style={{
+      display: "flex",
+      alignItems: "stretch",
+      height: "24px",
+      borderRadius: "3px",
+      overflow: "hidden",
+      width: "fit-content",
+      border: "1px solid #000000",
+    }}>
+      {/* Main black body */}
+      <div style={{ width: "150px", background: "#111111", flexShrink: 0 }} />
+      {/* Hard black divider */}
+      <div style={{ width: "3px", background: "#000000", flexShrink: 0 }} />
+      {/* Small white section at start of tip */}
+      <div style={{ width: "8px", background: "#FFFFFF", flexShrink: 0 }} />
+      {/* Large solid red block */}
+      <div style={{ width: "38px", background: RED, flexShrink: 0 }} />
+      {/* Degree stripes on red background */}
       <div style={{
         display: "flex",
         alignItems: "stretch",
-        height: "22px",
-        borderRadius: "3px",
-        overflow: "hidden",
-        width: "fit-content",
-        border: "1px solid #000000",
+        background: RED,
+        flexShrink: 0,
+        padding: "0 5px",
+        gap: "5px",
       }}>
-        {/* Main black body */}
-        <div style={{ width: "150px", background: "#111111", flexShrink: 0 }} />
-        {/* Black separator */}
-        <div style={{ width: "2px", background: "#000000", flexShrink: 0 }} />
-        {/* Red dan panel */}
-        <div style={{ width: "28px", background: "#8B1A1A", flexShrink: 0 }} />
-        {/* Red separator */}
-        <div style={{ width: "2px", background: "#8B1A1A", flexShrink: 0 }} />
-        {/* Degree stripes */}
         {Array.from({ length: degrees }).map((_, i) => (
-          <div key={i} style={{ display: "flex", alignSelf: "stretch" }}>
-            {i > 0 && <div style={{ width: "4px", background: "#8B1A1A" }} />}
-            <div style={{ width: "5px", background: "#FFFFFF" }} />
-          </div>
+          <div key={i} style={{ width: "7px", background: "#FFFFFF", alignSelf: "stretch", flexShrink: 0 }} />
         ))}
-        {/* Red separator */}
-        <div style={{ width: "2px", background: "#8B1A1A", flexShrink: 0 }} />
-        {/* Red piece */}
-        <div style={{ width: "12px", background: "#8B1A1A", flexShrink: 0 }} />
-        {/* Red separator */}
-        <div style={{ width: "2px", background: "#8B1A1A", flexShrink: 0 }} />
-        {/* White piece */}
-        <div style={{ width: "6px", background: "#FFFFFF", flexShrink: 0 }} />
-        {/* Black end cap */}
-        <div style={{ width: "8px", background: "#111111", flexShrink: 0 }} />
       </div>
+      {/* White section */}
+      <div style={{ width: "8px", background: "#FFFFFF", flexShrink: 0 }} />
+      {/* Black end cap */}
+      <div style={{ width: "18px", background: "#111111", flexShrink: 0 }} />
     </div>
   );
 }
