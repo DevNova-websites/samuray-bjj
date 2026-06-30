@@ -136,14 +136,14 @@ export default function Nosotros() {
             </div>
 
             <div style={{ marginTop: "2.5rem" }}>
-              <button
-                onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })}
-                style={{ background: "#8B1A1A", border: "none", color: "#FFFFFF", fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "0.875rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "0.75rem 1.75rem", borderRadius: "0.375rem", cursor: "pointer", transition: "background 0.2s, transform 0.2s", boxShadow: "0 4px 16px rgba(185,28,28,0.3)" }}
+              <a
+                href="/comunidad"
+                style={{ display: "inline-block", background: "#8B1A1A", color: "#FFFFFF", fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "0.875rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "0.75rem 1.75rem", borderRadius: "0.375rem", cursor: "pointer", transition: "background 0.2s, transform 0.2s", boxShadow: "0 4px 16px rgba(185,28,28,0.3)", textDecoration: "none" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#A31919"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#8B1A1A"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
               >
-                Sumate al Tatami
-              </button>
+                Descubrí la Comunidad
+              </a>
             </div>
           </div>
         </div>

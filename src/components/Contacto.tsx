@@ -1,8 +1,7 @@
 ﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Phone, Mail, Send, CheckCircle, AlertCircle, Clock, MapPin } from "lucide-react";
-import useSendEmail from "@/hooks/useSendEmail";
+import { Send, CheckCircle, Clock, MapPin } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 
 const InstagramIcon = () => (
@@ -19,7 +18,7 @@ const FacebookIcon = () => (
   </svg>
 );
 
-type FormState = "idle" | "loading" | "success" | "error";
+type FormState = "idle" | "success";
 
 interface FormData {
   nombre: string;
@@ -65,7 +64,6 @@ const BRANCHES = [
 
 export default function Contacto() {
   const { ref, visible } = useInView();
-  const sendEmail = useSendEmail();
   const [formData, setFormData] = useState<FormData>({
     nombre: "",
     email: "",
@@ -75,7 +73,6 @@ export default function Contacto() {
   });
   const [formState, setFormState] = useState<FormState>("idle");
   const [errors, setErrors] = useState<Partial<FormData>>({});
-  const [submitError, setSubmitError] = useState("");
 
   const validate = (): boolean => {
     const newErrors: Partial<FormData> = {};
@@ -87,23 +84,30 @@ export default function Contacto() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    setFormState("loading");
-    setSubmitError("");
 
-    try {
-      await sendEmail(formData);
-      setFormState("success");
-    } catch (error) {
-      setSubmitError(
-        error instanceof Error
-          ? error.message
-          : "Hubo un error al enviar. Intentá de nuevo o contactanos por WhatsApp."
-      );
-      setFormState("error");
-    }
+    const nivelLabel = NIVELES.find((n) => n.value === formData.nivel)?.label;
+    const lines = [
+      "Hola! Les escribo desde el sitio web 🥋",
+      "",
+      `Nombre: ${formData.nombre}`,
+      `Email: ${formData.email}`,
+      formData.telefono ? `Teléfono: ${formData.telefono}` : null,
+      nivelLabel ? `Nivel: ${nivelLabel}` : null,
+      "",
+      `Consulta: ${formData.mensaje}`,
+    ]
+      .filter((l) => l !== null)
+      .join("\n");
+
+    window.open(
+      `https://wa.me/541161781198?text=${encodeURIComponent(lines)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+    setFormState("success");
   };
 
   const handleChange = (field: keyof FormData) => (
@@ -444,7 +448,7 @@ export default function Contacto() {
                       maxWidth: "320px",
                     }}
                   >
-                    {"Gracias por tu interés. El Profesor Ledesma se pondrá en contacto con vos a la brevedad. OSS."}
+  {"¡WhatsApp abierto con tu consulta! Si no se abrió automáticamente, escribinos al 11 6178-1198. OSS."}
                   </p>
                   <button
                     onClick={() => { setFormState("idle"); setFormData({ nombre: "", email: "", telefono: "", nivel: "", mensaje: "" }); }}
@@ -535,31 +539,10 @@ export default function Contacto() {
                     />
                   </FormField>
 
-                  {formState === "error" && (
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.5rem",
-                        padding: "0.75rem 1rem",
-                        background: "rgba(185,28,28,0.07)",
-                        border: "1px solid rgba(185,28,28,0.2)",
-                        borderRadius: "0.5rem",
-                        color: "#8B1A1A",
-                        fontSize: "0.875rem",
-                        fontFamily: "var(--font-inter), sans-serif",
-                      }}
-                    >
-                      <AlertCircle size={16} />
-                      {submitError || "Hubo un error al enviar. Intentá de nuevo o contactanos por WhatsApp."}
-                    </div>
-                  )}
-
                   <button
                     type="submit"
-                    disabled={formState === "loading"}
                     style={{
-                      background: formState === "loading" ? "#A31919" : "#8B1A1A",
+                      background: "#8B1A1A",
                       border: "none",
                       color: "#FFFFFF",
                       fontFamily: "var(--font-oswald), sans-serif",
@@ -569,7 +552,7 @@ export default function Contacto() {
                       textTransform: "uppercase",
                       padding: "0.9375rem",
                       borderRadius: "0.5rem",
-                      cursor: formState === "loading" ? "not-allowed" : "pointer",
+                      cursor: "pointer",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -578,29 +561,16 @@ export default function Contacto() {
                       boxShadow: "0 4px 16px rgba(185,28,28,0.3)",
                     }}
                     onMouseEnter={(e) => {
-                      if (formState !== "loading") {
-                        (e.currentTarget as HTMLElement).style.background = "#A31919";
-                        (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
-                      }
+                      (e.currentTarget as HTMLElement).style.background = "#A31919";
+                      (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.background = formState === "loading" ? "#A31919" : "#8B1A1A";
+                      (e.currentTarget as HTMLElement).style.background = "#8B1A1A";
                       (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                     }}
                   >
-                    {formState === "loading" ? (
-                      <>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ animation: "spin 1s linear infinite" }}>
-                          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                        </svg>
-                        Enviando...
-                      </>
-                    ) : (
-                      <>
-                        <Send size={16} />
-                        Enviar Consulta
-                      </>
-                    )}
+                    <Send size={16} />
+                    Enviar Consulta
                   </button>
 
                   <p
