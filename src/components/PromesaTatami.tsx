@@ -8,6 +8,7 @@ export default function PromesaTatami() {
 
   return (
     <section
+      id="promesa-tatami"
       ref={ref}
       style={{
         background: "#1A0A0A",
@@ -88,6 +89,7 @@ export default function PromesaTatami() {
 
         {/* quote block */}
         <div
+          id="promesa-quote"
           style={{
             padding: "2.5rem 2.5rem",
             opacity: visible ? 1 : 0,
@@ -124,6 +126,16 @@ export default function PromesaTatami() {
 
       {/* decorative line bottom */}
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(139,26,26,0.4), transparent)" }} />
+
+      <style>{`
+        @media (max-width: 768px) {
+          #promesa-tatami { padding: 4rem 1.25rem !important; }
+          #promesa-quote { padding: 1.5rem 0 !important; }
+        }
+        @media (max-width: 640px) {
+          #promesa-tatami { padding: 3rem 1rem !important; }
+        }
+      `}</style>
     </section>
   );
 }

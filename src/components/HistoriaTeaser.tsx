@@ -16,6 +16,7 @@ export default function HistoriaTeaser() {
 
   return (
     <section
+      id="historia-teaser"
       ref={ref}
       style={{ background: "#1A0A0A", padding: "6rem 1.5rem", position: "relative", overflow: "hidden" }}
     >
@@ -121,6 +122,15 @@ export default function HistoriaTeaser() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          #historia-teaser { padding: 4rem 1.25rem !important; }
+        }
+        @media (max-width: 640px) {
+          #historia-teaser { padding: 3rem 1rem !important; }
+        }
+      `}</style>
     </section>
   );
 }

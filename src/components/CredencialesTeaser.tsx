@@ -13,6 +13,7 @@ export default function CredencialesTeaser() {
 
   return (
     <section
+      id="credenciales-teaser"
       ref={ref}
       style={{
         background: "#F5F3EF",
@@ -167,6 +168,15 @@ export default function CredencialesTeaser() {
         </div>
 
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          #credenciales-teaser { padding: 3.5rem 1.25rem !important; }
+        }
+        @media (max-width: 640px) {
+          #credenciales-teaser { padding: 3rem 1rem !important; }
+        }
+      `}</style>
     </section>
   );
 }

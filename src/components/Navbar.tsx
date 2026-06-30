@@ -109,7 +109,7 @@ export default function Navbar() {
             priority
           />
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-            <span style={{ fontFamily: "var(--font-oswald), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", letterSpacing: "0.08em", color: scrolled ? "#8B1A1A" : "#FFFFFF", lineHeight: 1.1, transition: "color 0.4s" }}>
+            <span id="navbar-logo-text" style={{ fontFamily: "var(--font-oswald), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", letterSpacing: "0.08em", color: scrolled ? "#8B1A1A" : "#FFFFFF", lineHeight: 1.1, transition: "color 0.4s" }}>
               JL SAMURAY
             </span>
             <span style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "0.625rem", letterSpacing: "0.18em", color: scrolled ? "#9C9890" : "rgba(255,255,255,0.55)", textTransform: "uppercase", transition: "color 0.4s" }}>
@@ -164,8 +164,9 @@ export default function Navbar() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           id="mobile-menu-btn"
-          style={{ background: "none", border: "none", cursor: "pointer", color: scrolled ? "#8B1A1A" : "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", padding: "0.5rem", transition: "color 0.4s" }}
-          aria-label="Abrir menú"
+          style={{ background: "none", border: "none", cursor: "pointer", color: scrolled ? "#8B1A1A" : "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", padding: "0.625rem", minWidth: "44px", minHeight: "44px", transition: "color 0.4s" }}
+          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={isOpen}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -200,6 +201,9 @@ export default function Navbar() {
           #desktop-nav   { display: flex !important; }
           #desktop-cta   { display: block !important; }
           #mobile-menu-btn { display: none !important; }
+        }
+        @media (max-width: 360px) {
+          #navbar-logo-text { font-size: 1.05rem !important; }
         }
       `}</style>
     </header>

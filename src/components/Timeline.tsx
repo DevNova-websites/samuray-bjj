@@ -20,7 +20,7 @@ const EVENTS: TimelineEvent[] = [
     title: "Los Primeros Pasos",
     description: "El Mestre Jorge O. Ledesma comienza su camino marcial, iniciando un viaje que transformaría su vida y la de cientos de alumnos.",
     detail: "Con una pasión que nunca se apagaría, el Mestre Ledesma da sus primeros pasos en el mundo de las artes marciales. Desde ese momento, la disciplina y el respeto se convierten en pilares de su vida. Este inicio marca el comienzo de una historia extraordinaria que aún continúa.",
-    image: "/images/samuray-primeros-pasos.jpg",
+    image: "/images/samuray-primeros-pasos.webp",
     side: "right",
   },
   {
@@ -28,7 +28,7 @@ const EVENTS: TimelineEvent[] = [
     title: "Expansión Marcial",
     description: "Décadas de entrenamiento en múltiples artes marciales consolidan una base técnica excepcional y una filosofía de vida.",
     detail: "Tras años de dedicación intensa, el Mestre profundiza en diversas disciplinas marciales, enriqueciendo su arsenal técnico y su visión filosófica. Este período de exploración y aprendizaje constante lo prepara para lo que se convertiría en su gran pasión: el Brazilian Jiu-Jitsu.",
-    image: "/images/el-camino-del-guerrero-2.jpeg",
+    image: "/images/el-camino-del-guerrero-2.webp",
     side: "left",
   },
   {
@@ -471,7 +471,7 @@ export default function Timeline({ defaultExpanded = false }: { defaultExpanded?
               </button>
             </div>
 
-            <div style={{ padding: "2rem" }}>
+            <div id="tl-modal-body" style={{ padding: "2rem" }}>
               <h3
                 style={{
                   fontFamily: "var(--font-oswald), sans-serif",
@@ -559,13 +559,18 @@ export default function Timeline({ defaultExpanded = false }: { defaultExpanded?
         @keyframes slideUpModal { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInBtn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         .tl-mobile-card { display: none; }
+        @media (max-width: 768px) {
+          #historia { padding: 4rem 1.25rem !important; }
+        }
         @media (max-width: 640px) {
+          #historia { padding: 3rem 1rem !important; }
           #timeline-center-line { left: 24px !important; transform: none !important; }
           .tl-row { grid-template-columns: 48px 1fr !important; }
           .tl-left { display: none !important; }
           .tl-dot { align-items: flex-start !important; padding-top: 1.25rem; }
           .tl-right { padding-left: 0.75rem !important; }
           .tl-mobile-card { display: block !important; }
+          #tl-modal-body { padding: 1.25rem !important; }
         }
       `}</style>
     </section>

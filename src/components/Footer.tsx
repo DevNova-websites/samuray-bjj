@@ -73,7 +73,7 @@ export default function Footer() {
   };
 
   return (
-    <footer style={{ background: "#1A0A0A", borderTop: "1px solid rgba(248,113,113,0.15)", padding: "4rem 1.5rem 2rem", position: "relative" }}>
+    <footer id="footer-root" style={{ background: "#1A0A0A", borderTop: "1px solid rgba(248,113,113,0.15)", padding: "4rem 1.5rem 2rem", position: "relative" }}>
       <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "120px", height: "2px", background: "#8B1A1A" }} />
 
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
@@ -176,11 +176,11 @@ export default function Footer() {
               </a>
               <a
                 href="mailto:samurayledesma@gmail.com"
-                style={{ display: "flex", alignItems: "center", gap: "0.625rem", textDecoration: "none", color: "rgba(248,235,235,0.5)", fontFamily: "var(--font-inter), sans-serif", fontSize: "0.875rem", transition: "color 0.2s" }}
+                style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem", textDecoration: "none", color: "rgba(248,235,235,0.5)", fontFamily: "var(--font-inter), sans-serif", fontSize: "0.875rem", transition: "color 0.2s", wordBreak: "break-all" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#F5F3EF"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(248,235,235,0.5)"; }}
               >
-                <Mail size={14} color="#F87171" style={{ flexShrink: 0 }} />
+                <Mail size={14} color="#F87171" style={{ flexShrink: 0, marginTop: "3px" }} />
                 samurayledesma@gmail.com
               </a>
               <a
@@ -202,7 +202,7 @@ export default function Footer() {
 
         <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(248,113,113,0.25), transparent)", marginBottom: "2rem" }} />
 
-        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "0.75rem" }}>
           <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.75rem", color: "rgba(248,235,235,0.3)" }}>
             {"© "}{year} JL Samuray BJJ Academy, desarrollado por devnova. Todos los derechos reservados.
           </p>
@@ -211,6 +211,15 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          #footer-root { padding: 3rem 1.25rem 1.5rem !important; }
+        }
+        @media (max-width: 640px) {
+          #footer-root { padding: 2.5rem 1rem 1.5rem !important; }
+        }
+      `}</style>
     </footer>
   );
 }

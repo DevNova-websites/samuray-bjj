@@ -3,12 +3,6 @@
 :root {
   --red: #8B1A1A;
   --red-light: #A31919;
-  --blue: #8B1A1A;
-  --blue-light: #A31919;
-  --purple: #991515;
-  --purple-light: #B32020;
-  --brown: #7A1010;
-  --brown-light: #9A1818;
   --bg: #F8F8F6;
   --surface: #F5F3EF;
   --surface2: #EEECEA;
@@ -37,9 +31,20 @@ body {
   overflow-x: hidden;
 }
 
+/* Elimina tap highlight azul en móvil */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #F5F3EF; }
 ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+/* Ocultar scrollbar en móvil */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar { width: 0; }
+}
 
 ::selection { background: rgba(185,28,28,0.15); color: var(--red); }
 
@@ -59,7 +64,7 @@ body {
   color: #1A1615;
   padding: 0.875rem 1rem;
   border-radius: 0.5rem;
-  font-size: 0.9375rem;
+  font-size: 1rem; /* mínimo 16px previene auto-zoom en iOS Safari */
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
 }

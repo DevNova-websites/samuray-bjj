@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Shield, Star, Award } from "lucide-react";
+import { useInView } from "@/hooks/useInView";
 
 function BJJBelt({ degrees = 4 }: { degrees?: number }) {
   return (
@@ -22,40 +23,28 @@ function BJJBelt({ degrees = 4 }: { degrees?: number }) {
         <div style={{ width: "2px", background: "#000000", flexShrink: 0 }} />
         {/* Red dan panel */}
         <div style={{ width: "28px", background: "#8B1A1A", flexShrink: 0 }} />
-        {/* Black separator */}
-        <div style={{ width: "2px", background: "#000000", flexShrink: 0 }} />
+        {/* Red separator */}
+        <div style={{ width: "2px", background: "#8B1A1A", flexShrink: 0 }} />
         {/* Degree stripes */}
         {Array.from({ length: degrees }).map((_, i) => (
           <div key={i} style={{ display: "flex", alignSelf: "stretch" }}>
-            {i > 0 && <div style={{ width: "2px", background: "#000000" }} />}
-            <div style={{ width: "8px", background: "#FFFFFF" }} />
+            {i > 0 && <div style={{ width: "4px", background: "#8B1A1A" }} />}
+            <div style={{ width: "5px", background: "#FFFFFF" }} />
           </div>
         ))}
-        {/* Black separator */}
-        <div style={{ width: "2px", background: "#000000", flexShrink: 0 }} />
-        {/* White end cap */}
-        <div style={{
-          width: "12px",
-          background: "#FFFFFF",
-          flexShrink: 0,
-        }} />
+        {/* Red separator */}
+        <div style={{ width: "2px", background: "#8B1A1A", flexShrink: 0 }} />
+        {/* Red piece */}
+        <div style={{ width: "12px", background: "#8B1A1A", flexShrink: 0 }} />
+        {/* Red separator */}
+        <div style={{ width: "2px", background: "#8B1A1A", flexShrink: 0 }} />
+        {/* White piece */}
+        <div style={{ width: "6px", background: "#FFFFFF", flexShrink: 0 }} />
+        {/* Black end cap */}
+        <div style={{ width: "8px", background: "#111111", flexShrink: 0 }} />
       </div>
     </div>
   );
-}
-
-function useInView(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
-      { threshold }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [threshold]);
-  return { ref, visible };
 }
 
 const PILARES = [
@@ -67,7 +56,7 @@ const PILARES = [
 const PILAR_COLORS = ["#8B1A1A", "#991515", "#7A1010"];
 
 export default function Nosotros() {
-  const { ref, visible } = useInView();
+  const { ref, visible } = useInView(0.15);
 
   return (
     <section id="nosotros" ref={ref} style={{ background: "#F8F8F6", padding: "6rem 1.5rem", position: "relative", overflow: "hidden" }}>
@@ -183,9 +172,14 @@ export default function Nosotros() {
       </div>
 
       <style>{`
+        @media (max-width: 768px) {
+          #nosotros { padding: 4rem 1.25rem !important; }
+        }
         @media (max-width: 640px) {
+          #nosotros { padding: 3rem 1rem !important; }
           #nosotros-img { aspect-ratio: 3/2 !important; max-height: 280px !important; }
           #nosotros-pilares { grid-template-columns: 1fr !important; }
+          #nosotros-pilares > div { padding: 1.5rem !important; }
         }
       `}</style>
     </section>

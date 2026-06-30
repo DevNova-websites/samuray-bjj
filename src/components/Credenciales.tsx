@@ -1,20 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
-function useInView(threshold = 0.1) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
-      { threshold }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [threshold]);
-  return { ref, visible };
-}
+import { useInView } from "@/hooks/useInView";
 
 const CREDS = [
   {
@@ -66,6 +52,14 @@ export default function Credenciales() {
         overflow: "hidden",
       }}
     >
+      <style>{`
+        @media (max-width: 768px) {
+          #credenciales { padding: 4rem 1.25rem !important; }
+        }
+        @media (max-width: 640px) {
+          #credenciales { padding: 3rem 1rem !important; }
+        }
+      `}</style>
       {/* Decorative edges */}
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(139,26,26,0.2), transparent)" }} />
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(139,26,26,0.2), transparent)" }} />

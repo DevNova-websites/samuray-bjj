@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Phone, Mail, Send, CheckCircle, AlertCircle, Clock, MapPin } from "lucide-react";
 import useSendEmail from "@/hooks/useSendEmail";
+import { useInView } from "@/hooks/useInView";
 
 const InstagramIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -17,20 +18,6 @@ const FacebookIcon = () => (
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
   </svg>
 );
-
-function useInView(threshold = 0.1) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
-      { threshold }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [threshold]);
-  return { ref, visible };
-}
 
 type FormState = "idle" | "loading" | "success" | "error";
 
@@ -637,8 +624,16 @@ export default function Contacto() {
 
       <style>{`
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @media (max-width: 768px) {
+          #contacto { padding: 4rem 1.25rem !important; }
+        }
+        @media (max-width: 640px) {
+          #contacto { padding: 3rem 1rem !important; }
+          #contact-branches { grid-template-columns: 1fr !important; }
+        }
         @media (max-width: 480px) {
           #contact-email-tel { grid-template-columns: 1fr !important; }
+          #contact-branches { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>

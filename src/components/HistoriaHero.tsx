@@ -58,7 +58,7 @@ export default function HistoriaHero() {
       </div>
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 1, maxWidth: "1100px", margin: "0 auto", padding: "calc(72px + 4rem) 1.5rem 0", width: "100%" }}>
+      <div style={{ position: "relative", zIndex: 1, maxWidth: "1100px", margin: "0 auto", padding: "calc(72px + clamp(2rem, 5vw, 4rem)) clamp(1rem, 4vw, 1.5rem) 0", width: "100%" }}>
         <div style={{ paddingBottom: "4rem" }}>
           <span
             style={{

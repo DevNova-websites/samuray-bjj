@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: "https://samuraybjj.com/credenciales-y-afiliaciones",
     siteName: "JL Samuray BJJ Academy",
-    images: [{ url: "/images/og-image.webp", width: 1200, height: 630, alt: "Credenciales y Afiliaciones JL Samuray BJJ Academy" }],
+    images: [{ url: "/images/og-image.png", width: 1200, height: 630, alt: "Credenciales y Afiliaciones JL Samuray BJJ Academy" }],
   },
 };
 

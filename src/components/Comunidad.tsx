@@ -32,12 +32,12 @@ const GALERIA = [
   // Fila 8-9: landscape grande (2×2) + 2 portraits
   { src: "/images/familia-tatami.webp",              alt: "Familia en el tatami",            cols: 2, rows: 2, objectPosition: "center" },
   { src: "/images/el-camino-del-guerrero.webp",      alt: "El camino del guerrero",          cols: 1, rows: 2, objectPosition: "center top" },
-  { src: "/images/hombre-cinturon-marron.jpg",       alt: "Cinturón marrón",                cols: 1, rows: 2, objectPosition: "center top" },
+  { src: "/images/hombre-cinturon-marron.webp",      alt: "Cinturón marrón",                cols: 1, rows: 2, objectPosition: "center top" },
 
   // Fila 10-11: portrait + landscape grande (2×2) + portrait
-  { src: "/images/hombres-luchando.jpg",             alt: "Entrenamiento BJJ",               cols: 1, rows: 2, objectPosition: "center top" },
+  { src: "/images/hombres-luchando.webp",            alt: "Entrenamiento BJJ",               cols: 1, rows: 2, objectPosition: "center top" },
   { src: "/images/image-4-nacimientojlacademy.webp", alt: "Nace JL Samuray Academy",        cols: 2, rows: 2, objectPosition: "center" },
-  { src: "/images/hombre-luchando.jpg",              alt: "Técnica en el tatami",            cols: 1, rows: 2, objectPosition: "center" },
+  { src: "/images/hombre-luchando.webp",             alt: "Técnica en el tatami",            cols: 1, rows: 2, objectPosition: "center" },
 ];
 
 const BLOQUES = [
@@ -61,7 +61,7 @@ const BLOQUES = [
     tag: "Lealtad",
     title: "Lealtad y Hermandad",
     text: "Somos amigos antes que compañeros de entrenamiento. Lo que se construye en el tatami va mucho más allá del deporte.",
-    src: "/images/hermandad.jpg",
+    src: "/images/hermandad.webp",
     alt: "Hermandad en JL Samuray BJJ Academy",
     reverse: false,
   },
@@ -112,7 +112,7 @@ export default function Comunidad() {
       <section style={{ position: "relative", minHeight: "70vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", overflow: "hidden", background: "#0c0404" }}>
         <div style={{ position: "absolute", inset: 0 }}>
           <Image
-            src="/images/banner-comunidad.jpg"
+            src="/images/banner-comunidad.webp"
             alt="Comunidad JL Samuray BJJ Academy"
             fill
             style={{ objectFit: "cover", objectPosition: "center 35%", transform: "scaleX(-1)" }}
@@ -220,6 +220,7 @@ export default function Comunidad() {
 
       {/* ── CARRUSEL HORIZONTAL ── */}
       <section
+        id="comunidad-carrusel"
         ref={bloquesRef}
         style={{ background: "#F5F3EF", padding: "5rem 0 4rem", position: "relative", overflow: "hidden" }}
       >
@@ -334,11 +335,17 @@ export default function Comunidad() {
 
         <style>{`
           #bloques-carousel::-webkit-scrollbar { display: none; }
+          @media (max-width: 768px) {
+            #comunidad-carrusel { padding: 3.5rem 0 3rem !important; }
+          }
+          @media (max-width: 640px) {
+            #comunidad-carrusel { padding: 2.5rem 0 2rem !important; }
+          }
         `}</style>
       </section>
 
       {/* ── GALERÍA ── */}
-      <section ref={galeriaRef} style={{ background: "#FFFFFF", padding: "6rem 1.5rem", position: "relative" }}>
+      <section id="comunidad-galeria" ref={galeriaRef} style={{ background: "#FFFFFF", padding: "6rem 1.5rem", position: "relative" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div
             style={{
@@ -412,7 +419,11 @@ export default function Comunidad() {
             #galeria-grid { grid-template-columns: repeat(2, 1fr) !important; grid-auto-rows: 200px !important; }
             #galeria-grid > div { grid-column: span 1 !important; }
           }
+          @media (max-width: 768px) {
+            #comunidad-galeria { padding: 4rem 1.25rem !important; }
+          }
           @media (max-width: 480px) {
+            #comunidad-galeria { padding: 3rem 1rem !important; }
             #galeria-grid { grid-template-columns: 1fr !important; grid-auto-rows: 240px !important; }
             #galeria-grid > div { grid-column: span 1 !important; grid-row: span 1 !important; }
           }
@@ -490,12 +501,14 @@ function Lightbox({
         aria-label="Anterior"
         style={{
           position: "absolute",
-          left: "1rem",
-          background: "rgba(255,255,255,0.1)",
+          left: "clamp(0.5rem, 2vw, 1rem)",
+          top: "50%",
+          transform: "translateY(-50%)",
+          background: "rgba(255,255,255,0.15)",
           border: "none",
           borderRadius: "50%",
-          width: "52px",
-          height: "52px",
+          width: "clamp(40px, 8vw, 52px)",
+          height: "clamp(40px, 8vw, 52px)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -504,7 +517,7 @@ function Lightbox({
           zIndex: 1,
         }}
       >
-        <ChevronLeft size={28} />
+        <ChevronLeft size={24} />
       </button>
 
       {/* image */}
@@ -534,12 +547,14 @@ function Lightbox({
         aria-label="Siguiente"
         style={{
           position: "absolute",
-          right: "1rem",
-          background: "rgba(255,255,255,0.1)",
+          right: "clamp(0.5rem, 2vw, 1rem)",
+          top: "50%",
+          transform: "translateY(-50%)",
+          background: "rgba(255,255,255,0.15)",
           border: "none",
           borderRadius: "50%",
-          width: "52px",
-          height: "52px",
+          width: "clamp(40px, 8vw, 52px)",
+          height: "clamp(40px, 8vw, 52px)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -548,7 +563,7 @@ function Lightbox({
           zIndex: 1,
         }}
       >
-        <ChevronRight size={28} />
+        <ChevronRight size={24} />
       </button>
 
       {/* counter */}
@@ -562,6 +577,9 @@ function Lightbox({
           fontSize: "0.8125rem",
           color: "rgba(255,255,255,0.5)",
           letterSpacing: "0.08em",
+          background: "rgba(0,0,0,0.4)",
+          padding: "0.25rem 0.75rem",
+          borderRadius: "1rem",
         }}
       >
         {index + 1} / {images.length}

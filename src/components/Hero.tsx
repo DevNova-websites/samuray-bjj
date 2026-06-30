@@ -101,7 +101,7 @@ export default function Hero() {
         </div>
 
         {/* Values row */}
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", marginTop: "4rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.15)", opacity: visible ? 1 : 0, transition: "opacity 0.7s ease 0.75s" }}>
+        <div id="hero-values" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", marginTop: "4rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.15)", opacity: visible ? 1 : 0, transition: "opacity 0.7s ease 0.75s" }}>
           {["Disciplina", "Respeto", "Honor", "Humildad", "Lealtad", "Hermandad"].map((value) => (
             <span key={value} style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.65)" }}>
               {value}
@@ -128,7 +128,11 @@ export default function Hero() {
           50% { transform: translateX(-50%) translateY(8px); }
         }
         @media (max-width: 640px) {
-          #hero-content { padding-top: calc(72px + 1.5rem) !important; padding-bottom: 3rem !important; }
+          #hero-content { padding-top: calc(72px + 1.5rem) !important; padding-bottom: 3rem !important; padding-left: 1rem !important; padding-right: 1rem !important; }
+          #hero-values { gap: 0.625rem !important; }
+        }
+        @media (max-width: 375px) {
+          #hero-values span { font-size: 0.625rem !important; letter-spacing: 0.1em !important; }
         }
       `}</style>
     </section>
