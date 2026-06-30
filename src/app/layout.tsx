@@ -17,6 +17,9 @@ const oswald = Oswald({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://samuraybjj.com"),
+  verification: {
+    google: "_cvJdcx5q-HNtQLp7kKMP1-HWFSoDw4I8hIGPFCBROM",
+  },
   title: "JL Samuray BJJ Academy | Jiu-Jitsu Brasileño",
   description:
     "Academia de Brazilian Jiu-Jitsu con más de 10 años de experiencia. Afiliada a IBJJF, CBJJE y Sukata Internacional. Dirigida por el Mestre Jorge Omar Ledesma.",
