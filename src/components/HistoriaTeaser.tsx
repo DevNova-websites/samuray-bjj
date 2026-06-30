@@ -19,14 +19,16 @@ export default function HistoriaTeaser() {
           src="/images/llave-de-brazo.webp"
           alt="El Camino del Guerrero — JL Samuray BJJ Academy"
           fill
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          className="historia-banner-img"
+          style={{ objectFit: "cover", objectPosition: "15% center" }}
           sizes="100vw"
           loading="lazy"
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,3,3,0.85) 0%, rgba(10,3,3,0.55) 50%, rgba(10,3,3,0.2) 100%)" }} />
       </div>
 
-      <div style={{ maxWidth: "700px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: "520px" }}>
         <div
           style={{
             opacity: visible ? 1 : 0,
@@ -76,11 +78,13 @@ export default function HistoriaTeaser() {
             Ver la historia completa →
           </Link>
         </div>
+        </div>
       </div>
 
       <style>{`
         @media (max-width: 768px) {
           #historia-teaser { padding: 4rem 1.25rem !important; }
+          #historia-teaser .historia-banner-img { object-position: center !important; }
         }
         @media (max-width: 640px) {
           #historia-teaser { padding: 3rem 1rem !important; }

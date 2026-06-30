@@ -38,7 +38,7 @@ export default function Clases() {
     <section
       id="clases"
       ref={ref}
-      style={{ background: "#F5F3EF", padding: "6rem 1.5rem", position: "relative", overflow: "hidden" }}
+      style={{ background: "#F5F3EF", padding: "3.5rem 1.5rem", position: "relative", overflow: "hidden" }}
     >
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(185,28,28,0.2), transparent)" }} />
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(185,28,28,0.2), transparent)" }} />
@@ -189,9 +189,6 @@ export default function Clases() {
         <div style={{
           textAlign: "center",
           padding: "1.75rem 2rem",
-          border: "1px solid rgba(185,28,28,0.12)",
-          borderRadius: "0.875rem",
-          background: "rgba(185,28,28,0.025)",
           opacity: visible ? 1 : 0,
           transition: "opacity 0.6s ease 0.5s",
         }}>

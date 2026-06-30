@@ -70,7 +70,8 @@ export default function CredencialesTeaser() {
             fontFamily: "var(--font-inter), sans-serif",
             fontSize: "1rem",
             color: "#6B6460",
-            maxWidth: "420px",
+            maxWidth: "620px",
+            whiteSpace: "nowrap",
             margin: "0 auto",
           }}>
             Avalados por los organismos más reconocidos del Jiu-Jitsu a nivel mundial.

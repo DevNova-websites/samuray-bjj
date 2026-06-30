@@ -41,15 +41,18 @@ interface Message {
   text: string;
 }
 
+const INITIAL_MESSAGES: Message[] = [
+  {
+    id: 1,
+    role: "bot",
+    text: "¡Hola! Soy Sami 🥋 y estoy para responder tus preguntas rápidas. ¿En qué te puedo ayudar?",
+  },
+];
+
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: 1,
-      role: "bot",
-      text: "¡Hola! Soy Sami 🥋 y estoy para responder tus preguntas rápidas. ¿En qué te puedo ayudar?",
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
+  const [askedIndices, setAskedIndices] = useState<Set<number>>(new Set());
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [showCta, setShowCta] = useState(true);
@@ -57,12 +60,20 @@ export default function Chatbot() {
 
   const lastUserIndex = messages.reduce((acc, msg, idx) => (msg.role === "user" ? idx : acc), -1);
 
+  // Reset del chat al abrir (para que las preguntas vuelvan a estar disponibles)
+  useEffect(() => {
+    if (isOpen) {
+      setMessages(INITIAL_MESSAGES);
+      setAskedIndices(new Set());
+    }
+  }, [isOpen]);
+
   // Alternar la burbuja CTA para que no tape siempre la pantalla
   useEffect(() => {
-    if (isOpen) return; // Si el chat está abierto, pausamos el temporizador
+    if (isOpen) return;
     const interval = setInterval(() => {
       setShowCta((prev) => !prev);
-    }, 5000); // 5000ms = Alterna cada 5 segundos
+    }, 5000);
     return () => clearInterval(interval);
   }, [isOpen]);
 
@@ -79,19 +90,18 @@ export default function Chatbot() {
     }
   }, [messages, isTyping, isOpen]);
 
-  const handlePillClick = (q: string, a: string) => {
-    // Agrega el mensaje del usuario
+  const handlePillClick = (q: string, a: string, idx: number) => {
+    setAskedIndices((prev) => new Set(prev).add(idx));
+
     const userMsg: Message = { id: Date.now(), role: "user", text: q };
     setMessages((prev) => [...prev, userMsg]);
 
-    // Simula que el bot está escribiendo
     setIsTyping(true);
-
     setTimeout(() => {
       const botMsg: Message = { id: Date.now() + 1, role: "bot", text: a };
       setMessages((prev) => [...prev, botMsg]);
       setIsTyping(false);
-    }, 600); // 600ms de retraso para que se sienta natural
+    }, 600);
   };
 
   return (
@@ -214,10 +224,10 @@ export default function Chatbot() {
           {/* Opciones Rápidas dentro del flujo de chat */}
           {!isTyping && (
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "0.5rem" }}>
-              {QA_DATA.map((item, idx) => (
+              {QA_DATA.map((item, idx) => !askedIndices.has(idx) && (
                 <button
                   key={idx}
-                  onClick={() => handlePillClick(item.q, item.a)}
+                  onClick={() => handlePillClick(item.q, item.a, idx)}
                   style={{
                     background: "#FFFFFF",
                     border: "1px solid rgba(139,26,26,0.3)",

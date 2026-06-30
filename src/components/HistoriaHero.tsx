@@ -22,7 +22,8 @@ export default function HistoriaHero() {
           src="/images/foto-3-historia.webp"
           alt="Historia de JL Samuray BJJ Academy"
           fill
-          style={{ objectFit: "cover", objectPosition: "center 10%" }}
+          className="historia-hero-img"
+          style={{ objectFit: "cover", objectPosition: "70% 10%" }}
           sizes="100vw"
           priority
         />
@@ -133,6 +134,11 @@ export default function HistoriaHero() {
         </div>
       </div>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .historia-hero-img { object-position: center 10% !important; }
+        }
+      `}</style>
     </section>
   );
 }
