@@ -52,6 +52,38 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  name: "JL Samuray BJJ Academy",
+  alternateName: "Samuray BJJ",
+  url: "https://samuraybjj.com",
+  description:
+    "Academia de Brazilian Jiu-Jitsu con más de 10 años de experiencia. Afiliada a IBJJF, CBJJE y Sukata Internacional. Dirigida por el Mestre Jorge Omar Ledesma.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Av. Rivadavia 5040, Galería Cavour 2° piso",
+    addressLocality: "Caballito",
+    addressRegion: "Ciudad Autónoma de Buenos Aires",
+    addressCountry: "AR",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Wednesday", "Friday"],
+      opens: "20:00",
+      closes: "21:15",
+    },
+  ],
+  sport: "Brazilian Jiu-Jitsu",
+  founder: {
+    "@type": "Person",
+    name: "Jorge Omar Ledesma",
+    jobTitle: "Mestre de Brazilian Jiu-Jitsu",
+  },
+  sameAs: ["https://www.facebook.com/samurayledesmabjj"],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -63,6 +95,12 @@ export default function RootLayout({
       className={`${inter.variable} ${oswald.variable}`}
       style={{ scrollBehavior: "smooth" }}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className="min-h-screen antialiased"
         style={{ backgroundColor: "#0a0a0a", color: "#F5F5F5", fontFamily: "var(--font-inter), system-ui, sans-serif" }}
