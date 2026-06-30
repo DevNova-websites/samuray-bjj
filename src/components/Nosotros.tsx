@@ -48,7 +48,7 @@ function BJJBelt({ degrees = 4 }: { degrees?: number }) {
 }
 
 const PILARES = [
-  { icon: Shield, title: "Disciplina y Respeto", text: "Saludamos al entrar y salir del tatami. El código de conducta de la academia rige dentro y fuera del dojo: puntualidad, obediencia al profesor y humildad ante la victoria y la derrota." },
+  { icon: Shield, title: "Disciplina y Respeto", text: "Saludamos al entrar y salir del tatami. El código de conducta de la academia rige dentro y fuera del dojo: puntualidad, obediencia al Mestre y humildad ante la victoria y la derrota." },
   { icon: Star,   title: "Honor y Humildad",     text: "Aplicamos las sumisiones con control y responsabilidad. El honor se construye con cada lucha, y la humildad nos recuerda que siempre hay algo nuevo por aprender." },
   { icon: Award,  title: "Lealtad y Hermandad",  text: "Somos una familia. Nos apoyamos, entrenamos y crecemos juntos bajo la bandera de Sukata Internacional. La hermandad que se forja en el tatami trasciende el deporte." },
 ];
@@ -82,7 +82,7 @@ export default function Nosotros() {
             <div id="nosotros-img" style={{ position: "relative", aspectRatio: "4/5", maxHeight: "560px", borderRadius: "0.75rem", overflow: "hidden", border: "1px solid rgba(185,28,28,0.15)" }}>
               <Image
                 src="/images/prof-jorge-omar-ledesma.webp"
-                alt="Profesor Jorge Omar Ledesma — Cinta Negra 4° Grau"
+                alt="Mestre Jorge Omar Ledesma — Cinta Negra 4° Grau"
                 fill
                 style={{ objectFit: "cover" }}
                 sizes="(max-width: 640px) 100vw, 520px"
@@ -110,7 +110,7 @@ export default function Nosotros() {
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
               <div style={{ width: "32px", height: "2px", background: "#8B1A1A", flexShrink: 0 }} />
               <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#6B6460", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                Cinta Negra 4º Grau · Fundador &amp; Profesor
+                Cinta Negra 4º Grau · Fundador &amp; Mestre
               </span>
             </div>
 
@@ -121,7 +121,7 @@ export default function Nosotros() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
               <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", lineHeight: 1.75, color: "#6B6460" }}>
-                Con más de <strong style={{ color: "#1A1615" }}>50 años de trayectoria</strong> en las artes marciales, el Profesor Jorge Omar Ledesma, alumno del mestre{" "}
+                Con más de <strong style={{ color: "#1A1615" }}>50 años de trayectoria</strong> en las artes marciales, el Mestre Jorge Omar Ledesma, alumno del Mestre{" "}
                 Frederico Peixoto fundó la{" "}
                 <strong style={{ color: "#8B1A1A" }}>JL Samuray BJJ Academy</strong> con una misión clara: formar atletas fuertes técnica y moralmente.
               </p>

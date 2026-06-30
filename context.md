@@ -36,7 +36,7 @@ samuray-bjj/
 │   │   ├── logo-nuevo.png     # Logo circular principal
 │   │   ├── logo.jpeg          # Logo alternativo
 │   │   ├── group.jpg          # Foto grupal (hero)
-│   │   ├── prof-jorge-omar-ledesma.png  # Foto del profesor
+│   │   ├── prof-jorge-omar-ledesma.png  # Foto del Mestre
 │   │   ├── ChibiSamu.jpg      # Avatar del chatbot
 │   │   ├── og-image.png       # Open Graph image
 │   │   ├── foto-3-historia.JPG
@@ -166,7 +166,7 @@ Secciones alternadas: Hero (dark navy `#0c1220`) → Nosotros (white) → Servic
 ### `Credenciales`
 - Barra de stats: +50 años · +10 años academia · 5 afiliaciones · OSS
 - 6 tarjetas de credenciales: IBJJF #32285 · CBJJE #1080 · Academia IBJJF #10580 · Sukata Internacional · CAJJ · +50 años desde 1975
-- Quote final: *"Sé fuerte. Sé parte. Seguí el código."* + explicación del OSS + firma del profesor
+- Quote final: *"Sé fuerte. Sé parte. Seguí el código."* + explicación del OSS + firma del Mestre
 
 ### `Contacto`
 - Bloque de horario (Lun/Mié/Vie 20:00–21:15 con gi por día)

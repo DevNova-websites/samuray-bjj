@@ -128,7 +128,7 @@ export default function HistoriaHero() {
               transition: "opacity 0.7s ease 0.5s, transform 0.7s ease 0.5s",
             }}
           >
-            Más de 50 años de dedicación a las artes marciales. La historia del Profesor Jorge Omar Ledesma es la historia de una vida entregada al tatami, a sus alumnos y a los valores que definen a un verdadero guerrero.
+            Más de 50 años de dedicación a las artes marciales. La historia del Mestre Jorge Omar Ledesma es la historia de una vida entregada al tatami, a sus alumnos y a los valores que definen a un verdadero guerrero.
           </p>
 
         </div>

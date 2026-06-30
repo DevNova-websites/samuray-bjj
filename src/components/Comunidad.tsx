@@ -44,7 +44,7 @@ const BLOQUES = [
   {
     tag: "Disciplina",
     title: "Disciplina y Respeto",
-    text: "El código de la academia rige dentro y fuera del dojo: puntualidad, respeto al profesor y humildad ante la victoria y la derrota.",
+    text: "El código de la academia rige dentro y fuera del dojo: puntualidad, respeto al Mestre y humildad ante la victoria y la derrota.",
     src: "/images/disciplina-y-respeto.webp",
     alt: "Disciplina y Respeto — JL Samuray BJJ Academy",
     reverse: false,

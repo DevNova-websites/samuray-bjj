@@ -47,7 +47,7 @@ export default function HistoriaTeaser() {
           </h2>
           <div style={{ width: "60px", height: "3px", background: "linear-gradient(90deg, #8B1A1A, transparent)", marginBottom: "1.5rem", borderRadius: "2px" }} />
           <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", lineHeight: 1.75, color: "rgba(255,255,255,0.75)", marginBottom: "1rem" }}>
-            Más de <strong style={{ color: "#FFFFFF" }}>50 años de trayectoria marcial</strong> forjaron la esencia de lo que hoy es la JL Samuray BJJ Academy. Cada hito en el camino del Profesor Jorge Omar Ledesma fue un paso más hacia la construcción de una familia.
+            Más de <strong style={{ color: "#FFFFFF" }}>50 años de trayectoria marcial</strong> forjaron la esencia de lo que hoy es la JL Samuray BJJ Academy. Cada hito en el camino del Mestre Jorge Omar Ledesma fue un paso más hacia la construcción de una familia.
           </p>
           <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", lineHeight: 1.75, color: "rgba(255,255,255,0.6)", marginBottom: "2.5rem" }}>
             Desde sus primeros pasos en 1975 hasta los más de 10 años de academia, esta es la historia de una vida dedicada al tatami.

@@ -11,7 +11,7 @@ const QA_DATA = [
   },
   {
     q: "¿El Jiu Jitsu es peligroso?",
-    a: "Como todo deporte de contacto, el Jiu Jitsu requiere cuidados y responsabilidad. Entrenando en una academia seria, con profesores capacitados y respetando las normas de seguridad, es una disciplina segura y apta para progresar de manera gradual.",
+    a: "Como todo deporte de contacto, el Jiu Jitsu requiere cuidados y responsabilidad. Entrenando en una academia seria, con Mestres capacitados y respetando las normas de seguridad, es una disciplina segura y apta para progresar de manera gradual.",
   },
   {
     q: "¿Cualquiera puede practicar Jiu Jitsu?",

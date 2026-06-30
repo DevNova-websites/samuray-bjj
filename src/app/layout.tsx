@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://samuraybjj.com"),
   title: "JL Samuray BJJ Academy | Jiu-Jitsu Brasileño",
   description:
-    "Academia de Brazilian Jiu-Jitsu con más de 10 años de experiencia. Afiliada a IBJJF, CBJJE y Sukata Internacional. Dirigida por el Profesor Jorge Omar Ledesma.",
+    "Academia de Brazilian Jiu-Jitsu con más de 10 años de experiencia. Afiliada a IBJJF, CBJJE y Sukata Internacional. Dirigida por el Mestre Jorge Omar Ledesma.",
   keywords: [
     "jiu jitsu", "BJJ", "Samuray", "academia", "artes marciales",
     "Ledesma", "IBJJF", "Sukata", "grappling", "defensa personal",
