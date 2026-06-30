@@ -82,7 +82,7 @@ export default function Nosotros() {
             <div id="nosotros-img" style={{ position: "relative", aspectRatio: "4/5", maxHeight: "560px", borderRadius: "0.75rem", overflow: "hidden", border: "1px solid rgba(185,28,28,0.15)" }}>
               <Image
                 src="/images/prof-jorge-omar-ledesma.webp"
-                alt="Profesor Jorge Omar Ledesma — Cinta Negra 4° Dan"
+                alt="Profesor Jorge Omar Ledesma — Cinta Negra 4° Grau"
                 fill
                 style={{ objectFit: "cover" }}
                 sizes="(max-width: 640px) 100vw, 520px"
@@ -110,7 +110,7 @@ export default function Nosotros() {
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
               <div style={{ width: "32px", height: "2px", background: "#8B1A1A", flexShrink: 0 }} />
               <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#6B6460", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                Cinta Negra 4º Dan · Fundador &amp; Profesor
+                Cinta Negra 4º Grau · Fundador &amp; Profesor
               </span>
             </div>
 
