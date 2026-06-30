@@ -318,7 +318,7 @@ export default function Chatbot() {
             alt="Abrir asistente virtual Sami"
             fill
             style={{ objectFit: "cover", objectPosition: "50% 0%" }}
-            priority
+            loading="lazy"
           />
         )}
       </button>
