@@ -18,7 +18,7 @@ const EVENTS: TimelineEvent[] = [
   {
     year: "1973",
     title: "Los Primeros Pasos",
-    description: "El Mestre Jorge O. Ledesma comienza su camino marcial, iniciando un viaje que transformaría su vida y la de cientos de alumnos.",
+    description: "El Mestre Samuray Ledesma comienza su camino marcial, iniciando un viaje que transformaría su vida y la de cientos de alumnos.",
     detail: "Con una pasión que nunca se apagaría, el Mestre Ledesma da sus primeros pasos en el mundo de las artes marciales. Desde ese momento, la disciplina y el respeto se convierten en pilares de su vida. Este inicio marca el comienzo de una historia extraordinaria que aún continúa.",
     image: "/images/samuray-primeros-pasos.webp",
     side: "right",

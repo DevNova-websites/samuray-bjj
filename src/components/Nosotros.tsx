@@ -120,7 +120,7 @@ export default function Nosotros() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
               <p style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "1rem", lineHeight: 1.75, color: "#6B6460" }}>
-                Con más de <strong style={{ color: "#1A1615" }}>50 años de trayectoria</strong> en las artes marciales, el Mestre Jorge Omar Ledesma, alumno del Mestre{" "}
+                Con más de <strong style={{ color: "#1A1615" }}>50 años de trayectoria</strong> en las artes marciales, el Mestre Samuray Ledesma, alumno del Mestre{" "}
                 Frederico Peixoto fundó la{" "}
                 <strong style={{ color: "#8B1A1A" }}>JL Samuray BJJ Academy</strong> con una misión clara: formar atletas fuertes técnica y moralmente.
               </p>

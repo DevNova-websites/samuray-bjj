@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Nosotros from "@/components/Nosotros";
+import Novedades from "@/components/Novedades";
 import Clases from "@/components/Clases";
 import CredencialesTeaser from "@/components/CredencialesTeaser";
 import PromesaTatami from "@/components/PromesaTatami";
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <Nosotros />
+        <Novedades />
         <Clases />
         <HistoriaTeaser />
         <CredencialesTeaser />

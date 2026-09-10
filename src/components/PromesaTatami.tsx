@@ -119,7 +119,7 @@ export default function PromesaTatami() {
             textTransform: "uppercase",
             fontWeight: 600,
           }}>
-            Mestre Jorge Omar Ledesma
+            Mestre Samuray Ledesma
           </cite>
         </div>
       </div>
