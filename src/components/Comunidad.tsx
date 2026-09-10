@@ -38,6 +38,16 @@ const GALERIA = [
   { src: "/images/hombres-luchando.webp",            alt: "Entrenamiento BJJ",               cols: 1, rows: 2, objectPosition: "center top" },
   { src: "/images/image-4-nacimientojlacademy.webp", alt: "Nace JL Samuray Academy",        cols: 2, rows: 2, objectPosition: "center" },
   { src: "/images/hombre-luchando.webp",             alt: "Técnica en el tatami",            cols: 1, rows: 2, objectPosition: "center" },
+  { src: "/images/foto-samuray-alumna.jpeg",         alt: "Alumna JL Samuray BJJ Academy",  cols: 1, rows: 1, objectPosition: "center" },
+  { src: "/images/foto-grupo.jpeg",                  alt: "Grupo JL Samuray BJJ Academy",   cols: 2, rows: 1, objectPosition: "center" },
+  { src: "/images/samu-hablando.jpeg",               alt: "Samu hablando con alumnos",      cols: 1, rows: 1, objectPosition: "center" },
+];
+
+const VIDEOS = [
+  { src: "/images/video-defensa-personal.mp4", alt: "Defensa personal" },
+  { src: "/images/samu-defensa.mp4",           alt: "Samu defensa personal" },
+  { src: "/images/chicas-luchando.mp4",        alt: "Chicas entrenando" },
+  { src: "/images/video-samu.mp4",             alt: "Samu en acción" },
 ];
 
 const BLOQUES = [
@@ -75,6 +85,7 @@ export default function Comunidad() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
   const [activeSlide, setActiveSlide] = useState(0);
+  const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const scrollToSlide = useCallback((idx: number) => {
     const el = carouselRef.current;
@@ -82,6 +93,24 @@ export default function Comunidad() {
     const slide = el.children[idx] as HTMLElement;
     el.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
     setActiveSlide(idx);
+  }, []);
+
+  const handleCarouselScroll = useCallback(() => {
+    if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+    scrollTimeout.current = setTimeout(() => {
+      const el = carouselRef.current;
+      if (!el) return;
+      let closest = 0;
+      let closestDist = Infinity;
+      Array.from(el.children).forEach((child, i) => {
+        const dist = Math.abs((child as HTMLElement).offsetLeft - el.scrollLeft);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = i;
+        }
+      });
+      setActiveSlide(closest);
+    }, 100);
   }, []);
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
@@ -265,6 +294,7 @@ export default function Comunidad() {
         {/* slides */}
         <div
           ref={carouselRef}
+          onScroll={handleCarouselScroll}
           style={{
             display: "flex",
             gap: "1.25rem",
@@ -276,6 +306,13 @@ export default function Comunidad() {
             paddingLeft: "clamp(1.5rem, 5vw, 4rem)",
             paddingRight: "clamp(1.5rem, 5vw, 4rem)",
             paddingBottom: "0.5rem",
+            scrollPaddingLeft: "clamp(1.5rem, 5vw, 4rem)",
+            maskImage: activeSlide < BLOQUES.length - 1
+              ? "linear-gradient(to right, black 92%, transparent 100%)"
+              : "none",
+            WebkitMaskImage: activeSlide < BLOQUES.length - 1
+              ? "linear-gradient(to right, black 92%, transparent 100%)"
+              : "none",
           }}
         >
           {BLOQUES.map((b, i) => {
@@ -289,6 +326,7 @@ export default function Comunidad() {
                   overflow: "hidden",
                   position: "relative",
                   scrollSnapAlign: "start",
+                  scrollSnapStop: "always",
                   opacity: bloquesVisible ? 1 : 0,
                   transform: bloquesVisible ? "scale(1)" : "scale(0.97)",
                   transition: `opacity 0.7s ease ${i * 0.12}s, transform 0.7s ease ${i * 0.12}s`,
@@ -342,6 +380,21 @@ export default function Comunidad() {
             #comunidad-carrusel { padding: 2.5rem 0 2rem !important; }
           }
         `}</style>
+      </section>
+
+      {/* ── VIDEOS ── */}
+      <section id="comunidad-video" style={{ background: "#0c0404", padding: "5rem 1.5rem", position: "relative" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
+            <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "#E87070", display: "block", marginBottom: "1rem" }}>
+              Defensa Personal
+            </span>
+            <h2 style={{ fontFamily: "var(--font-oswald), sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 4vw, 2.75rem)", textTransform: "uppercase", color: "#FFFFFF", lineHeight: 1.05 }}>
+              Jiu-Jitsu en Acción
+            </h2>
+          </div>
+          <VideoGrid videos={VIDEOS} />
+        </div>
       </section>
 
       {/* ── GALERÍA ── */}
@@ -652,6 +705,93 @@ function GaleriaItem({
           transition: "background 0.3s ease",
         }}
       />
+    </div>
+  );
+}
+
+function VideoGrid({ videos }: { videos: { src: string; alt: string }[] }) {
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  const handlePlay = useCallback((i: number) => {
+    videoRefs.current.forEach((v, idx) => {
+      if (v && idx !== i) v.pause();
+    });
+    setPlayingIndex(i);
+    videoRefs.current[i]?.play();
+  }, []);
+
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
+        gap: "1rem",
+      }}
+    >
+      {videos.map((v, i) => (
+        <div
+          key={v.src}
+          style={{
+            position: "relative",
+            background: "#000000",
+            borderRadius: "0.75rem",
+            overflow: "hidden",
+            border: "1px solid rgba(185,28,28,0.15)",
+            aspectRatio: "9 / 16",
+          }}
+        >
+          <video
+            ref={el => { videoRefs.current[i] = el; }}
+            src={v.src}
+            controls={playingIndex === i}
+            playsInline
+            preload="metadata"
+            onPlay={() => handlePlay(i)}
+            onPause={() => setPlayingIndex(p => (p === i ? null : p))}
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+          {playingIndex !== i && (
+            <button
+              onClick={() => handlePlay(i)}
+              aria-label={`Reproducir: ${v.alt}`}
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "rgba(0,0,0,0.25)",
+                border: "none",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span
+                style={{
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "50%",
+                  background: "rgba(139,26,26,0.9)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <span
+                  style={{
+                    width: 0,
+                    height: 0,
+                    borderTop: "10px solid transparent",
+                    borderBottom: "10px solid transparent",
+                    borderLeft: "16px solid #FFFFFF",
+                    marginLeft: "4px",
+                  }}
+                />
+              </span>
+            </button>
+          )}
+        </div>
+      ))}
     </div>
   );
 }

@@ -68,7 +68,7 @@ export default function Novedades() {
         }
         @media (max-width: 640px) {
           #novedades { padding: 3rem 1rem !important; }
-          #novedades-video video { max-height: 320px !important; }
+          #novedades-video video { max-height: 80vh !important; }
         }
       `}</style>
     </section>
