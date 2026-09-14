@@ -50,7 +50,7 @@ export default function Novedades() {
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
               <div style={{ width: "32px", height: "2px", background: "#8B1A1A", flexShrink: 0 }} />
               <span style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "0.8125rem", color: "#6B6460", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                04 · 09 · 2026
+                04 · 10 · 2026
               </span>
             </div>
 
